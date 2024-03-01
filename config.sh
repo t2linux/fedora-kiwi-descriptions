@@ -33,7 +33,7 @@ rm -f /var/lib/systemd/random-seed
 #======================================
 # Configure grub correctly
 #--------------------------------------
-if [[ "$kiwi_profiles" != *"Container"* ]] && [[ "$kiwi_profiles" != *"FEX"* ]]; then
+if [[ "$kiwi_profiles" != *"Container"* ]] && [[ "$kiwi_profiles" != *"FEX"* ]] && [[ "$kiwi_profiles" != *"WSL"* ]]; then
 	## Works around issues with grub-bls
 	## See: https://github.com/OSInside/kiwi/issues/2198
 	echo "GRUB_DEFAULT=saved" >> /etc/default/grub
@@ -58,7 +58,7 @@ fi
 #======================================
 # Delete & lock the root user password
 #--------------------------------------
-if [[ "$kiwi_profiles" == *"Cloud"* ]] || [[ "$kiwi_profiles" == *"Disk"* ]] || [[ "$kiwi_profiles" == *"Live"* ]]; then
+if [[ "$kiwi_profiles" == *"Cloud"* ]] || [[ "$kiwi_profiles" == *"Disk"* ]] || [[ "$kiwi_profiles" == *"Live"* ]] || [[ "$kiwi_profiles" == *"WSL"* ]]; then
 	passwd -d root
 	passwd -l root
 fi

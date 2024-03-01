@@ -1,0 +1,9 @@
+summary: Build the Windows Subsystem for Linux image
+discover:
+    how: fmf
+environment:
+    image_type: tbz
+    image_profile: WSL-Base
+    kiwi_file: Fedora.kiwi
+execute:
+    how: tmt

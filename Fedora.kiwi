@@ -38,6 +38,7 @@
 	<include from="this://./teams/cloud/cloud.xml"/>
 	<include from="this://./teams/cloud/container.xml"/>
 	<include from="this://./teams/cloud/vagrant.xml"/>
+	<include from="this://./teams/cloud/wsl.xml"/>
 	<include from="this://./teams/server.xml"/>
 	<include from="this://./teams/workstation.xml"/>
 	<include from="this://./teams/kde.xml"/>
