@@ -11,6 +11,7 @@
 		<namedCollection name="kde-apps"/>
 		<namedCollection name="kde-media"/>
 		<namedCollection name="kde-spin-initial-setup"/>
+		<namedCollection name="firefox"/>
 		<package name="fuse"/>
 		<package name="kde-l10n"/>
 		<ignore name="@admin-tools"/>
