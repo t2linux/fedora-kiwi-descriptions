@@ -12,6 +12,9 @@
 		<namedCollection name="kde-media"/>
 		<namedCollection name="kde-spin-initial-setup"/>
 		<namedCollection name="firefox"/>
+		<namedCollection name="libreoffice"/>
+		<package name="libreoffice-draw"/>
+		<package name="libreoffice-math"/>
 		<package name="fuse"/>
 		<package name="kde-l10n"/>
 		<ignore name="@admin-tools"/>
