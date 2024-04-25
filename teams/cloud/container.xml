@@ -130,7 +130,7 @@
 		<ignore name="glibc-langpack-en"/>
 		<ignore name="langpacks-en"/>
 		<ignore name="tzdata"/>
-		<package name="microdnf"/>
+		<package name="dnf5"/>
 		<package name="glibc-minimal-langpack"/>
 	</packages>
 	<packages type="bootstrap" profiles="Container-Base-Generic">
@@ -142,8 +142,7 @@
 		<package name="rootfiles"/>
 		<package name="tar"/> <!-- https://bugzilla.redhat.com/show_bug.cgi?id=1409920 -->
 		<package name="vim-minimal"/>
-		<package name="dnf"/>
-		<package name="dnf-yum"/> <!-- https://pagure.io/fesco/issue/1312#comment-30991 -->
+		<package name="dnf5"/>
 		<package name="glibc-minimal-langpack"/>
 		<package name="tzdata"/>
 		<package name="xz"/>
@@ -178,9 +177,8 @@
 		<package name="curl"/>
 		<package name="default-editor"/>
 		<package name="diffutils"/>
-		<package name="dnf"/>
-		<package name="dnf-yum"/> <!-- https://pagure.io/fesco/issue/1312#comment-30991 -->
-		<package name="dnf-plugins-core"/>
+		<package name="dnf5"/>
+		<package name="dnf5-plugins"/>
 		<package name="fedora-release-toolbx"/>
 		<package name="file"/>
 		<package name="findutils"/>

@@ -58,7 +58,6 @@
 		<user password="$1$wYJUgpM5$RXMMeASDc035eX.NbYWFl0" home="/root" name="root" groups="root"/>
 	</users>
 	<packages type="image" patternType="plusRecommended" profiles="VagrantCore">
-		<package name="dnf-yum"/>
 		<package name="rsync"/>
 		<package name="fuse-sshfs"/>
 		<package name="gdisk"/>
