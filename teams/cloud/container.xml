@@ -8,6 +8,9 @@
 		<profile name="Container-Base-Generic" description="Generic Base Container Image">
 			<requires profile="ContainerCore"/>
 		</profile>
+		<profile name="Container-Base-Generic-Init" description="Generic Init Base Container Image">
+			<requires profile="ContainerCore"/>
+		</profile>
 		<profile name="Container-Toolbox" description="Toolbox Container Image"/>
 	</profiles>
 	<preferences profiles="Container-Base-Generic">
@@ -63,6 +66,34 @@
 				<environment>
 					<env name="container" value="oci"/>
 				</environment>
+			</containerconfig>
+		</type>
+		<timezone>Etc/UTC</timezone>
+		<locale>en_US</locale>
+		<rpm-locale-filtering>true</rpm-locale-filtering>
+		<rpm-excludedocs>true</rpm-excludedocs>
+	</preferences>
+	<preferences profiles="Container-Base-Generic-Init">
+		<type image="oci">
+			<containerconfig
+			  name="fedora-init"
+			  tag="rawhide"
+			  maintainer="Fedora Project Contributors &lt;devel@lists.fedoraproject.org&gt;"
+			>
+				<subcommand execute="/sbin/init"/>
+				<labels>
+					<label name="org.opencontainers.image.vendor" value="Fedora Project"/>
+					<label name="org.opencontainers.image.url" value="https://fedoraproject.org/"/>
+					<label name="org.opencontainers.image.license" value="MIT"/>
+					<label name="org.opencontainers.image.name" value="fedora-init"/>
+					<label name="org.opencontainers.image.version" value="rawhide"/>
+					<!-- Legacy attributes for backward compatibility -->
+					<label name="vendor" value="Fedora Project"/>
+					<label name="license" value="MIT"/>
+					<label name="name" value="fedora-init"/>
+					<label name="version" value="rawhide"/>
+				</labels>
+				<stopsignal>SIGRTMIN+3</stopsignal>
 			</containerconfig>
 		</type>
 		<timezone>Etc/UTC</timezone>
@@ -133,7 +164,7 @@
 		<package name="dnf5"/>
 		<package name="glibc-minimal-langpack"/>
 	</packages>
-	<packages type="bootstrap" profiles="Container-Base-Generic">
+	<packages type="bootstrap" profiles="Container-Base-Generic,Container-Base-Generic-Init">
 		<ignore name="glibc-langpack-en"/>
 		<ignore name="langpacks-en"/>
 		<package name="bzip2"/>
@@ -148,6 +179,11 @@
 		<package name="tzdata"/>
 		<package name="xz"/>
 		<package name="zstd"/>
+	</packages>
+	<packages type="image" profiles="Container-Base-Generic-Init">
+		<package name="glibc-langpack-en"/>
+		<package name="kbd"/>
+		<package name="systemd"/>
 	</packages>
 	<packages type="bootstrap" patternType="plusRecommended" profiles="Container-Toolbox">
 		<ignore name="dosfstools"/>

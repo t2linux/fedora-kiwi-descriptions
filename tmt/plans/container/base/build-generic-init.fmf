@@ -1,0 +1,8 @@
+summary: Build Init Generic base container image
+discover:
+    how: fmf
+environment:
+    image_type: oci
+    image_profile: Container-Base-Generic-Init
+execute:
+    how: tmt
