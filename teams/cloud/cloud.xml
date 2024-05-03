@@ -184,6 +184,7 @@
 		<ignore name="geolite2-city"/>
 		<ignore name="geolite2-country"/>
 		<ignore name="plymouth"/>
+		<package name="btrfs-progs"/>
 		<package name="python3-dnf-plugin-tracer"/>
 		<package name="glibc-langpack-en"/>
 	</packages>
@@ -197,6 +198,7 @@
 		<ignore name="geolite2-city"/>
 		<ignore name="geolite2-country"/>
 		<ignore name="plymouth"/>
+		<package name="btrfs-progs"/>
 		<package name="python3-dnf-plugin-tracer"/>
 		<package name="glibc-langpack-en"/>
 	</packages>
