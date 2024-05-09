@@ -8,7 +8,7 @@ All changes should be made via the PR workflow.
 
 ## Image variants
 
-Please look at [`VARIANTS`](/VARIANTS.md) for details on the available
+Please look at [`VARIANTS`](VARIANTS.md) for details on the available
 configurations that can be built.
 
 ## Image build quickstart
