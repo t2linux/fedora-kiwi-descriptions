@@ -202,6 +202,11 @@
 		<package name="python3-dnf-plugin-tracer"/>
 		<package name="glibc-langpack-en"/>
 	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="Cloud-Base-AmazonEC2">
+		<package name="amazon-ec2-utils"/>
+		<package name="awscli2"/>
+		<package name="ec2-instance-connect"/>
+	</packages>
 	<packages type="image" patternType="plusRecommended" profiles="Cloud-Base-Azure">
 		<package name="WALinuxAgent"/>
 		<package name="kernel-modules"/>
