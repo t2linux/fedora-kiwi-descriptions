@@ -143,6 +143,7 @@
 		<package name="tar"/> <!-- https://bugzilla.redhat.com/show_bug.cgi?id=1409920 -->
 		<package name="vim-minimal"/>
 		<package name="dnf5"/>
+		<package name="dnf5-plugins"/>
 		<package name="glibc-minimal-langpack"/>
 		<package name="tzdata"/>
 		<package name="xz"/>
