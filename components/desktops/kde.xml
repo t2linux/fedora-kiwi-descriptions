@@ -17,6 +17,7 @@
 		<package name="libreoffice-math"/>
 		<package name="fuse"/>
 		<package name="kde-l10n"/>
+		<package name="plasma-welcome-fedora"/>
 		<ignore name="@admin-tools"/>
 		<ignore name="gnome-disk-utility"/>
 		<ignore name="system-config-printer"/>
