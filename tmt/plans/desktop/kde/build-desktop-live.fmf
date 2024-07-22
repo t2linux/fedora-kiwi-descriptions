@@ -1,0 +1,8 @@
+summary: Build KDE Desktop live image
+discover:
+    how: fmf
+environment:
+    image_type: iso
+    image_profile: KDE-Desktop-Live
+execute:
+    how: tmt

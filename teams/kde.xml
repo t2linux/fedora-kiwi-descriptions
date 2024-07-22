@@ -1,11 +1,18 @@
 <image>
 	<profiles>
-		<profile name="KDE-Live" description="KDE Plasma Spin Live DVD">
+		<profile name="KDE-Desktop-Live" description="KDE Plasma Desktop Spin Live DVD">
 			<requires profile="KDE-Desktop"/>
 			<requires profile="LiveInstall"/>
 		</profile>
+		<profile name="KDE-Desktop-Disk" description="KDE Plasma Desktop Spin Install Disk">
+			<requires profile="BootDiskCore"/>
+			<requires profile="KDE-Desktop"/>
+		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="plusRecommended" profiles="KDE-Live">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="KDE-Desktop-Disk,KDE-Desktop-Live">
 		<package name="fedora-release-kde"/>
+	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="KDE-Desktop-Disk,KDE-Desktop-Live">
+		<package name="plasma-welcome-fedora"/>
 	</packages>
 </image>

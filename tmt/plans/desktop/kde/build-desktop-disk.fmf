@@ -1,0 +1,8 @@
+summary: Build KDE Desktop disk image
+discover:
+    how: fmf
+environment:
+    image_type: oem
+    image_profile: KDE-Desktop-Disk
+execute:
+    how: tmt

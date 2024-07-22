@@ -12,5 +12,6 @@
 |                                |            | `Container-Base-Generic-Minimal` |
 |                                |            | `Container-Base-Generic`         |
 | Toolbox Container              | `oci`      | `Container-Toolbox`              |
-| KDE Spin                       | `iso`      | `KDE-Live`                       |
+| KDE Spin                       | `iso`      | `KDE-Desktop-Live`               |
+|                                | `oem`      | `KDE-Desktop-Disk`               |
 | Workstation Edition            | `iso`      | `Workstation-Live`               |
