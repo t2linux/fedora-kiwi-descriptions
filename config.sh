@@ -46,7 +46,7 @@ fi
 #======================================
 # Delete & lock the root user password
 #--------------------------------------
-if [[ "$kiwi_profiles" == *"Cloud"* ]] || [[ "$kiwi_profiles" == *"Live"* ]]; then
+if [[ "$kiwi_profiles" == *"Cloud"* ]] || [[ "$kiwi_profiles" == *"Disk"* ]] || [[ "$kiwi_profiles" == *"Live"* ]]; then
 	passwd -d root
 	passwd -l root
 fi
@@ -93,6 +93,19 @@ if [[ "$kiwi_profiles" == *"Live"* ]]; then
 fi
 
 #======================================
+# Setup firstboot initial setup
+#--------------------------------------
+
+if [[ "$kiwi_profiles" == *"Disk"* ]]; then
+	if [[ "$kiwi_profiles" != *"GNOME"* ]]; then
+		## Enable initial-setup
+		systemctl enable initial-setup.service
+		## Enable reconfig mode
+		touch /etc/reconfigSys
+	fi
+fi
+
+#======================================
 # Setup default target
 #--------------------------------------
 if [[ "$kiwi_profiles" != *"Container"* ]]; then
@@ -106,6 +119,15 @@ fi
 #======================================
 # Setup default customizations
 #--------------------------------------
+
+if [[ "$kiwi_profiles" == *"Disk"* ]]; then
+	# Find the architecture we are on
+	installarch=$(uname -m)
+	# Setup Raspberry Pi firmware
+	if [[ $installarch == "aarch64" ]]; then
+		cp -a /usr/share/uboot/rpi_arm64/u-boot.bin /boot/efi/rpi-u-boot.bin
+	fi
+fi
 
 if [[ "$kiwi_profiles" == *"Azure"* ]]; then
 cat > /etc/ssh/sshd_config.d/50-client-alive-interval.conf << EOF
