@@ -4,9 +4,28 @@
 			<requires profile="BootCore"/>
 		</profile>
 	</profiles>
-	<preferences profiles="LiveInstall">
-		<type image="iso" publisher="Fedora Project" volid="Fedora_Linux" primary="true" flags="dmsquash" firmware="uefi" kernelcmdline="quiet rhgb" mediacheck="false">
-			<bootloader name="grub2" grub_template="grub.cfg.iso-template" console="console" timeout="10"/>
+	<preferences profiles="LiveInstall" arch="x86_64">
+		<type image="iso"
+			publisher="Fedora Project" volid="Fedora_Linux" primary="true" flags="dmsquash" mediacheck="false"
+			firmware="uefi" efifatimagesize="30" kernelcmdline="quiet rhgb"
+			>
+			<bootloader name="grub2" grub_template="grub-x86.cfg.iso-template" console="console" timeout="10"/>
+		</type>
+	</preferences>
+	<preferences profiles="LiveInstall" arch="aarch64">
+		<type image="iso"
+			publisher="Fedora Project" volid="Fedora_Linux" primary="true" flags="dmsquash" mediacheck="false"
+			firmware="uefi" efifatimagesize="30" kernelcmdline="quiet rhgb"
+			>
+			<bootloader name="grub2" grub_template="grub-arm.cfg.iso-template" console="console" timeout="10"/>
+		</type>
+	</preferences>
+	<preferences profiles="LiveInstall" arch="ppc64le">
+		<type image="iso"
+			publisher="Fedora Project" volid="Fedora_Linux" primary="true" flags="dmsquash" mediacheck="false"
+			firmware="ofw" kernelcmdline="quiet rhgb"
+			>
+			<bootloader name="grub2" grub_template="grub-ppc.cfg.iso-template" console="console" timeout="10"/>
 		</type>
 	</preferences>
 	<packages type="iso" patternType="plusRecommended" profiles="LiveInstall">
