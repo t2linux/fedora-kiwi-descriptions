@@ -4,6 +4,9 @@
 		<profile name="KDE-Desktop" description="KDE Plasma Desktop">
 			<requires profile="DesktopCommon"/>
 		</profile>
+		<profile name="KDE-Mobile" description="KDE Plasma Mobile">
+			<requires profile="DesktopCommon"/>
+		</profile>
 	</profiles>
 	<packages type="image" patternType="plusRecommended" profiles="KDE-Desktop">
 		<!-- install env-group to resolve RhBug:1891500 -->
@@ -18,6 +21,21 @@
 		<package name="fuse"/>
 		<package name="kde-l10n"/>
 		<ignore name="@admin-tools"/>
+		<ignore name="gnome-disk-utility"/>
+		<ignore name="system-config-printer"/>
+	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="KDE-Mobile">
+		<!-- install env-group to resolve RhBug:1891500 -->
+		<namedCollection name="core"/>
+		<namedCollection name="kde-mobile"/>
+		<namedCollection name="kde-mobile-apps"/>
+		<namedCollection name="kde-spin-initial-setup"/>
+		<namedCollection name="firefox"/>
+		<package name="fuse"/>
+		<package name="kde-l10n"/>
+		<ignore name="@admin-tools"/>
+		<ignore name="plasma-welcome"/>
+		<ignore name="plasma-welcome-fedora"/>
 		<ignore name="gnome-disk-utility"/>
 		<ignore name="system-config-printer"/>
 	</packages>

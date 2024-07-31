@@ -16,6 +16,10 @@ maintainers = [ "Mukundan Ragavan", "Kevin Fenzi", "Adam Miller" ]
 fas = [ "rdieter", "marcdeop", "ngompa" ]
 maintainers = [ "Rex Dieter", "Marc Deop", "Neal Gompa" ]
 
+[spins.kde-mobile.x86_64]
+fas = [ "tdawson", "ngompa" ]
+maintainers = [ "Troy Dawson", "Neal Gompa" ]
+
 [spins.cinnamon.x86_64]
 fas = [ "grinnz" ]
 maintainers = [ "Dan Book" ]

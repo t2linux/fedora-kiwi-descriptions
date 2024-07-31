@@ -14,4 +14,6 @@
 | Toolbox Container              | `oci`      | `Container-Toolbox`              |
 | KDE Spin                       | `iso`      | `KDE-Desktop-Live`               |
 |                                | `oem`      | `KDE-Desktop-Disk`               |
+| KDE Mobile Spin                | `iso`      | `KDE-Mobile-Live`                |
+|                                | `oem`      | `KDE-Mobile-Disk`                |
 | Workstation Edition            | `iso`      | `Workstation-Live`               |
