@@ -7,5 +7,6 @@ adjust:
 environment:
     image_type: oem
     image_profile: Cloud-Base-Vagrant-VirtualBox
+    kiwi_file: Fedora.kiwi
 execute:
     how: tmt

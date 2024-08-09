@@ -4,5 +4,6 @@ discover:
 environment:
     image_type: oem
     image_profile: KDE-Desktop-Disk
+    kiwi_file: Fedora.kiwi
 execute:
     how: tmt

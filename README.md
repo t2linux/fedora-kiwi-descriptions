@@ -19,7 +19,7 @@ Set up your development environment and run the image build (substitute `<image_
 # Install kiwi
 []$ sudo dnf --assumeyes install kiwi
 # Run the image build
-[]$ sudo ./kiwi-build --image-type=<image_type> --image-profile=<image_profile> --output-dir ./outdir
+[]$ sudo ./kiwi-build --kiwi-file=Fedora.kiwi --image-type=<image_type> --image-profile=<image_profile> --output-dir ./outdir
 ```
 
 ## CI information

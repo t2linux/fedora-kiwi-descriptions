@@ -4,5 +4,6 @@ discover:
 environment:
     image_type: iso
     image_profile: KDE-Desktop-Live
+    kiwi_file: Fedora.kiwi
 execute:
     how: tmt

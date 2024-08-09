@@ -4,5 +4,6 @@ discover:
 environment:
     image_type: oci
     image_profile: Container-Base-Generic-Init
+    kiwi_file: Fedora.kiwi
 execute:
     how: tmt

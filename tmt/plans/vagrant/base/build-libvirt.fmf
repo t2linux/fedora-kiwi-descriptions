@@ -4,5 +4,6 @@ discover:
 environment:
     image_type: oem
     image_profile: Cloud-Base-Vagrant-libvirt
+    kiwi_file: Fedora.kiwi
 execute:
     how: tmt

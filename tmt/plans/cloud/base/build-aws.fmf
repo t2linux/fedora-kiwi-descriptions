@@ -4,5 +4,6 @@ discover:
 environment:
     image_type: oem
     image_profile: Cloud-Base-AmazonEC2
+    kiwi_file: Fedora.kiwi
 execute:
     how: tmt

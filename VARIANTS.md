@@ -1,5 +1,7 @@
 ## Image variants
 
+### For the `Fedora.kiwi` kiwi file
+
 | Name                           | Image type | Image profiles                   |
 |--------------------------------|------------|----------------------------------|
 | Base Cloud Edition for clouds  | `oem`      | `Cloud-Base-Generic`             |
