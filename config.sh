@@ -93,6 +93,20 @@ if [[ "$kiwi_profiles" == *"Live"* ]]; then
 	if [[ "$kiwi_profiles" == *"Xfce"* ]]; then
 		echo 'livesys_session="xfce"' > /etc/sysconfig/livesys
 	fi
+# We are having problems with dracut not working on Live installs
+# Put in a anaconda post-script to fix it
+cat > /usr/share/anaconda/post-scripts/85-fixboot.ks << FIXBOOT_EOF
+%post
+
+echo "Fixing, and re-running dracut"
+
+/usr/bin/sed -i "s/dmsquash-live livenet //" /etc/dracut.conf.d/02-livecd.conf
+/usr/bin/dracut -v --regenerate-all --force
+
+echo "initramfs now installed"
+
+%end
+FIXBOOT_EOF
 fi
 
 #======================================

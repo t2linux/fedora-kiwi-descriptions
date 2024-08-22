@@ -26,10 +26,7 @@
 	</packages>
 	<packages type="image" patternType="plusRecommended" profiles="KDE-Mobile">
 		<!-- install env-group to resolve RhBug:1891500 -->
-		<namedCollection name="core"/>
-		<namedCollection name="kde-mobile"/>
-		<namedCollection name="kde-mobile-apps"/>
-		<namedCollection name="kde-spin-initial-setup"/>
+		<namedCollection name="kde-mobile-environment"/>
 		<namedCollection name="firefox"/>
 		<package name="fuse"/>
 		<package name="kde-l10n"/>
