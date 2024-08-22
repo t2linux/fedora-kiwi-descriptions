@@ -1,0 +1,22 @@
+<image>
+	<repository type="rpm-md" alias="extras" sourcetype="baseurl">
+		<source path="https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/Extras/$basearch/os/">
+			<signing key="file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-rawhide-primary"/>
+		</source>
+	</repository>
+	<repository type="rpm-md" alias="crb" sourcetype="baseurl">
+		<source path="https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/CRB/$basearch/os/">
+			<signing key="file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-rawhide-primary"/>
+		</source>
+	</repository>
+	<repository type="rpm-md" alias="appstream" sourcetype="baseurl">
+		<source path="https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/AppStream/$basearch/os/">
+			<signing key="file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-rawhide-primary"/>
+		</source>
+	</repository>
+	<repository type="rpm-md" alias="baseos" sourcetype="baseurl">
+		<source path="https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/BaseOS/$basearch/os/">
+			<signing key="file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-rawhide-primary"/>
+		</source>
+	</repository>
+</image>
