@@ -29,6 +29,7 @@
 	<include from="this://./components/desktops/phosh.xml"/>
 	<include from="this://./components/desktops/sway.xml"/>
 	<include from="this://./components/desktops/budgie.xml"/>
+	<include from="this://./components/desktops/miraclewm.xml"/>
 	<include from="this://./components/liveinstall.xml"/>
 	<include from="this://./components/users.xml"/>
 	<include from="this://./teams/cloud/cloud.xml"/>
@@ -45,6 +46,7 @@
 	<include from="this://./teams/soas.xml"/>
 	<include from="this://./teams/sway.xml"/>
 	<include from="this://./teams/budgie.xml"/>
+	<include from="this://./teams/miraclewm.xml"/>
 	<packages type="bootstrap">
 		<package name="basesystem"/>
 		<package name="filesystem"/>

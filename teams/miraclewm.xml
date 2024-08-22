@@ -1,0 +1,15 @@
+<image>
+	<profiles>
+		<profile name="MiracleWM-Live" description="MiracleWM Spin Live DVD">
+			<requires profile="MiracleWM-Desktop"/>
+			<requires profile="LiveInstall"/>
+		</profile>
+		<profile name="MiracleWM-Disk" description="MiracleWM Spin Install Disk">
+			<requires profile="BootDiskCore"/>
+			<requires profile="MiracleWM-Desktop"/>
+		</profile>
+	</profiles>
+	<packages type="bootstrap" patternType="plusRecommended" profiles="MiracleWM-Live,MiracleWM-Disk">
+		<package name="fedora-release-miraclewm"/>
+	</packages>
+</image>

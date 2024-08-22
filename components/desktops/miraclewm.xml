@@ -1,0 +1,15 @@
+<image>
+	<profiles>
+		<profile name="DesktopCommon" description="Common desktop packages"/>
+		<profile name="MiracleWM-Desktop" description="MiracleWM Desktop">
+			<requires profile="DesktopCommon"/>
+		</profile>
+	</profiles>
+	<packages type="image" patternType="plusRecommended" profiles="MiracleWM-Desktop">
+		<!-- install env-group to resolve RhBug:1891500 -->
+		<namedCollection name="miraclewm-desktop-environment"/>
+		<namedCollection name="firefox"/>
+		<package name="initial-setup-gui"/>
+		<package name="initial-setup-gui-wayland-miraclewm"/>
+	</packages>
+</image>
