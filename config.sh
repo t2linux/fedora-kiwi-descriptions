@@ -81,6 +81,9 @@ if [[ "$kiwi_profiles" == *"Live"* ]]; then
 	if [[ "$kiwi_profiles" == *"MATE_Compiz"* ]]; then
 		echo 'livesys_session="mate"' > /etc/sysconfig/livesys
 	fi
+	if [[ "$kiwi_profiles" == *"MiracleWM"* ]]; then
+		echo 'livesys_session="miraclewm"' > /etc/sysconfig/livesys
+	fi
 	if [[ "$kiwi_profiles" == *"Sway"* ]]; then
 		echo 'livesys_session="sway"' > /etc/sysconfig/livesys
 	fi
