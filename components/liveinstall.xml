@@ -6,7 +6,7 @@
 	</profiles>
 	<preferences profiles="LiveInstall" arch="x86_64">
 		<type image="iso"
-			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora Linux"
+			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora_Linux"
 			primary="true" flags="dmsquash" mediacheck="false"
 			firmware="uefi" efifatimagesize="30" kernelcmdline="quiet rhgb"
 			>
@@ -15,7 +15,7 @@
 	</preferences>
 	<preferences profiles="LiveInstall" arch="aarch64">
 		<type image="iso"
-			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora Linux"
+			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora_Linux"
 			primary="true" flags="dmsquash" mediacheck="false"
 			firmware="uefi" efifatimagesize="30" kernelcmdline="quiet rhgb"
 			>
@@ -24,7 +24,7 @@
 	</preferences>
 	<preferences profiles="LiveInstall" arch="ppc64le">
 		<type image="iso"
-			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora Linux"
+			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora_Linux"
 			primary="true" flags="dmsquash" mediacheck="false"
 			firmware="ofw" kernelcmdline="quiet rhgb"
 			>
