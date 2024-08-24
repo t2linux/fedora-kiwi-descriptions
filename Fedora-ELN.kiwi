@@ -7,7 +7,7 @@
 		<specification>Fedora ELN</specification>
 	</description>
 	<preferences>
-		<version>ELN</version>
+		<version>11</version>
 		<packagemanager>dnf5</packagemanager>
 		<locale>en_US</locale>
 		<keytable>us</keytable>
