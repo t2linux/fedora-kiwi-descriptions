@@ -1,6 +1,6 @@
 # Inspired by the config used for lorax-built live media
 
-set default=${default_boot}
+set default="1"
 
 function load_video {
 	insmod efi_gop
@@ -27,6 +27,10 @@ search ${search_params}
 
 menuentry "Start ${title}" --class fedora --class gnu-linux --class gnu --class os {
 	linux ($$root)${bootpath}/${kernel_file} ${boot_options}
+	initrd ($$root)${bootpath}/${initrd_file}
+}
+menuentry "Test this media & start ${title}" --class fedora --class gnu-linux --class gnu --class os {
+	linux ($$root)${bootpath}/${kernel_file} ${boot_options} rd.live.check
 	initrd ($$root)${bootpath}/${initrd_file}
 }
 submenu "Troubleshooting -->" {
