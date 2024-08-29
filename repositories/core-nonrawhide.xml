@@ -9,4 +9,12 @@
 			<signing key="file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-$releasever-primary"/>
 		</source>
 	</repository>
+	<!-- For folks to enable for building images with content in test update repositories -->
+	<!--
+	<repository type="rpm-md" alias="updates-testing" sourcetype="metalink">
+		<source path="https://mirrors.fedoraproject.org/metalink?repo=updates-testing-f$releasever&amp;arch=$basearch">
+			<signing key="file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-$releasever-primary"/>
+		</source>
+	</repository>
+	-->
 </image>
