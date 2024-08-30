@@ -1,0 +1,12 @@
+summary: Build FEX RootFS
+discover:
+    how: fmf
+adjust:
+    enabled: false
+    when: arch != x86_64
+environment:
+    image_type: erofs
+    image_profile: FEX-RootFS
+    kiwi_file: Fedora.kiwi
+execute:
+    how: tmt

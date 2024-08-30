@@ -1,0 +1,162 @@
+<image>
+	<profiles>
+		<profile name="FEX-RootFS" description="FEX RootFS packages"/>
+	</profiles>
+	<preferences profiles="FEX-RootFS" arch="x86_64">
+		<type image="erofs" erofscompression="lz4"/>
+		<timezone>Etc/UTC</timezone>
+		<locale>en_US</locale>
+		<rpm-locale-filtering>true</rpm-locale-filtering>
+		<rpm-excludedocs>true</rpm-excludedocs>
+	</preferences>
+	<packages type="image" profiles="FEX-RootFS">
+		<file name="fex-excludes.yaml" target="image/exclude_files.yaml"/>
+	</packages>
+	<packages type="bootstrap" profiles="FEX-RootFS">
+		<package name="dnf5-plugins"/>
+		<package name="util-linux-core"/>
+		<package name="sudo"/>
+		<package name="rsync"/>
+		<package name="glibc.x86_64"/>
+		<package name="glibc.i686"/>
+		<package name="dbus"/>
+		<package name="systemd.x86_64"/>
+		<package name="systemd.i686"/>
+		<package name="systemd-libs.x86_64"/>
+		<package name="systemd-libs.i686"/>
+		<package name="pulseaudio.x86_64"/>
+		<package name="mesa-libGL.x86_64"/>
+		<package name="mesa-libGL.i686"/>
+		<package name="mesa-libEGL.x86_64"/>
+		<package name="mesa-libEGL.i686"/>
+		<package name="mesa-libGLU.x86_64"/>
+		<package name="mesa-libGLU.i686"/>
+		<package name="mesa-dri-drivers.x86_64"/>
+		<package name="mesa-dri-drivers.i686"/>
+		<package name="mesa-vulkan-drivers.x86_64"/>
+		<package name="mesa-vulkan-drivers.i686"/>
+		<package name="mesa-va-drivers.x86_64"/>
+		<package name="mesa-va-drivers.i686"/>
+		<package name="mesa-demos.x86_64"/>
+		<package name="libglvnd-opengl.x86_64"/>
+		<package name="libglvnd-opengl.i686"/>
+		<package name="libglvnd-egl.x86_64"/>
+		<package name="libglvnd-egl.i686"/>
+		<package name="libglvnd-gles.x86_64"/>
+		<package name="libglvnd-gles.i686"/>
+		<package name="libatomic.x86_64"/>
+		<package name="libatomic.i686"/>
+		<package name="libatomic_ops.x86_64"/>
+		<package name="libatomic_ops.i686"/>
+		<package name="libunwind.x86_64"/>
+		<package name="libunwind.i686"/>
+		<package name="libnsl.x86_64"/>
+		<package name="libnsl.i686"/>
+		<package name="flac-libs.x86_64"/>
+		<package name="flac-libs.i686"/>
+		<package name="SDL2.x86_64"/>
+		<package name="SDL2.i686"/>
+		<package name="sdl12-compat.x86_64"/>
+		<package name="sdl12-compat.i686"/>
+		<package name="protobuf-compiler.x86_64"/>
+		<package name="protobuf-compiler.i686"/>
+		<package name="protobuf-c.x86_64"/>
+		<package name="protobuf-c.i686"/>
+		<package name="openal-soft.x86_64"/>
+		<package name="openal-soft.i686"/>
+		<package name="speex.x86_64"/>
+		<package name="speex.i686"/>
+		<package name="libvorbis.x86_64"/>
+		<package name="libvorbis.i686"/>
+		<package name="usbutils"/>
+		<package name="pciutils"/>
+		<package name="libpciaccess.x86_64"/>
+		<package name="libpciaccess.x86_64"/>
+		<package name="glew-devel.x86_64"/>
+		<package name="glew-devel.i686"/>
+		<package name="libX11-xcb.x86_64"/>
+		<package name="libX11-xcb.i686"/>
+		<package name="xcb-util.x86_64"/>
+		<package name="xcb-util.i686"/>
+		<package name="xcb-util-cursor.x86_64"/>
+		<package name="xcb-util-cursor.i686"/>
+		<package name="xcb-util-image.x86_64"/>
+		<package name="xcb-util-image.i686"/>
+		<package name="xcb-util-keysyms.x86_64"/>
+		<package name="xcb-util-keysyms.i686"/>
+		<package name="xcb-util-xrm.x86_64"/>
+		<package name="xcb-util-xrm.i686"/>
+		<package name="libxkbcommon.x86_64"/>
+		<package name="libxkbcommon.i686"/>
+		<package name="libwayland-client.x86_64"/>
+		<package name="libwayland-client.i686"/>
+		<package name="libwayland-egl.x86_64"/>
+		<package name="libwayland-egl.i686"/>
+		<package name="libXext.x86_64"/>
+		<package name="libXext.i686"/>
+		<package name="libXdamage.x86_64"/>
+		<package name="libXdamage.i686"/>
+		<package name="libxcb.x86_64"/>
+		<package name="libxcb.i686"/>
+		<package name="libxshmfence.x86_64"/>
+		<package name="libxshmfence.i686"/>
+		<package name="libXxf86vm.x86_64"/>
+		<package name="libXxf86vm.i686"/>
+		<package name="libXrandr.x86_64"/>
+		<package name="libXrandr.i686"/>
+		<package name="llvm-libs.x86_64"/>
+		<package name="llvm-libs.i686"/>
+		<package name="llvm14-libs.x86_64"/>
+		<package name="llvm14-libs.i686"/>
+		<package name="llvm15-libs.x86_64"/>
+		<package name="llvm15-libs.i686"/>
+		<package name="libclc.x86_64"/>
+		<package name="libclc.i686"/>
+		<package name="spirv-tools-devel.x86_64"/>
+		<package name="spirv-tools-devel.i686"/>
+		<package name="spirv-llvm-translator.x86_64"/>
+		<package name="spirv-llvm-translator.i686"/>
+		<package name="harfbuzz.x86_64"/>
+		<package name="harfbuzz.i686"/>
+		<package name="libva.x86_64"/>
+		<package name="libva.i686"/>
+		<package name="libvdpau.x86_64"/>
+		<package name="libvdpau.i686"/>
+		<package name="fuse-libs.x86_64"/>
+		<package name="fuse-libs.i686"/>
+		<package name="fuse3-libs.x86_64"/>
+		<package name="fuse3-libs.i686"/>
+		<package name="ibus-libs.x86_64"/>
+		<package name="ibus-libs.i686"/>
+		<package name="mangohud.x86_64"/>
+		<package name="mangohud.i686"/>
+		<package name="nss.x86_64"/>
+		<package name="nss.i686"/>
+		<package name="nspr.x86_64"/>
+		<package name="nspr.i686"/>
+		<package name="python3.x86_64"/>
+		<package name="python3.i686"/>
+		<package name="openssl-libs.x86_64"/>
+		<package name="openssl-libs.i686"/>
+		<package name="curl"/>
+		<package name="xterm"/>
+		<package name="zenity"/>
+		<package name="xz"/>
+		<package name="xdg-desktop-portal.x86_64"/>
+		<package name="xdg-desktop-portal.i686"/>
+		<package name="xdg-desktop-portal-gtk"/>
+		<package name="wine.x86_64"/>
+		<package name="wine.i686"/>
+		<package name="vulkan-tools"/>
+		<package name="vulkan-loader.i686"/>
+		<package name="vulkan-loader.x86_64"/>
+		<package name="pkgconf.x86_64"/>
+		<package name="pkgconf.i686"/>
+		<package name="clinfo"/>
+		<package name="gobject-introspection"/>
+		<package name="kbd-misc"/>
+		<package name="glibc-langpack-en"/>
+		<package name="zlib-ng.x86_64"/>
+		<package name="zlib-ng.i686"/>
+	</packages>
+</image>

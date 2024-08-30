@@ -16,7 +16,7 @@ echo "Configure image: [$kiwi_iname]-[$kiwi_profiles]..."
 #======================================
 # Set SELinux booleans
 #--------------------------------------
-if [[ "$kiwi_profiles" != *"Container"* ]]; then
+if [[ "$kiwi_profiles" != *"Container"* ]] && [[ "$kiwi_profiles" != *"FEX"* ]]; then
 	## Fixes KDE Plasma, see rhbz#2058657
 	setsebool -P selinuxuser_execmod 1
 fi
@@ -33,7 +33,7 @@ rm -f /var/lib/systemd/random-seed
 #======================================
 # Configure grub correctly
 #--------------------------------------
-if [[ "$kiwi_profiles" != *"Container"* ]]; then
+if [[ "$kiwi_profiles" != *"Container"* ]] && [[ "$kiwi_profiles" != *"FEX"* ]]; then
 	## Works around issues with grub-bls
 	## See: https://github.com/OSInside/kiwi/issues/2198
 	echo "GRUB_DEFAULT=saved" >> /etc/default/grub
@@ -111,7 +111,7 @@ fi
 #======================================
 # Setup default target
 #--------------------------------------
-if [[ "$kiwi_profiles" != *"Container"* ]]; then
+if [[ "$kiwi_profiles" != *"Container"* ]] && [[ "$kiwi_profiles" != *"FEX"* ]]; then
 	if [[ "$kiwi_profiles" == *"Desktop"* ]]; then
 		systemctl set-default graphical.target
 	else
@@ -192,7 +192,7 @@ chmod 600 /root/.ssh/authorized_keys
 chown -R root:root /root/.ssh
 fi
 
-if [[ "$kiwi_profiles" == *"Container"* ]]; then
+if [[ "$kiwi_profiles" == *"Container"* ]] || [[ "$kiwi_profiles" == *"FEX"* ]]; then
 	# Set install langs macro so that new rpms that get installed will
 	# only install langs that we limit it to.
 	LANG="en_US"
