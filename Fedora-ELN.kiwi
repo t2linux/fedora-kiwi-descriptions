@@ -17,6 +17,7 @@
 	<include from="this://./components/boot-eln.xml"/>
 	<include from="this://./repositories/core-eln.xml"/>
 	<include from="this://./teams/eln/cloud.xml"/>
+	<include from="this://./teams/eln/container.xml"/>
 	<packages type="bootstrap">
 		<package name="basesystem"/>
 		<package name="filesystem"/>
