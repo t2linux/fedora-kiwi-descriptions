@@ -95,6 +95,12 @@
 	<packages type="image" patternType="plusRecommended" profiles="BootDiskCore">
 		<package name="arm-image-installer" arch="aarch64"/>
 		<package name="bcm283x-firmware" arch="aarch64"/>
+		<package name="glibc-all-langpacks"/>
+		<package name="kernel"/>
+		<package name="kernel-modules"/>
+		<package name="kernel-modules-extra"/>
+		<package name="btrfs-progs"/>
+		<package name="udisks2-btrfs"/>
 		<package name="uboot-images-armv8" arch="aarch64"/>
 	</packages>
 </image>
