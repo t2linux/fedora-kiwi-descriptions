@@ -7,3 +7,12 @@ environment:
     kiwi_file: Fedora.kiwi
 execute:
     how: tmt
+provision:
+    how: artemis
+    hardware:
+        cpu:
+            # Add more CPUs to make mksquashfs faster
+            processors: ">= 8"
+        disk:
+            # Increase disk size for better IO performance
+            - size: '>=500 GiB'
