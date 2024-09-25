@@ -210,6 +210,7 @@
 	</packages>
 	<packages type="image" patternType="plusRecommended" profiles="Cloud-Base-Azure">
 		<package name="WALinuxAgent"/>
+		<package name="azure-vm-utils"/>
 		<package name="kernel-modules"/>
 		<package name="hyperv-daemons"/>
 	</packages>
