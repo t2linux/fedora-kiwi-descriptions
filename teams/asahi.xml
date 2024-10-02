@@ -84,6 +84,8 @@
 		<package name="xcb-util-image.i686"/>
 		<package name="xcb-util-keysyms.x86_64"/>
 		<package name="xcb-util-keysyms.i686"/>
+		<package name="xcb-util-wm.x86_64"/>
+		<package name="xcb-util-wm.i686"/>
 		<package name="xcb-util-xrm.x86_64"/>
 		<package name="xcb-util-xrm.i686"/>
 		<package name="libxkbcommon.x86_64"/>
@@ -158,5 +160,7 @@
 		<package name="glibc-langpack-en"/>
 		<package name="zlib-ng.x86_64"/>
 		<package name="zlib-ng.i686"/>
+		<package name="libxslt.x86_64"/>
+		<package name="libxslt.i686"/>
 	</packages>
 </image>
