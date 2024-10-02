@@ -309,4 +309,78 @@ EOF
 /usr/bin/glib-compile-schemas /usr/share/glib-2.0/schemas
 fi
 
+if [[ "$kiwi_profiles" == *"FEX"* ]]; then
+	# Remove most things except libraries used by FEX and wine stuff.
+	# Most binaries that are present in non-x86 architectures should be removed,
+	# so they do not run under emulation.
+
+	# rm mingw static libs and headers
+	rm -rf /usr/{x86_64,i686}-w64-mingw32/sys-root/mingw/{lib,include}
+
+	# rm everything in libexec
+	rm -rf /usr/libexec
+
+	# rm everything in /usr/share except wine and mesa related stuff
+	find /usr/share -mindepth 1 -maxdepth 1 \
+		\! -name wine -a \
+		\! -name mesa-demos -a \
+		\! -name drirc.d -a \
+		\! -name vulkan \
+		\! -name licenses \
+		-exec rm -rf {} \;
+
+	# rm everything in /etc except /etc/alternatives and ld stuff
+	find /etc -mindepth 1 -maxdepth 1 \
+		\! -name alternatives -a \
+		\! -name 'ld.so*' -a \
+		\! -name '*.kiwi' \
+		-exec rm -rf {} \;
+
+	# rm non-libs in lib/lib64
+	rm -rf /usr/{lib,lib64}/{locale,tmpfiles.d,systemd,modprobe.d,kbd,cmake}
+	rm -rf /usr/{lib,lib64}/python*
+
+	# lib/clc and lib64/clc are identical, replace with a symlink
+	rm -rf /usr/lib/clc
+	ln -s ../lib64/clc /usr/lib/clc
+
+	# rm sbin except for ldconfig, we don't even have root in some setups
+	find /usr/sbin -mindepth 1 -maxdepth 1 \
+		\! -name 'ldconfig' \
+		-exec rm -rf {} \;
+
+	# rm misc stuff
+	rm -rf /usr/{include,games,local,src,tmp}
+
+	# Finally, remove most binaries except Wine stuff, Mesa stuff, the shell,
+	# path-related stuff, and system info tools.
+	find /usr/bin -mindepth 1 -maxdepth 1 \
+		\! -name 'wine*' -a \
+		\! -name 'mango*' -a \
+		\! -name notepad -a \
+		\! -name 'msi*' -a \
+		\! -name regedit -a \
+		\! -name regsvr32 -a \
+		\! -name 'vulkan*' -a \
+		\! -name 'vk*' -a \
+		\! -name ulimit -a \
+		\! -name ldd -a \
+		\! -name env -a \
+		\! -name sh -a \
+		\! -name bash -a \
+		\! -name ls -a \
+		\! -name stat -a \
+		\! -name dirname -a \
+		\! -name realpath -a \
+		\! -name basename -a \
+		\! -name nproc -a \
+		\! -name uname -a \
+		\! -name arch -a \
+		\! -name rm \
+		-exec rm -rf {} \;
+
+	# Do this last for obvious reasons.
+	rm /usr/bin/rm
+fi
+
 exit 0
