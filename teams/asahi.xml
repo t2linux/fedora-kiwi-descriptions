@@ -106,12 +106,18 @@
 		<package name="libXxf86vm.i686"/>
 		<package name="libXrandr.x86_64"/>
 		<package name="libXrandr.i686"/>
+		<package name="clang-libs.x86_64"/>
+		<package name="clang-libs.i686"/>
+		<package name="clang18-libs.x86_64"/>
+		<package name="clang18-libs.i686"/>
 		<package name="llvm-libs.x86_64"/>
 		<package name="llvm-libs.i686"/>
 		<package name="llvm14-libs.x86_64"/>
 		<package name="llvm14-libs.i686"/>
 		<package name="llvm15-libs.x86_64"/>
 		<package name="llvm15-libs.i686"/>
+		<package name="llvm18-libs.x86_64"/>
+		<package name="llvm18-libs.i686"/>
 		<package name="libclc.x86_64"/>
 		<package name="libclc.i686"/>
 		<package name="spirv-tools-devel.x86_64"/>
@@ -130,6 +136,8 @@
 		<package name="fuse3-libs.i686"/>
 		<package name="ibus-libs.x86_64"/>
 		<package name="ibus-libs.i686"/>
+		<package name="ibus-gtk4.x86_64"/>
+		<package name="ibus-gtk4.i686"/>
 		<package name="mangohud.x86_64"/>
 		<package name="mangohud.i686"/>
 		<package name="nss.x86_64"/>
