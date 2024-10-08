@@ -28,6 +28,7 @@ exclude:
 - /tmp
 - /run
 - /opt
+- /usr/share/fonts
 - /var/tmp
 - /var/run
 - /var/lock
