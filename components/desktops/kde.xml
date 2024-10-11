@@ -22,6 +22,7 @@
 		<package name="kde-l10n"/>
 		<ignore name="@admin-tools"/>
 		<ignore name="gnome-disk-utility"/>
+		<ignore name="mariadb-server-utils"/>
 		<ignore name="system-config-printer"/>
 	</packages>
 	<packages type="image" patternType="plusRecommended" profiles="KDE-Mobile">
@@ -36,6 +37,7 @@
 		<ignore name="plasma-welcome"/>
 		<ignore name="plasma-welcome-fedora"/>
 		<ignore name="gnome-disk-utility"/>
+		<ignore name="mariadb-server-utils"/>
 		<ignore name="system-config-printer"/>
 	</packages>
 </image>
