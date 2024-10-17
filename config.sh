@@ -132,6 +132,13 @@ if [[ "$kiwi_profiles" == *"Disk"* ]]; then
 	fi
 fi
 
+if [[ "$kiwi_profiles" == *"Server"* ]]; then
+	# Trigger lvm-devices-import.path and .service to create
+	# a new /etc/lvm/devices/system.devices for the root VG.
+	rm -f /etc/lvm/devices/system.devices
+	touch /etc/lvm/devices/auto-import-rootvg
+fi
+
 if [[ "$kiwi_profiles" == *"Azure"* ]]; then
 cat > /etc/ssh/sshd_config.d/50-client-alive-interval.conf << EOF
 ClientAliveInterval 120

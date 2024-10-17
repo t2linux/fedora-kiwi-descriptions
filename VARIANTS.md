@@ -10,6 +10,8 @@
 |                                |            | `Cloud-Base-GCE`                 |
 | Base Cloud Edition for Vagrant | `oem`      | `Cloud-Base-Vagrant-libvirt`     |
 |                                |            | `Cloud-Base-Vagrant-VirtualBox`  |
+| Server Edition as a VM guest   | `oem`      | `Server-Guest-Generic`           |
+| Server Edition as a hypervisor | `oem`      | `Server-Host-Generic`            |
 | Base Container                 | `oci`      | `Container-Base-Generic-Init`    |
 |                                |            | `Container-Base-Generic-Minimal` |
 |                                |            | `Container-Base-Generic`         |

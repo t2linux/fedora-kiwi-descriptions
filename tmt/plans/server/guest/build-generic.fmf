@@ -1,0 +1,9 @@
+summary: Build Generic guest image
+discover:
+    how: fmf
+environment:
+    image_type: oem
+    image_profile: Server-Guest-Generic
+    kiwi_file: Fedora.kiwi
+execute:
+    how: tmt

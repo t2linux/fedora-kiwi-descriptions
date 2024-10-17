@@ -1,0 +1,152 @@
+<image>
+	<profiles>
+		<profile name="ServerCore" description="Server Edition core packages">
+			<requires profile="BootCore"/>
+		</profile>
+		<profile name="ServerVMDisk" description="Server Edition VM disk configuration">
+			<requires profile="ServerCore"/>
+		</profile>
+		<profile name="ServerDisk" description="Server Edition disk configuration">
+			<requires profile="ServerCore"/>
+		</profile>
+		<profile name="Server-Guest-Generic" description="Generic Server Guest Image">
+			<requires profile="ServerVMDisk"/>
+		</profile>
+		<profile name="Server-Host-Generic" description="Generic Server Host Image">
+			<requires profile="ServerDisk"/>
+		</profile>
+	</profiles>
+	<preferences profiles="ServerVMDisk" arch="x86_64,aarch64">
+		<type image="oem" format="qcow2"
+		      filesystem="xfs"
+		      kernelcmdline="no_timer_check console=tty1 console=ttyS0,115200n8"
+		      devicepersistency="by-uuid"
+		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+		      rootfs_label="fedora"
+		      >
+			<bootloader name="grub2" console="serial" timeout="0"/>
+			<size unit="G">10</size>
+			<systemdisk>
+				<volume name="@root"/>
+			</systemdisk>
+			<oemconfig>
+				<oem-resize>false</oem-resize>
+			</oemconfig>
+		</type>
+	</preferences>
+	<preferences profiles="ServerVMDisk" arch="ppc64le">
+		<type image="oem" format="qcow2"
+		      filesystem="xfs"
+		      kernelcmdline="no_timer_check console=tty1 console=ttyS0,115200n8"
+		      devicepersistency="by-uuid"
+		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" firmware="ofw"
+		      rootfs_label="fedora"
+		      >
+			<bootloader name="grub2" console="serial" timeout="0"/>
+			<size unit="G">10</size>
+			<systemdisk>
+				<volume name="@root"/>
+			</systemdisk>
+			<oemconfig>
+				<oem-resize>false</oem-resize>
+			</oemconfig>
+		</type>
+	</preferences>
+	<preferences profiles="ServerVMDisk" arch="s390x">
+		<type image="oem" format="qcow2"
+		      filesystem="xfs"
+		      kernelcmdline="no_timer_check console=tty1 console=ttyS0,115200n8"
+		      devicepersistency="by-uuid"
+		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs"
+		      rootfs_label="fedora"
+		      >
+			<bootloader name="zipl" timeout="1"/>
+			<size unit="G">10</size>
+			<systemdisk>
+				<volume name="@root"/>
+			</systemdisk>
+			<oemconfig>
+				<oem-resize>false</oem-resize>
+			</oemconfig>
+		</type>
+	</preferences>
+	<preferences profiles="ServerDisk" arch="x86_64,aarch64">
+		<type image="oem"
+		      filesystem="xfs"
+		      devicepersistency="by-uuid"
+		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+		      rootfs_label="fedora"
+		      >
+			<bootloader name="grub2" console="serial" timeout="0"/>
+			<size unit="G">10</size>
+			<systemdisk>
+				<volume name="@root"/>
+			</systemdisk>
+			<oemconfig>
+				<oem-resize>false</oem-resize>
+			</oemconfig>
+		</type>
+	</preferences>
+	<preferences profiles="ServerDisk" arch="ppc64le">
+		<type image="oem"
+		      filesystem="xfs"
+		      devicepersistency="by-uuid"
+		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" firmware="ofw"
+		      rootfs_label="fedora"
+		      >
+			<bootloader name="grub2" console="serial" timeout="0"/>
+			<size unit="G">10</size>
+			<systemdisk>
+				<volume name="@root"/>
+			</systemdisk>
+			<oemconfig>
+				<oem-resize>false</oem-resize>
+			</oemconfig>
+		</type>
+	</preferences>
+	<preferences profiles="ServerDisk" arch="s390x">
+		<type image="oem"
+		      filesystem="xfs"
+		      devicepersistency="by-uuid"
+		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs"
+		      rootfs_label="fedora"
+		      >
+			<bootloader name="zipl" timeout="1"/>
+			<size unit="G">10</size>
+			<systemdisk>
+				<volume name="@root"/>
+			</systemdisk>
+			<oemconfig>
+				<oem-resize>false</oem-resize>
+			</oemconfig>
+		</type>
+	</preferences>
+	<packages type="bootstrap" patternType="plusRecommended" profiles="ServerCore">
+		<package name="fedora-release-server"/>
+	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="ServerCore">
+		<namedCollection name="server-product-environment"/>
+		<namedCollection name="domain-client"/>
+		<namedCollection name="arm-tools" arch="aarch64"/>
+		<ignore name="initial-setup-gui"/>
+		<ignore name="plymouth"/>
+		<package name="glibc-all-langpacks"/>
+		<package name="initial-setup"/>
+		<package name="lvm2"/>
+		<package name="xfsprogs"/>
+	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="Server-Guest-Generic">
+		<ignore name="dracut-config-rescue"/>
+		<ignore name="kernel"/>
+		<ignore name="*-firmware"/>
+		<ignore name="smartmontools"/>
+		<ignore name="smartmontools-selinux"/>
+		<namedCollection name="guest-agents"/>
+	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="Server-Host-Generic">
+		<namedCollection name="container-management"/>
+		<package name="dracut-config-rescue"/>
+		<package name="kernel"/>
+		<package name="linux-firmware"/>
+	</packages>
+</image>
