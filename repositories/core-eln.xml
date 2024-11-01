@@ -1,21 +1,21 @@
 <image>
-	<repository type="rpm-md" alias="extras" sourcetype="baseurl">
-		<source path="https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/Extras/$basearch/os/">
+	<repository type="rpm-md" alias="extras" sourcetype="metalink">
+		<source path="https://mirrors.fedoraproject.org/metalink?repo=eln-extras-1&amp;arch=$basearch">
 			<signing key="file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-rawhide-primary"/>
 		</source>
 	</repository>
-	<repository type="rpm-md" alias="crb" sourcetype="baseurl">
-		<source path="https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/CRB/$basearch/os/">
+	<repository type="rpm-md" alias="crb" sourcetype="metalink">
+		<source path="https://mirrors.fedoraproject.org/metalink?repo=eln-crb-1&amp;arch=$basearch">
 			<signing key="file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-rawhide-primary"/>
 		</source>
 	</repository>
-	<repository type="rpm-md" alias="appstream" sourcetype="baseurl">
-		<source path="https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/AppStream/$basearch/os/">
+	<repository type="rpm-md" alias="appstream" sourcetype="metalink">
+		<source path="https://mirrors.fedoraproject.org/metalink?repo=eln-appstream-1&amp;arch=$basearch">
 			<signing key="file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-rawhide-primary"/>
 		</source>
 	</repository>
-	<repository type="rpm-md" alias="baseos" sourcetype="baseurl">
-		<source path="https://odcs.fedoraproject.org/composes/production/latest-Fedora-ELN/compose/BaseOS/$basearch/os/">
+	<repository type="rpm-md" alias="baseos" sourcetype="metalink">
+		<source path="https://mirrors.fedoraproject.org/metalink?repo=eln-baseos-1&amp;arch=$basearch">
 			<signing key="file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-rawhide-primary"/>
 		</source>
 	</repository>
