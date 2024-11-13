@@ -100,6 +100,8 @@
 		<package name="xcb-util-wm.i686"/>
 		<package name="xcb-util-xrm.x86_64"/>
 		<package name="xcb-util-xrm.i686"/>
+		<package name="xcb-imdkit.x86_64"/>
+		<package name="xcb-imdkit.i686"/>
 		<package name="libxkbcommon.x86_64"/>
 		<package name="libxkbcommon.i686"/>
 		<package name="libwayland-client.x86_64"/>
@@ -170,5 +172,14 @@
 		<package name="zlib-ng.i686"/>
 		<package name="libxslt.x86_64"/>
 		<package name="libxslt.i686"/>
+		<!--
+		    Remove these if we choose to drop GTK2/GTK3 (currently there are other dependencies above).
+		    These are useful for muvm X11 passthrough. Modern apps should use Wayland protocols, so
+		    other IM support packages are hopefully not needed in the rootfs.
+		-->
+		<package name="gtk2-immodule-xim.x86_64"/>
+		<package name="gtk2-immodule-xim.i686"/>
+		<package name="gtk3-immodule-xim.x86_64"/>
+		<!-- unavailable <package name="gtk3-immodule-xim.i686"/> -->
 	</packages>
 </image>
