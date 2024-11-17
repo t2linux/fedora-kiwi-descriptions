@@ -11,7 +11,7 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 
 
-parser = ArgumentParser(description="Generator of ISO labels for Fedora live media builds")
+parser = ArgumentParser(description="Generator of kiwi bundle formats for Fedora image builds")
 parser.add_argument("kiwi_file", type=Path, default="Fedora.kiwi", help="kiwi description file")
 parser.add_argument("image_profile", type=str, help="kiwi image profile")
 parser.add_argument("--oci-variant", "-o", action="store_true", help="generate oci variant")
