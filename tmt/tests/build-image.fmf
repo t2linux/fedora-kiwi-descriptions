@@ -10,4 +10,6 @@ framework: shell
 path: /
 test: |
   ./kiwi-build --debug --image-type="$image_type" --image-profile="$image_profile" --kiwi-description-dir="${TMT_TREE}" --kiwi-file="$kiwi_file" --output-dir="${TMT_TEST_DATA}" --image-release="$(date --utc +'%Y%m%d.%H%M')"
+  mv ${TMT_TEST_DATA}-build/build/image-root.log ${TMT_TEST_DATA}
+  rm -rf "${TMT_TEST_DATA}-build"
 duration: 60m
