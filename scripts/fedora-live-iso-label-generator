@@ -51,6 +51,7 @@ volume_id_substitutions = {
              "Security": "Sec",
               "Sericea": "Src",
                "Server": "S",
+          "Workstation": "WS",
         "-Workstation-": "-WS-",
 }
 
