@@ -48,6 +48,8 @@
 		<package name="livesys-scripts"/>
 		<package name="btrfs-progs"/>
 		<package name="udisks2-btrfs"/>
+		<ignore name="device-mapper-multipath"/>
+		<ignore name="fcoe-utils"/>
 		<ignore name="gfs2-utils"/>
 	</packages>
 </image>
