@@ -4,8 +4,12 @@
 			<requires profile="i3-Desktop"/>
 			<requires profile="LiveInstall"/>
 		</profile>
+		<profile name="i3-Disk" description="i3 Spin Install Disk">
+			<requires profile="i3-Desktop"/>
+			<requires profile="BootDiskCore"/>
+		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="plusRecommended" profiles="i3-Live">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="i3-Live,i3-Disk">
 		<package name="fedora-release-i3"/>
 	</packages>
 </image>

@@ -4,8 +4,12 @@
 			<requires profile="LXQt-Desktop"/>
 			<requires profile="LiveInstall"/>
 		</profile>
+		<profile name="LXQt-Disk" description="LXQt Spin Install Disk">
+			<requires profile="LXQt-Desktop"/>
+			<requires profile="BootDiskCore"/>
+		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="plusRecommended" profiles="LXQt-Live">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="LXQt-Live,LXQt-Disk">
 		<package name="fedora-release-lxqt"/>
 	</packages>
 </image>

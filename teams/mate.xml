@@ -4,8 +4,12 @@
 			<requires profile="MATE-Desktop"/>
 			<requires profile="LiveInstall"/>
 		</profile>
+		<profile name="MATE_Compiz-Disk" description="MATE-Compiz Spin Install Disk">
+			<requires profile="MATE-Desktop"/>
+			<requires profile="BootDiskCore"/>
+		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="plusRecommended" profiles="MATE_Compiz-Live">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="MATE_Compiz-Live,MATE_Compiz-Disk">
 		<package name="fedora-release-matecompiz"/>
 	</packages>
 </image>

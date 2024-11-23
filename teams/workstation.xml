@@ -4,8 +4,12 @@
 			<requires profile="GNOME-Desktop"/>
 			<requires profile="LiveInstall"/>
 		</profile>
+		<profile name="Workstation-Disk" description="Workstation Edition Install Disk">
+			<requires profile="GNOME-Desktop"/>
+			<requires profile="BootDiskCore"/>
+		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="plusRecommended" profiles="Workstation-Live">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="Workstation-Live,Workstation-Disk">
 		<package name="fedora-release-workstation"/>
 	</packages>
 </image>

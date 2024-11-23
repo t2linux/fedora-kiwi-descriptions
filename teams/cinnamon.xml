@@ -4,8 +4,12 @@
 			<requires profile="Cinnamon-Desktop"/>
 			<requires profile="LiveInstall"/>
 		</profile>
+		<profile name="Cinnamon-Disk" description="Cinnamon Spin Install Disk">
+			<requires profile="Cinnamon-Desktop"/>
+			<requires profile="BootDiskCore"/>
+		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="plusRecommended" profiles="Cinnamon-Live">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="Cinnamon-Live,Cinnamon-Disk">
 		<package name="fedora-release-cinnamon"/>
 	</packages>
 </image>

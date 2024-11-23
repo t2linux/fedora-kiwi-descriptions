@@ -3,9 +3,13 @@
 		<profile name="LXDE-Live" description="LXDE Spin Live DVD">
 			<requires profile="LXDE-Desktop"/>
 			<requires profile="LiveInstall"/>
+		<profile name="LXDE-Disk" description="LXDE Spin Install Disk">
+			<requires profile="LXDE-Desktop"/>
+			<requires profile="BootDiskCore"/>
+		</profile>
 		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="plusRecommended" profiles="LXDE-Live">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="LXDE-Live,LXDE-Disk">
 		<package name="fedora-release-lxde"/>
 	</packages>
 </image>

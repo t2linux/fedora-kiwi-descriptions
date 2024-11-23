@@ -4,8 +4,12 @@
 			<requires profile="SoaS-Desktop"/>
 			<requires profile="LiveInstall"/>
 		</profile>
+		<profile name="SoaS-Disk" description="Sugar on a Stick Install Disk">
+			<requires profile="SoaS-Desktop"/>
+			<requires profile="BootDiskCore"/>
+		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="plusRecommended" profiles="SoaS-Live">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="SoaS-Live,SoaS-Disk">
 		<package name="fedora-release-soas"/>
 	</packages>
 </image>
