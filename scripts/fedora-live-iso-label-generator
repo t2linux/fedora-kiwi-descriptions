@@ -89,8 +89,13 @@ image_profile_variant_appid_prefix = image_profile_baseprefix
 
 if image_profile_baseprefix in profile_to_application_id.keys():
 	image_profile_variant_appid_prefix = profile_to_application_id[image_profile_baseprefix]
+else:
+	image_profile_variant_appid_prefix = image_profile_baseprefix
 
-image_profile_variant_volid_prefix = volume_id_substitutions[image_profile_variant_appid_prefix]
+if image_profile_variant_appid_prefix in volume_id_substitutions.keys():
+	image_profile_variant_volid_prefix = volume_id_substitutions[image_profile_variant_appid_prefix]
+else:
+	image_profile_variant_volid_prefix = image_profile_variant_appid_prefix
 
 image_appid = f"{image_basename}-{image_profile_variant_appid_prefix}-Live-{image_version}"
 image_volid = f"{image_basename}-{image_profile_variant_volid_prefix}-Live-{image_volid_version}"
