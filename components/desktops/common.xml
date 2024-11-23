@@ -10,6 +10,7 @@
 		<namedCollection name="printing"/>
 		<namedCollection name="guest-desktop-agents"/>
 		<namedCollection name="standard"/>
+		<package name="mediawriter"/>
 		<ignore name="gfs2-utils"/>
 		<ignore name="reiserfs-utils"/>
 	</packages>
