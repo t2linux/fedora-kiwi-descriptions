@@ -8,6 +8,22 @@
 			<requires profile="DesktopCommon"/>
 		</profile>
 	</profiles>
+	<!-- Common exclusions for KDE variants -->
+	<packages type="image" patternType="plusRecommended" profiles="KDE-Desktop,KDE-Mobile">
+		<ignore name="gnome-disk-utility"/> <!-- redundant with kde partitionmanager -->
+		<ignore name="mariadb-server-utils"/> <!-- Not needed on desktops (pagure.io:fedora-kde/SIG#566) -->
+		<ignore name="system-config-language"/> <!-- redundant with kcms -->
+		<ignore name="system-config-printer"/> <!-- redundant with kcms -->
+		<!-- drop tracker stuff pulled in by gtk3 (pagureio:fedora-kde/SIG#124) -->
+		<ignore name="tracker"/>
+		<ignore name="tracker-miners"/>
+		<!-- space issues -->
+		<ignore name="digikam"/> <!-- digikam has duplicate functionality with gwenview (~28 megs) -->
+		<ignore name="k3b"/> <!-- ~15 megs -->
+		<ignore name="kipi-plugins"/> <!-- ~8 megs + drags in marble -->
+		<ignore name="krusader"/> <!-- ~4 megs -->
+		<ignore name="ktorrent"/> <!-- ~15 megs -->
+	</packages>
 	<packages type="image" patternType="plusRecommended" profiles="KDE-Desktop">
 		<!-- install env-group to resolve RhBug:1891500 -->
 		<namedCollection name="kde-desktop-environment"/>
@@ -21,10 +37,6 @@
 		<package name="libreoffice-math"/>
 		<package name="fuse"/>
 		<package name="kde-l10n"/>
-		<ignore name="@admin-tools"/>
-		<ignore name="gnome-disk-utility"/>
-		<ignore name="mariadb-server-utils"/>
-		<ignore name="system-config-printer"/>
 	</packages>
 	<packages type="image" patternType="plusRecommended" profiles="KDE-Mobile">
 		<!-- install env-group to resolve RhBug:1891500 -->
@@ -34,11 +46,7 @@
 		<namedCollection name="firefox"/>
 		<package name="fuse"/>
 		<package name="kde-l10n"/>
-		<ignore name="@admin-tools"/>
 		<ignore name="plasma-welcome"/>
 		<ignore name="plasma-welcome-fedora"/>
-		<ignore name="gnome-disk-utility"/>
-		<ignore name="mariadb-server-utils"/>
-		<ignore name="system-config-printer"/>
 	</packages>
 </image>
