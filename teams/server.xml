@@ -70,10 +70,27 @@
 			</oemconfig>
 		</type>
 	</preferences>
-	<preferences profiles="ServerDisk" arch="x86_64,aarch64">
+	<preferences profiles="ServerDisk" arch="x86_64">
 		<type image="oem"
 		      filesystem="xfs"
 		      devicepersistency="by-uuid"
+		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+		      rootfs_label="fedora"
+		      >
+			<bootloader name="grub2" console="serial" timeout="0"/>
+			<size unit="G">10</size>
+			<systemdisk>
+				<volume name="@root"/>
+			</systemdisk>
+			<oemconfig>
+				<oem-resize>false</oem-resize>
+			</oemconfig>
+		</type>
+	</preferences>
+	<preferences profiles="ServerDisk" arch="aarch64">
+		<type image="oem"
+		      filesystem="xfs"
+		      devicepersistency="by-uuid" force_mbr="true"
 		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
