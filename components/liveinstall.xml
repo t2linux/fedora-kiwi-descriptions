@@ -23,6 +23,15 @@
 			<bootloader name="grub2" grub_template="grub-arm.cfg.iso-template" console="console" timeout="10"/>
 		</type>
 	</preferences>
+	<preferences profiles="LiveInstall" arch="riscv64">
+		<type image="iso"
+			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora_Linux"
+			primary="true" flags="dmsquash" filesystem="squashfs" squashfscompression="xz" mediacheck="true"
+			firmware="uefi" efiparttable="gpt" efifatimagesize="30" kernelcmdline="quiet rhgb"
+			>
+			<bootloader name="grub2" grub_template="grub-riscv64.cfg.iso-template" console="console" timeout="10"/>
+		</type>
+	</preferences>
 	<preferences profiles="LiveInstall" arch="ppc64le">
 		<type image="iso"
 			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora_Linux"

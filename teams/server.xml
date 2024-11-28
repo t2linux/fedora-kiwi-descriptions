@@ -71,6 +71,24 @@
 			</oemconfig>
 		</type>
 	</preferences>
+	<preferences profiles="ServerVMDisk" arch="riscv64">
+		<type image="oem" format="qcow2"
+		      filesystem="xfs"
+		      kernelcmdline="earlycon console=ttyS0,115200n8"
+		      devicepersistency="by-uuid"
+		      bootpartition="true" bootpartsize="1000" bootfilesystem="ext4" efipartsize="100" firmware="uefi"
+		      rootfs_label="fedora"
+		      >
+			<bootloader name="grub2" console="serial" timeout="0"/>
+			<size unit="G">10</size>
+			<systemdisk>
+				<volume name="@root"/>
+			</systemdisk>
+			<oemconfig>
+				<oem-resize>false</oem-resize>
+			</oemconfig>
+		</type>
+	</preferences>
 	<preferences profiles="ServerDisk" arch="x86_64">
 		<type image="oem"
 		      filesystem="xfs"
@@ -130,6 +148,24 @@
 		      rootfs_label="fedora"
 		      >
 			<bootloader name="zipl" timeout="3"/>
+			<size unit="G">10</size>
+			<systemdisk>
+				<volume name="@root"/>
+			</systemdisk>
+			<oemconfig>
+				<oem-resize>false</oem-resize>
+			</oemconfig>
+		</type>
+	</preferences>
+	<preferences profiles="ServerDisk" arch="riscv64">
+		<type image="oem"
+		      filesystem="xfs"
+		      kernelcmdline="earlycon console=ttyS0,115200n8"
+		      devicepersistency="by-uuid"
+		      bootpartition="true" bootpartsize="1000" bootfilesystem="ext4" efipartsize="100" firmware="uefi"
+		      rootfs_label="fedora"
+		      >
+			<bootloader name="grub2" console="serial" timeout="3" timeout_style="menu"/>
 			<size unit="G">10</size>
 			<systemdisk>
 				<volume name="@root"/>

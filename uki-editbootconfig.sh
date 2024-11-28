@@ -3,8 +3,9 @@ echo "###" "$0" "$@"
 
 # set arch-specific variables
 case "$(uname -m)" in
-    aarch64) arch="aa64"; ARCH="AA64";;
-    x86_64)  arch="x64";  ARCH="X64";;
+    aarch64) arch="aa64";    ARCH="AA64";;
+    riscv64) arch="riscv64"; ARCH="RISCV64";;
+    x86_64)  arch="x64";     ARCH="X64";;
 esac
 
 # figure where shim.efi and BOOT.CSV are located
