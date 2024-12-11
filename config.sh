@@ -363,6 +363,9 @@ if [[ "$kiwi_profiles" == *"FEX"* ]]; then
 		\! -name regsvr32 -a \
 		\! -name 'vulkan*' -a \
 		\! -name 'vk*' -a \
+		\! -name clinfo -a \
+		\! -name eglinfo -a \
+		\! -name glxinfo -a \
 		\! -name ulimit -a \
 		\! -name ldd -a \
 		\! -name env -a \
