@@ -1,6 +1,8 @@
 <image>
 	<profiles>
-		<profile name="DesktopCommon" description="Common desktop packages"/>
+		<profile name="DesktopCommon" description="Common desktop packages">
+			<requires profile="BaseCommon"/>
+		</profile>
 	</profiles>
 	<packages type="image" patternType="plusRecommended" profiles="DesktopCommon">
 		<namedCollection name="fonts"/>
@@ -9,7 +11,6 @@
 		<namedCollection name="hardware-support"/>
 		<namedCollection name="printing"/>
 		<namedCollection name="guest-desktop-agents"/>
-		<namedCollection name="standard"/>
 		<package name="mediawriter"/>
 		<ignore name="gfs2-utils"/>
 		<ignore name="reiserfs-utils"/>

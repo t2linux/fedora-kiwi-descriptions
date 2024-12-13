@@ -1,0 +1,8 @@
+<image>
+	<profiles>
+		<profile name="BaseCommon" description="Base common packages"/>
+	</profiles>
+	<packages type="image" patternType="plusRecommended" profiles="BaseCommon">
+		<namedCollection name="standard"/>
+	</packages>
+</image>

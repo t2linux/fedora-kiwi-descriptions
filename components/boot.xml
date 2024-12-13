@@ -3,6 +3,7 @@
 		<profile name="BootCore" description="Boot core packages"/>
 		<profile name="BootCoreUKI" description="Boot core packages for UKI"/>
 		<profile name="BootDiskCore" description="Boot disk core configuration">
+			<requires profile="BaseCommon"/>
 			<requires profile="BootCore"/>
 		</profile>
 	</profiles>

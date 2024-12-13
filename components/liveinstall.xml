@@ -1,6 +1,7 @@
 <image>
 	<profiles>
 		<profile name="LiveInstall" description="Live Install ISO">
+			<requires profile="BaseCommon"/>
 			<requires profile="BootCore"/>
 		</profile>
 	</profiles>

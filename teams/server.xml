@@ -1,6 +1,7 @@
 <image>
 	<profiles>
 		<profile name="ServerCore" description="Server Edition core packages">
+			<requires profile="BaseCommon"/>
 			<requires profile="BootCore"/>
 		</profile>
 		<profile name="ServerVMDisk" description="Server Edition VM disk configuration">
