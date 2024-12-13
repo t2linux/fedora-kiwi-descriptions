@@ -4,5 +4,6 @@
 	</profiles>
 	<packages type="image" patternType="plusRecommended" profiles="BaseCommon">
 		<namedCollection name="standard"/>
+		<ignore name="qemu-user-static"/> <!-- Saves ~100MB -->
 	</packages>
 </image>
