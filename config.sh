@@ -375,6 +375,7 @@ if [[ "$kiwi_profiles" == *"FEX"* ]]; then
 		\! -name stat -a \
 		\! -name dirname -a \
 		\! -name realpath -a \
+		\! -name readlink -a \
 		\! -name basename -a \
 		\! -name nproc -a \
 		\! -name uname -a \
