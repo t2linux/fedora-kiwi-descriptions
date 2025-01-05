@@ -78,7 +78,7 @@
 		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
-			<bootloader name="grub2" console="serial" timeout="0"/>
+			<bootloader name="grub2" console="serial" timeout="3" timeout_style="menu"/>
 			<size unit="G">10</size>
 			<systemdisk>
 				<volume name="@root"/>
@@ -95,7 +95,7 @@
 		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
-			<bootloader name="grub2" console="serial" timeout="0"/>
+			<bootloader name="grub2" console="serial" timeout="3" timeout_style="menu"/>
 			<size unit="G">10</size>
 			<systemdisk>
 				<volume name="@root"/>
@@ -112,7 +112,7 @@
 		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" firmware="ofw"
 		      rootfs_label="fedora"
 		      >
-			<bootloader name="grub2" console="serial" timeout="0"/>
+			<bootloader name="grub2" console="serial" timeout="3" timeout_style="menu"/>
 			<size unit="G">10</size>
 			<systemdisk>
 				<volume name="@root"/>
@@ -129,7 +129,7 @@
 		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs"
 		      rootfs_label="fedora"
 		      >
-			<bootloader name="zipl" timeout="1"/>
+			<bootloader name="zipl" timeout="3"/>
 			<size unit="G">10</size>
 			<systemdisk>
 				<volume name="@root"/>
