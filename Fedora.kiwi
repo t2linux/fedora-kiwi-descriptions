@@ -52,6 +52,7 @@
 	<include from="this://./teams/miraclewm.xml"/>
 	<include from="this://./teams/cosmic.xml"/>
 	<include from="this://./teams/asahi.xml"/>
+	<include from="this://./teams/python.xml"/>
 	<packages type="bootstrap">
 		<package name="basesystem"/>
 		<package name="filesystem"/>
