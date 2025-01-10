@@ -32,6 +32,7 @@ volume_id_substitutions = {
              "Cinnamon": "Cinn",
                 "Cloud": "C",
            "Comp_Neuro": "CNr",
+               "COSMIC": "COSMIC",
          "Design_suite": "Dsgn",
        "Electronic_Lab": "Elec",
            "Everything": "E",

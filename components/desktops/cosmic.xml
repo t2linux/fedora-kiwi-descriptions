@@ -1,0 +1,11 @@
+<image>
+	<profiles>
+		<profile name="COSMIC-Desktop" description="COSMIC Desktop">
+			<requires profile="DesktopCommon"/>
+		</profile>
+	</profiles>
+	<packages type="image" patternType="plusRecommended" profiles="COSMIC-Desktop">
+		<!-- install env-group to resolve RhBug:1891500 -->
+		<namedCollection name="cosmic-desktop-environment"/>
+	</packages>
+</image>

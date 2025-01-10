@@ -1,0 +1,15 @@
+<image>
+	<profiles>
+		<profile name="COSMIC-Live" description="COSMIC Spin Live DVD">
+			<requires profile="COSMIC-Desktop"/>
+			<requires profile="LiveInstall"/>
+		</profile>
+		<profile name="COSMIC-Disk" description="COSMIC Spin Install Disk">
+			<requires profile="COSMIC-Desktop"/>
+			<requires profile="BootDiskCore"/>
+		</profile>
+	</profiles>
+	<packages type="bootstrap" patternType="plusRecommended" profiles="COSMIC-Live,COSMIC-Disk">
+		<package name="fedora-release-cosmic"/>
+	</packages>
+</image>

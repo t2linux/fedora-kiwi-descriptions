@@ -69,6 +69,9 @@ if [[ "$kiwi_profiles" == *"Live"* ]]; then
 	if [[ "$kiwi_profiles" == *"Cinnamon"* ]]; then
 		echo 'livesys_session="cinnamon"' > /etc/sysconfig/livesys
 	fi
+	if [[ "$kiwi_profiles" == *"COSMIC"* ]]; then
+		echo 'livesys_session="cosmic"' > /etc/sysconfig/livesys
+	fi
 	if [[ "$kiwi_profiles" == *"i3"* ]]; then
 		echo 'livesys_session="i3"' > /etc/sysconfig/livesys
 	fi
