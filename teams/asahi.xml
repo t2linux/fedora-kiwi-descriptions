@@ -54,8 +54,8 @@
 		<package name="libnsl.i686"/>
 		<package name="flac-libs.x86_64"/>
 		<package name="flac-libs.i686"/>
-		<package name="SDL2.x86_64"/>
-		<package name="SDL2.i686"/>
+		<package name="sdl2-compat.x86_64"/>
+		<package name="sdl2-compat.i686"/>
 		<package name="SDL2_gfx.x86_64"/>
 		<package name="SDL2_gfx.i686"/>
 		<package name="SDL2_ttf.x86_64"/>
