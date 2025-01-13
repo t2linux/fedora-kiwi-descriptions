@@ -1,0 +1,9 @@
+summary: Build Workstation disk image
+discover:
+    how: fmf
+environment:
+    image_type: oem
+    image_profile: Workstation-Disk
+    kiwi_file: Fedora.kiwi
+execute:
+    how: tmt
