@@ -12,4 +12,7 @@
 	<packages type="bootstrap" patternType="plusRecommended" profiles="Workstation-Live,Workstation-Disk">
 		<package name="fedora-release-workstation"/>
 	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="Workstation-Live">
+		<package name="anaconda-webui"/>
+	</packages>
 </image>
