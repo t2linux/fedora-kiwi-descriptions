@@ -54,6 +54,7 @@
 	<include from="this://./teams/cosmic.xml"/>
 	<include from="this://./teams/asahi.xml"/>
 	<include from="this://./teams/python.xml"/>
+	<include from="this://./teams/scitech.xml"/>
 	<packages type="bootstrap">
 		<package name="basesystem"/>
 		<package name="filesystem"/>

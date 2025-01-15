@@ -1,0 +1,168 @@
+<image>
+	<profiles>
+		<profile name="ScientificCore" description="Core packages for Scientific">
+		</profile>
+		<profile name="ScientificDesktop" description="Desktop packages for Scientific">
+			<requires profile="ScientificCore"/>
+			<requires profile="KDE-Desktop"/>
+		</profile>
+		<profile name="Scientific_KDE-Live" description="Scientific KDE Lab Live DVD">
+			<requires profile="ScientificDesktop"/>
+			<requires profile="LiveInstall"/>
+		</profile>
+		<profile name="Scientific_KDE-Disk" description="Scientific KDE Lab Install Disk">
+			<requires profile="ScientificDesktop"/>
+			<requires profile="BootDiskCore"/>
+		</profile>
+		<profile name="Scientific-Vagrant-libvirt" description="Scientific Lab Vagrant box for libvirt">
+			<requires profile="ScientificCore"/>
+			<requires profile="VagrantCore"/>
+		</profile>
+		<profile name="Scientific-Vagrant-VirtualBox" description="Scientific Lab Vagrant box for VirtualBox">
+			<requires profile="ScientificCore"/>
+			<requires profile="VagrantCore"/>
+		</profile>
+	</profiles>
+	<preferences profiles="Scientific-Vagrant-libvirt" arch="x86_64,aarch64">
+		<type image="oem" format="vagrant"
+		      filesystem="btrfs" btrfs_root_is_subvolume="true" btrfs_set_default_volume="false" fsmountoptions="compress=zstd:1"
+		      kernelcmdline="no_timer_check console=tty1 console=ttyS0,115200n8"
+		      devicepersistency="by-uuid"
+		      bootpartition="true" bootpartsize="1000" bootfilesystem="ext4" efipartsize="100" firmware="uefi"
+		      rootfs_label="fedora"
+		      >
+			<bootloader name="grub2" console="serial" timeout="1"/>
+			<size unit="G">30</size>
+			<vagrantconfig provider="libvirt" virtualsize="30"/>
+			<systemdisk>
+				<volume name="@root=root"/>
+				<volume name="home" parent="/"/>
+				<volume name="var" parent="/"/>
+			</systemdisk>
+			<oemconfig>
+				<oem-resize>false</oem-resize>
+			</oemconfig>
+		</type>
+	</preferences>
+	<preferences profiles="Scientific-Vagrant-VirtualBox" arch="x86_64">
+		<type image="oem" format="vagrant"
+		      filesystem="btrfs" btrfs_root_is_subvolume="true" btrfs_set_default_volume="false" fsmountoptions="compress=zstd:1"
+		      kernelcmdline="no_timer_check console=tty1 console=ttyS0,115200n8"
+		      devicepersistency="by-uuid"
+		      bootpartition="true" bootpartsize="1000" bootfilesystem="ext4" efipartsize="100" firmware="uefi"
+		      rootfs_label="fedora"
+		      >
+			<bootloader name="grub2" console="serial" timeout="1"/>
+			<size unit="G">30</size>
+			<vagrantconfig provider="virtualbox" virtualbox_guest_additions_present="true" virtualsize="30"/>
+			<systemdisk>
+				<volume name="@root=root"/>
+				<volume name="home" parent="/"/>
+				<volume name="var" parent="/"/>
+			</systemdisk>
+			<oemconfig>
+				<oem-resize>false</oem-resize>
+			</oemconfig>
+		</type>
+	</preferences>
+	<packages type="bootstrap" patternType="plusRecommended" profiles="ScientificDesktop">
+		<package name="fedora-release-kde"/>
+	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="ScientificCore">
+		<namedCollection name="core"/>
+		<namedCollection name="standard"/>
+		<namedCollection name="engineering-and-scientific"/>
+		<!-- Install the mandatory packages from dev-tools and dev-libs -->
+		<namedCollection name="development-tools"/>
+		<namedCollection name="development-libs"/>
+		<namedCollection name="c-development"/>
+		<namedCollection name="rpm-development-tools"/>
+		<package name="langpacks-en"/>
+		<!-- Other C++ libraries not included in groups -->
+		<package name="blitz-devel"/>
+		<package name="armadillo-devel"/>
+		<!-- Misc related utilities -->
+		<package name="ddd"/>
+		<package name="valgrind"/>
+		<!-- Python 3 and tools/libraries not included from the groups -->
+		<package name="python3"/>
+		<package name="python3-tools"/>
+		<package name="python3-matplotlib"/>
+		<package name="python3-scipy"/>
+		<package name="python3-numpy"/>
+		<package name="python3-ipython"/>
+		<package name="python3-ipython-console"/>
+		<package name="python3-ipython-notebook"/>
+		<package name="python3-sympy"/>
+		<package name="python3-networkx"/>
+		<package name="python3-pandas"/>
+		<!-- Include Java development tools -->
+		<namedCollection name="java-development"/>
+		<package name="apache-commons-math"/>
+		<!-- fortran compiler -->
+		<package name="gcc-gfortran"/>
+		<!-- Julia -->
+		<package name="julia" arch="x86_64"/>
+		<package name="julia-doc" arch="x86_64"/>
+		<package name="julia-devel" arch="x86_64"/>
+		<!-- <package name="python3-spyder"/> --> <!-- FTI with Python 3.12, see rhbz#2220598 -->
+		<package name="python3-spyder-kernels"/>
+		<!-- writing & publishing -->
+		<package name="emacs-nw"/>
+		<package name="emacs-color-theme"/>
+		<package name="vim-enhanced"/>
+		<!-- Presentation, Bibliography & Document arrangement tools -->
+		<package name="BibTool"/>
+		<package name="pdfshuffler"/>
+		<!-- Parallel/Distributed computing libraries/tools -->
+		<package name="openmpi"/>
+		<package name="openmpi-devel"/>
+		<package name="valgrind-openmpi"/>
+		<package name="libgomp"/>
+		<package name="python3-mpi4py-openmpi"/>
+		<package name="python3-mpi4py-mpich"/>
+		<!-- Version control - A GUI for each as well -->
+		<package name="subversion"/>
+		<package name="git"/>
+		<package name="mercurial"/>
+		<!-- Deal with conflict between openmpi and emacs -->
+		<!-- Cf. https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/message/3HFNRNDK52FP3O2IEX5MUBQEFS56U5PZ/ -->
+		<package name="libotf"/>
+		<package name="root"/>
+		<!-- Misc tools -->
+		<package name="screen"/>
+		<package name="tmux"/>
+		<package name="rlwrap"/>
+		<package name="fig2ps"/>
+		<package name="hevea"/>
+	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="ScientificDesktop">
+		<namedCollection name="firefox"/>
+		<!-- Matplotlib backend -->
+		<package name="python3-matplotlib-qt6"/>
+		<!-- GUI for R -->
+		<package name="rkward"/>
+		<!-- writing & publishing -->
+		<package name="emacs"/>
+		<package name="scribus"/>
+		<package name="lyx"/>
+		<package name="kile"/>
+		<!-- Version control GUIs -->
+		<package name="rapidsvn"/>
+		<package name="git-gui"/>
+		<package name="mercurial-hgk"/>
+		<package name="backintime-qt"/>
+		<package name="root-gui-fitpanel"/>
+		<!-- Drawing, picture viewing tools, visualization tools -->
+		<package name="dia"/>
+		<package name="inkscape"/>
+		<package name="xzgv"/>
+		<package name="gimp"/>
+	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="Scientific-Vagrant-libvirt">
+		<package name="qemu-guest-agent"/>
+	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="Scientific-Vagrant-VirtualBox">
+		<package name="virtualbox-guest-additions"/>
+	</packages>
+</image>
