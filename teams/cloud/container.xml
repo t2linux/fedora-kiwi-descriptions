@@ -163,6 +163,10 @@
 		<ignore name="tzdata"/>
 		<package name="dnf5"/>
 		<package name="glibc-minimal-langpack"/>
+		<package name="systemd-standalone-sysusers"/>
+	</packages>
+	<packages type="bootstrap" profiles="Container-Base-Generic">
+		<package name="systemd-standalone-sysusers"/>
 	</packages>
 	<packages type="bootstrap" profiles="Container-Base-Generic,Container-Base-Generic-Init">
 		<ignore name="glibc-langpack-en"/>
