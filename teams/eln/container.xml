@@ -72,6 +72,7 @@
 		<package name="dnf5"/>
 		<package name="dnf5-plugins"/>
 		<package name="glibc-minimal-langpack"/>
+		<package name="systemd-standalone-sysusers"/>
 		<package name="tzdata"/>
 		<package name="xz"/>
 		<package name="zstd"/>
