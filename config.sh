@@ -44,6 +44,18 @@ if [[ "$kiwi_profiles" != *"Container"* ]] && [[ "$kiwi_profiles" != *"FEX"* ]];
 fi
 
 #======================================
+# Resize root partition on first boot
+#--------------------------------------
+
+if [[ "$kiwi_profiles" == *"Disk"* ]]; then
+	mkdir -p /etc/repart.d/
+	cat > /etc/repart.d/50-root.conf << EOF
+[Partition]
+Type=root
+EOF
+fi
+
+#======================================
 # Delete & lock the root user password
 #--------------------------------------
 if [[ "$kiwi_profiles" == *"Cloud"* ]] || [[ "$kiwi_profiles" == *"Disk"* ]] || [[ "$kiwi_profiles" == *"Live"* ]]; then
