@@ -17,7 +17,7 @@
 		<type image="oci">
 			<containerconfig
 			  name="fedora"
-			  tag="rawhide"
+			  tag="42"
 			  maintainer="Fedora Project Contributors &lt;devel@lists.fedoraproject.org&gt;"
 			>
 				<subcommand execute="/bin/bash"/>
@@ -26,12 +26,12 @@
 					<label name="org.opencontainers.image.url" value="https://fedoraproject.org/"/>
 					<label name="org.opencontainers.image.license" value="MIT"/>
 					<label name="org.opencontainers.image.name" value="fedora"/>
-					<label name="org.opencontainers.image.version" value="rawhide"/>
+					<label name="org.opencontainers.image.version" value="42"/>
 					<!-- Legacy attributes for backward compatibility -->
 					<label name="vendor" value="Fedora Project"/>
 					<label name="license" value="MIT"/>
 					<label name="name" value="fedora"/>
-					<label name="version" value="rawhide"/>
+					<label name="version" value="42"/>
 				</labels>
 				<environment>
 					<env name="container" value="oci"/>
@@ -47,7 +47,7 @@
 		<type image="oci">
 			<containerconfig
 			  name="fedora-minimal"
-			  tag="rawhide"
+			  tag="42"
 			  maintainer="Fedora Project Contributors &lt;devel@lists.fedoraproject.org&gt;"
 			>
 				<subcommand execute="/bin/bash"/>
@@ -56,12 +56,12 @@
 					<label name="org.opencontainers.image.url" value="https://fedoraproject.org/"/>
 					<label name="org.opencontainers.image.license" value="MIT"/>
 					<label name="org.opencontainers.image.name" value="fedora-minimal"/>
-					<label name="org.opencontainers.image.version" value="rawhide"/>
+					<label name="org.opencontainers.image.version" value="42"/>
 					<!-- Legacy attributes for backward compatibility -->
 					<label name="vendor" value="Fedora Project"/>
 					<label name="license" value="MIT"/>
 					<label name="name" value="fedora-minimal"/>
-					<label name="version" value="rawhide"/>
+					<label name="version" value="42"/>
 				</labels>
 				<environment>
 					<env name="container" value="oci"/>
@@ -77,7 +77,7 @@
 		<type image="oci">
 			<containerconfig
 			  name="fedora-init"
-			  tag="rawhide"
+			  tag="42"
 			  maintainer="Fedora Project Contributors &lt;devel@lists.fedoraproject.org&gt;"
 			>
 				<subcommand execute="/sbin/init"/>
@@ -86,12 +86,12 @@
 					<label name="org.opencontainers.image.url" value="https://fedoraproject.org/"/>
 					<label name="org.opencontainers.image.license" value="MIT"/>
 					<label name="org.opencontainers.image.name" value="fedora-init"/>
-					<label name="org.opencontainers.image.version" value="rawhide"/>
+					<label name="org.opencontainers.image.version" value="42"/>
 					<!-- Legacy attributes for backward compatibility -->
 					<label name="vendor" value="Fedora Project"/>
 					<label name="license" value="MIT"/>
 					<label name="name" value="fedora-init"/>
-					<label name="version" value="rawhide"/>
+					<label name="version" value="42"/>
 				</labels>
 				<stopsignal>SIGRTMIN+3</stopsignal>
 			</containerconfig>
@@ -105,7 +105,7 @@
 		<type image="oci">
 			<containerconfig
 			  name="fedora-toolbox"
-			  tag="rawhide"
+			  tag="42"
 			  maintainer="Fedora Project Contributors &lt;devel@lists.fedoraproject.org&gt;"
 			>
 				<subcommand execute="/bin/bash"/>
@@ -114,13 +114,13 @@
 					<label name="org.opencontainers.image.url" value="https://fedoraproject.org/"/>
 					<label name="org.opencontainers.image.license" value="MIT"/>
 					<label name="org.opencontainers.image.name" value="fedora-toolbox"/>
-					<label name="org.opencontainers.image.version" value="rawhide"/>
+					<label name="org.opencontainers.image.version" value="42"/>
 					<label name="com.github.containers.toolbox" value="true"/>
 					<!-- Legacy attributes for backward compatibility -->
 					<label name="vendor" value="Fedora Project"/>
 					<label name="license" value="MIT"/>
 					<label name="name" value="fedora-toolbox"/>
-					<label name="version" value="rawhide"/>
+					<label name="version" value="42"/>
 				</labels>
 				<environment>
 					<env name="container" value="oci"/>
