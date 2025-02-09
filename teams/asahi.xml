@@ -172,6 +172,8 @@
 		<package name="zlib-ng.i686"/>
 		<package name="libxslt.x86_64"/>
 		<package name="libxslt.i686"/>
+		<package name="libgpg-error.x86_64"/>
+		<package name="libgpg-error.i686"/>
 		<!--
 		    Remove these if we choose to drop GTK2/GTK3 (currently there are other dependencies above).
 		    These are useful for muvm X11 passthrough. Modern apps should use Wayland protocols, so
