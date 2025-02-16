@@ -1,9 +1,9 @@
-summary: Build Minimal disk image
+summary: Build Tiny disk image
 discover:
     how: fmf
 environment:
     image_type: oem
-    image_profile: Minimal-Disk
+    image_profile: Tiny-Disk
     kiwi_file: Fedora.kiwi
 execute:
     how: tmt

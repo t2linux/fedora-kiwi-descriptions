@@ -1,13 +1,13 @@
 <image>
 	<profiles>
-		<profile name="Minimal-Disk" description="Minimal Install Disk">
+		<profile name="Tiny-Disk" description="Tiny Install Disk">
 			<requires profile="BootDiskCore"/>
 		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="plusRecommended" profiles="Minimal-Disk">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="Tiny-Disk">
 		<package name="fedora-release"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="Minimal-Disk">
+	<packages type="image" patternType="plusRecommended" profiles="Tiny-Disk">
 		<namedCollection name="core"/>
 		<namedCollection name="standard"/>
 		<namedCollection name="networkmanager-submodules"/>
