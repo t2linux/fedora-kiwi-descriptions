@@ -33,6 +33,7 @@
 		<namedCollection name="kde-spin-initial-setup"/>
 		<namedCollection name="firefox"/>
 		<namedCollection name="libreoffice"/>
+		<namedCollection name="x86-emulation" arch="aarch64"/>
 		<package name="libreoffice-draw"/>
 		<package name="libreoffice-math"/>
 		<package name="fuse"/>
@@ -44,6 +45,7 @@
 		<!-- not ideal, but the best we can do for now -->
 		<namedCollection name="kde-spin-initial-setup"/>
 		<namedCollection name="firefox"/>
+		<namedCollection name="x86-emulation" arch="aarch64"/>
 		<package name="fuse"/>
 		<package name="kde-l10n"/>
 		<ignore name="plasma-welcome"/>
