@@ -74,7 +74,7 @@
 	<preferences profiles="ServerVMDisk" arch="riscv64">
 		<type image="oem" format="qcow2"
 		      filesystem="xfs"
-		      kernelcmdline="earlycon console=ttyS0,115200n8"
+		      kernelcmdline="earlycon"
 		      devicepersistency="by-uuid"
 		      bootpartition="true" bootpartsize="1000" bootfilesystem="ext4" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
@@ -160,7 +160,7 @@
 	<preferences profiles="ServerDisk" arch="riscv64">
 		<type image="oem"
 		      filesystem="xfs"
-		      kernelcmdline="earlycon console=ttyS0,115200n8"
+		      kernelcmdline="earlycon"
 		      devicepersistency="by-uuid"
 		      bootpartition="true" bootpartsize="1000" bootfilesystem="ext4" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
