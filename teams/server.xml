@@ -8,6 +8,7 @@
 			<requires profile="ServerCore"/>
 		</profile>
 		<profile name="ServerDisk" description="Server Edition disk configuration">
+			<requires profile="HardwareCommon"/>
 			<requires profile="ServerCore"/>
 		</profile>
 		<profile name="Server-Guest-Generic" description="Generic Server Guest Image">
@@ -199,6 +200,7 @@
 	</packages>
 	<packages type="image" patternType="plusRecommended" profiles="Server-Host-Generic">
 		<namedCollection name="container-management"/>
+		<namedCollection name="server-hardware-support"/>
 		<package name="dracut-config-rescue"/>
 		<package name="kernel"/>
 		<package name="linux-firmware"/>

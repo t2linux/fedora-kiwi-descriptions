@@ -4,6 +4,7 @@
 		<profile name="BootCoreUKI" description="Boot core packages for UKI"/>
 		<profile name="BootDiskCore" description="Boot disk core configuration">
 			<requires profile="BaseCommon"/>
+			<requires profile="HardwareCommon"/>
 			<requires profile="BootCore"/>
 		</profile>
 	</profiles>
@@ -118,7 +119,6 @@
 	</packages>
 	<packages type="image" patternType="plusRecommended" profiles="BootDiskCore">
 		<package name="arm-image-installer" arch="aarch64"/>
-		<package name="bcm283x-firmware" arch="aarch64"/>
 		<package name="glibc-all-langpacks"/>
 		<package name="kernel"/>
 		<package name="kernel-modules"/>
