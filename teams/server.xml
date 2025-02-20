@@ -110,7 +110,7 @@
 		<type image="oem"
 		      filesystem="xfs"
 		      devicepersistency="by-uuid" force_mbr="true"
-		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+		      bootpartition="true" bootpartsize="1000" bootfilesystem="ext4" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
 			<bootloader name="grub2" console="serial" timeout="3" timeout_style="menu"/>
