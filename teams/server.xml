@@ -110,7 +110,7 @@
 	<preferences profiles="ServerDisk" arch="aarch64">
 		<type image="oem"
 		      filesystem="xfs"
-		      devicepersistency="by-uuid" force_mbr="true"
+		      devicepersistency="by-uuid" force_mbr="true" editbootinstall="editbootinstall_rpilegacy.sh"
 		      bootpartition="true" bootpartsize="1000" bootfilesystem="ext4" efipartsize="500" firmware="uefi"
 		      rootfs_label="fedora"
 		      >

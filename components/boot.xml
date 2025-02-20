@@ -29,7 +29,7 @@
 	<preferences profiles="BootDiskCore" arch="aarch64">
 		<type image="oem"
 		      filesystem="btrfs" btrfs_root_is_subvolume="true" btrfs_set_default_volume="false" fsmountoptions="x-systemd.growfs,compress=zstd:1"
-		      kernelcmdline="rhgb quiet" devicepersistency="by-uuid" force_mbr="true"
+		      kernelcmdline="rhgb quiet" devicepersistency="by-uuid" force_mbr="true" editbootinstall="editbootinstall_rpilegacy.sh"
 		      bootpartition="true" bootpartsize="1024" bootfilesystem="ext4" efipartsize="500" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
