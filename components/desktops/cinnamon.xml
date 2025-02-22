@@ -1,6 +1,5 @@
 <image>
 	<profiles>
-		<profile name="DesktopCommon" description="Common desktop packages"/>
 		<profile name="Cinnamon-Desktop" description="Cinnamon Desktop">
 			<requires profile="DesktopCommon"/>
 		</profile>

@@ -1,6 +1,5 @@
 <image>
 	<profiles>
-		<profile name="DesktopCommon" description="Common desktop packages"/>
 		<profile name="i3-Desktop" description="i3 Desktop">
 			<requires profile="DesktopCommon"/>
 		</profile>

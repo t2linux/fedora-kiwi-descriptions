@@ -1,6 +1,5 @@
 <image>
 	<profiles>
-		<profile name="DesktopCommon" description="Common desktop packages"/>
 		<profile name="SoaS-Desktop" description="SoaS Desktop">
 			<requires profile="DesktopCommon"/>
 		</profile>

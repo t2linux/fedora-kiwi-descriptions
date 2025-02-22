@@ -1,6 +1,5 @@
 <image>
 	<profiles>
-		<profile name="DesktopCommon" description="Common desktop packages"/>
 		<profile name="LXDE-Desktop" description="LXDE Desktop">
 			<requires profile="DesktopCommon"/>
 		</profile>

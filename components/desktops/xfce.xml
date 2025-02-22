@@ -1,6 +1,5 @@
 <image>
 	<profiles>
-		<profile name="DesktopCommon" description="Common desktop packages"/>
 		<profile name="Xfce-Desktop" description="Xfce Desktop">
 			<requires profile="DesktopCommon"/>
 		</profile>

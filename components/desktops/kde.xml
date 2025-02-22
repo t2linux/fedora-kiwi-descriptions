@@ -1,6 +1,5 @@
 <image>
 	<profiles>
-		<profile name="DesktopCommon" description="Common desktop packages"/>
 		<profile name="KDE-Desktop" description="KDE Plasma Desktop">
 			<requires profile="DesktopCommon"/>
 		</profile>

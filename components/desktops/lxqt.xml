@@ -1,6 +1,5 @@
 <image>
 	<profiles>
-		<profile name="DesktopCommon" description="Common desktop packages"/>
 		<profile name="LXQt-Desktop" description="LXQt Desktop">
 			<requires profile="DesktopCommon"/>
 		</profile>
