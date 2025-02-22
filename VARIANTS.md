@@ -22,3 +22,4 @@
 | KDE Plasma Mobile Spin         | `iso`      | `KDE-Mobile-Live`                |
 |                                | `oem`      | `KDE-Mobile-Disk`                |
 | Workstation Edition            | `iso`      | `Workstation-Live`               |
+|                                | `oem`      | `Workstation-Disk`               |
