@@ -23,3 +23,13 @@
 |                                | `oem`      | `KDE-Mobile-Disk`                |
 | Workstation Edition            | `iso`      | `Workstation-Live`               |
 |                                | `oem`      | `Workstation-Disk`               |
+| LXQt Spin                      | `iso`      | `LXQt-Live`                      |
+|                                | `oem`      | `LXQt-Disk`                      |
+| Xfce Spin                      | `iso`      | `Xfce-Live`                      |
+|                                | `oem`      | `Xfce-Disk`                      |
+| Budgie Spin                    | `iso`      | `Budgie-Live`                    |
+|                                | `oem`      | `Budgie-Disk`                    |
+| MiracleWM Spin                 | `iso`      | `MiracleWM-Live`                 |
+|                                | `oem`      | `MiracleWM-Disk`                 |
+| COSMIC Spin                    | `iso`      | `COSMIC-Live`                    |
+|                                | `oem`      | `COSMIC-Disk`                    |
