@@ -17,8 +17,8 @@
 |                                |            | `Container-Base-Generic`         |
 | Toolbox Container              | `oci`      | `Container-Toolbox`              |
 | RootFS for FEX                 | `erofs`    | `FEX-RootFS`                     |
-| KDE Spin                       | `iso`      | `KDE-Desktop-Live`               |
+| KDE Plasma Desktop Edition     | `iso`      | `KDE-Desktop-Live`               |
 |                                | `oem`      | `KDE-Desktop-Disk`               |
-| KDE Mobile Spin                | `iso`      | `KDE-Mobile-Live`                |
+| KDE Plasma Mobile Spin         | `iso`      | `KDE-Mobile-Live`                |
 |                                | `oem`      | `KDE-Mobile-Disk`                |
 | Workstation Edition            | `iso`      | `Workstation-Live`               |
