@@ -28,7 +28,7 @@
 		<namedCollection name="kde-desktop-environment"/>
 		<namedCollection name="kde-apps"/>
 		<namedCollection name="kde-media"/>
-		<namedCollection name="kde-pim"/>
+		<namedCollection name="kde-pim" arch="aarch64,ppc64le,x86_64"/>
 		<namedCollection name="kde-spin-initial-setup"/>
 		<namedCollection name="firefox"/>
 		<namedCollection name="libreoffice"/>
