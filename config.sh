@@ -295,33 +295,6 @@ KERNEL_VERSION=$(rpm -q kernel --qf '%{version}-%{release}.%{arch}\n')
 sed -i -r 's/(omit_dracutmodules\+\=.*) plymouth (.*)/\1 \2/' /etc/dracut.conf.d/99-liveos.conf
 dracut --force-add plymouth -N -f /boot/initramfs-$KERNEL_VERSION.img $KERNEL_VERSION
 
-# Note that running rpm recreates the rpm db files which aren't needed or wanted
-rm -f /var/lib/rpm/__db*
-
-cat > /etc/sysconfig/desktop <<EOF
-PREFERRED=/usr/bin/sugar
-DISPLAYMANAGER=/usr/sbin/lightdm
-EOF
-
-# set up lightdm autologin
-sed -i 's/^#autologin-user=.*/autologin-user=liveuser/' /etc/lightdm/lightdm.conf
-sed -i 's/^#autologin-user-timeout=.*/autologin-user-timeout=0/' /etc/lightdm/lightdm.conf
-
-# Don't use the default system user (in SoaS liveuser) as nick name
-# Disable the logout menu item in Sugar
-# Enable Sugar power management
-cat >/usr/share/glib-2.0/schemas/sugar.soas.gschema.override <<EOF
-[org.sugarlabs.user]
-default-nick='disabled'
-
-[org.sugarlabs]
-show-logout=false
-
-[org.sugarlabs.power]
-automatic=true
-EOF
-
-/usr/bin/glib-compile-schemas /usr/share/glib-2.0/schemas
 fi
 
 if [[ "$kiwi_profiles" == *"FEX"* ]]; then
