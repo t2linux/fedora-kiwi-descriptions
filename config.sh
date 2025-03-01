@@ -289,11 +289,8 @@ Sugar on a Stick
 EOF
 cat /etc/fedora-release >> /boot/olpc_build
 
-# Rebuild initrd for Sugar boot screen -- TODO: Switch to kiwi declarative stanza
-KERNEL_VERSION=$(rpm -q kernel --qf '%{version}-%{release}.%{arch}\n')
+# Set the default Plymouth theme to the Sugar Desktop one
 /usr/sbin/plymouth-set-default-theme sugar
-sed -i -r 's/(omit_dracutmodules\+\=.*) plymouth (.*)/\1 \2/' /etc/dracut.conf.d/99-liveos.conf
-dracut --force-add plymouth -N -f /boot/initramfs-$KERNEL_VERSION.img $KERNEL_VERSION
 
 # Fix https://bugzilla.redhat.com/show_bug.cgi?id=2239137
 cat > /etc/xdg/autostart/xfce-polkit.desktop <<EOF
