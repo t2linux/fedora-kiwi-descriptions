@@ -295,6 +295,14 @@ KERNEL_VERSION=$(rpm -q kernel --qf '%{version}-%{release}.%{arch}\n')
 sed -i -r 's/(omit_dracutmodules\+\=.*) plymouth (.*)/\1 \2/' /etc/dracut.conf.d/99-liveos.conf
 dracut --force-add plymouth -N -f /boot/initramfs-$KERNEL_VERSION.img $KERNEL_VERSION
 
+# Fix https://bugzilla.redhat.com/show_bug.cgi?id=2239137
+cat > /etc/xdg/autostart/xfce-polkit.desktop <<EOF
+[Desktop Entry]
+Type=Application
+Name=xfce-polkit
+Exec=/usr/libexec/xfce-polkit
+EOF
+
 fi
 
 if [[ "$kiwi_profiles" == *"FEX"* ]]; then
