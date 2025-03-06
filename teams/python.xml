@@ -51,6 +51,7 @@
 		<ignore name="python3.10"/>
 		<ignore name="python3.11"/>
 		<ignore name="python3.12"/>
+		<ignore name="python3.14"/>
 		<!-- Remove LaTeX stack (rhbz#1862450, rhbz#1902354) -->
 		<ignore name="texlive-base"/>
 		<ignore name="texlive-latex"/>
