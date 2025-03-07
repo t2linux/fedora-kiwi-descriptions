@@ -8,9 +8,9 @@
 	<preferences profiles="LiveInstall" arch="x86_64">
 		<type image="iso"
 			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora_Linux"
-			primary="true" flags="dmsquash" filesystem="erofs" erofscompression="lzma,level=6" mediacheck="true"
+			primary="true" flags="dmsquash" filesystem="erofs" erofscompression="lzma,level=8" mediacheck="true"
 			firmware="uefi" efiparttable="gpt" efifatimagesize="30" kernelcmdline="quiet rhgb"
-			fscreateoptions="-Eall-fragments,fragdedupe=inode -C 1048576"
+			fscreateoptions="-Eall-fragments,fragdedupe=inode -C 131072"
 			>
 			<bootloader name="grub2" grub_template="grub-x86.cfg.iso-template" console="console" timeout="10"/>
 		</type>
@@ -18,9 +18,9 @@
 	<preferences profiles="LiveInstall" arch="aarch64">
 		<type image="iso"
 			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora_Linux"
-			primary="true" flags="dmsquash" filesystem="erofs" erofscompression="lzma,level=6" mediacheck="true"
+			primary="true" flags="dmsquash" filesystem="erofs" erofscompression="lzma,level=8" mediacheck="true"
 			firmware="uefi" efiparttable="gpt" efifatimagesize="30" kernelcmdline="quiet rhgb"
-			fscreateoptions="-Eall-fragments,fragdedupe=inode -C 1048576"
+			fscreateoptions="-Eall-fragments,fragdedupe=inode -C 131072"
 			>
 			<bootloader name="grub2" grub_template="grub-arm.cfg.iso-template" console="console" timeout="10"/>
 		</type>
@@ -28,9 +28,9 @@
 	<preferences profiles="LiveInstall" arch="riscv64">
 		<type image="iso"
 			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora_Linux"
-			primary="true" flags="dmsquash" filesystem="erofs" erofscompression="lzma,level=6" mediacheck="true"
+			primary="true" flags="dmsquash" filesystem="erofs" erofscompression="lzma,level=8" mediacheck="true"
 			firmware="uefi" efiparttable="gpt" efifatimagesize="30" kernelcmdline="quiet rhgb"
-			fscreateoptions="-Eall-fragments,fragdedupe=inode -C 1048576"
+			fscreateoptions="-Eall-fragments,fragdedupe=inode -C 131072"
 			>
 			<bootloader name="grub2" grub_template="grub-riscv64.cfg.iso-template" console="console" timeout="10"/>
 		</type>
@@ -38,9 +38,9 @@
 	<preferences profiles="LiveInstall" arch="ppc64le">
 		<type image="iso"
 			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora_Linux"
-			primary="true" flags="dmsquash" filesystem="erofs" erofscompression="lzma,level=6" mediacheck="true"
+			primary="true" flags="dmsquash" filesystem="erofs" erofscompression="lzma,level=8" mediacheck="true"
 			firmware="ofw" kernelcmdline="quiet rhgb"
-			fscreateoptions="-Eall-fragments,fragdedupe=inode -C 1048576"
+			fscreateoptions="-Eall-fragments,fragdedupe=inode -C 131072"
 			>
 			<bootloader name="grub2" grub_template="grub-ppc.cfg.iso-template" console="console" timeout="10"/>
 		</type>
