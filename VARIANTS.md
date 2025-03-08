@@ -37,3 +37,5 @@
 |                                | `oem`      | `Python-Classroom-Disk`               |
 |                                | `oem`      | `Python-Classroom-Vagrant-libvirt`    |
 |                                | `oem`      | `Python-Classroom-Vagrant-VirtualBox` |
+| Phosh Spin                     | `iso`      | `Phosh-Desktop-Live`                  |
+|                                | `oem`      | `Phosh-Desktop-Disk`                  |

@@ -5,10 +5,11 @@
 		</profile>
 	</profiles>
 	<packages type="bootstrap" patternType="plusRecommended" profiles="Phosh-Desktop">
-		<package name="fedora-release-phosh"/>
+		<package name="fedora-release-mobility"/>
 	</packages>
 	<packages type="image" patternType="plusRecommended" profiles="Phosh-Desktop">
 		<!-- install env-group to resolve RhBug:1891500 -->
 		<namedCollection name="phosh-desktop-environment"/>
+	        <package name="initial-setup-gui-wayland-generic"/>
 	</packages>
 </image>

@@ -1,0 +1,15 @@
+<image>
+	<profiles>
+		<profile name="Phosh-Live" description="Phosh Spin Live DVD">
+			<requires profile="Phosh-Desktop"/>
+			<requires profile="LiveInstall"/>
+		</profile>
+		<profile name="Phosh-Disk" description="Phosh Spin Install Disk">
+			<requires profile="BootDiskCore"/>
+			<requires profile="Phosh-Desktop"/>
+		</profile>
+	</profiles>
+	<packages type="bootstrap" patternType="plusRecommended" profiles="Phosh-Disk,Phosh-Live">
+		<package name="fedora-release-mobility"/>
+	</packages>
+</image>
