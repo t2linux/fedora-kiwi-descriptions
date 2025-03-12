@@ -1,3 +1,4 @@
+
 # fedora-kiwi-descriptions
 
 This project is used to manage the Fedora KIWI image descriptions used in composing Fedora release images.
@@ -29,6 +30,13 @@ Set up your development environment and run the image build (substitute `<image_
 
 This project is tested using the [Software Factory Zuul CI instance](https://fedora.softwarefactory-project.io/zuul/project/pagure.io/fedora-kiwi-descriptions)
 using the [Test Management Tool](https://tmt.readthedocs.io/).
+
+The Zuul configuration is generated from the Jinja2 template `.zuul.yaml.j2`.
+When adding or removing a tmt plan, please run the following command to regenerate the Zuul configuration:
+
+```bash
+[]$ make generate-zuul-config
+```
 
 ## Licensing
 
