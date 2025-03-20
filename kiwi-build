@@ -78,9 +78,9 @@ fi
 
 set +e
 if [ ! ${kiwi_isolated} ]; then
-kiwi-ng ${debug} --type="${image_type}" --profile="${image_profile}" --kiwi-file="${kiwi_file}" --color-output system build --description "${kiwi_description_dir}" --target-dir "${output_dir}-build" ${kiwibuild_extra_args}
+kiwi-ng ${debug} --type="${image_type}" --profile="${image_profile}" --kiwi-file="${kiwi_file}" --color-output system build --description "${kiwi_description_dir}" --target-dir "${output_dir}-build" ${kiwibuild_extra_args:+${kiwibuild_extra_args}}
 else
-kiwi-ng ${debug} --type="${image_type}" --profile="${image_profile}" --kiwi-file="${kiwi_file}" --color-output system boxbuild --box universal --sshfs-sharing -- --description "${kiwi_description_dir}" --target-dir "${output_dir}-build" ${kiwibuild_extra_args}
+kiwi-ng ${debug} --type="${image_type}" --profile="${image_profile}" --kiwi-file="${kiwi_file}" --color-output system boxbuild --box universal --sshfs-sharing -- --description "${kiwi_description_dir}" --target-dir "${output_dir}-build" ${kiwibuild_extra_args:+${kiwibuild_extra_args}}
 fi
 kiwi_status=$?
 set -e
