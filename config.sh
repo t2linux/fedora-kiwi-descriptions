@@ -302,6 +302,12 @@ EOF
 
 fi
 
+#======================================
+# Finalization steps
+#--------------------------------------
+# Inhibit the ldconfig cache generation unit, see rhbz2348669
+touch -r "/usr" "/etc/.updated" "/var/.updated"
+
 if [[ "$kiwi_profiles" == *"FEX"* ]]; then
 	# Remove most things except libraries used by FEX and wine stuff.
 	# Most binaries that are present in non-x86 architectures should be removed,
@@ -379,11 +385,5 @@ if [[ "$kiwi_profiles" == *"FEX"* ]]; then
 	# Do this last for obvious reasons.
 	rm /usr/bin/rm
 fi
-
-#======================================
-# Finalization steps
-#--------------------------------------
-# Inhibit the ldconfig cache generation unit, see rhbz2348669
-touch -r "/usr" "/etc/.updated" "/var/.updated"
 
 exit 0
