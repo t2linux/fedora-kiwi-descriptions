@@ -380,4 +380,10 @@ if [[ "$kiwi_profiles" == *"FEX"* ]]; then
 	rm /usr/bin/rm
 fi
 
+#======================================
+# Finalization steps
+#--------------------------------------
+# Inhibit the ldconfig cache generation unit, see rhbz2348669
+touch -r "/usr" "/etc/.updated" "/var/.updated"
+
 exit 0
