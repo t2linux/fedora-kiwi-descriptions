@@ -258,6 +258,7 @@
 		<package name="p11-kit"/>
 		<package name="pam"/>
 		<package name="pigz"/>
+		<package name="policycoreutils"/>
 		<package name="procps-ng"/>
 		<package name="psmisc"/>
 		<package name="python3"/>
