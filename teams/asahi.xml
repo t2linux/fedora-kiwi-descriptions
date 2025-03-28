@@ -183,5 +183,10 @@
 		<package name="gtk2-immodule-xim.i686"/>
 		<package name="gtk3-immodule-xim.x86_64"/>
 		<!-- unavailable <package name="gtk3-immodule-xim.i686"/> -->
+		<!--
+		    Needed to run XUL-based applications in muvm
+		-->
+		<package name="dbus-glib.x86_64"/>
+		<package name="dbus-glib.i686"/>
 	</packages>
 </image>
