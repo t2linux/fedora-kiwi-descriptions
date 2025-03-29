@@ -158,6 +158,7 @@
 		<package name="bash"/>
 		<package name="coreutils"/>
 		<package name="rpm"/>
+		<package name="shadow-utils"/>
 		<package name="util-linux-core"/>
 	</packages>
 	<packages type="bootstrap" profiles="Container-Base-Generic-Minimal">
