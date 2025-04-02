@@ -13,11 +13,14 @@ configurations that can be built.
 
 ## Image build quickstart
 
+This is generally tested and expected to run on the latest stable release of Fedora Linux.
+Other distributions may work, but there are no guarantees.
+
 Set up your development environment and run the image build (substitute `<image_type>` and `<image_profile>` for the appropriate settings):
 
 ```bash
 # Install kiwi
-[]$ sudo dnf --assumeyes install kiwi
+[]$ sudo dnf --assumeyes install kiwi kiwi-systemdeps distribution-gpg-keys
 # Run the image build
 []$ sudo ./kiwi-build --kiwi-file=Fedora.kiwi --image-type=<image_type> --image-profile=<image_profile> --output-dir ./outdir
 ```
