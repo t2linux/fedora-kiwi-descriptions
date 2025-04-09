@@ -16,6 +16,7 @@
 		<package name="rp-pppoe"/> <!-- See http://bugs.sugarlabs.org/ticket/1951 -->
 		<package name="livecd-tools"/> <!-- See http://bugs.sugarlabs.org/ticket/74 -->
 		<package name="xfce-polkit"/>
+	        <package name="initial-setup-gui-wayland-generic"/>
 		<ignore name="@gnome-desktop"/>
 		<ignore name="firefox"/>
 		<ignore name="ibus*"/>
