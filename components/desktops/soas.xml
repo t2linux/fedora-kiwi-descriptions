@@ -14,7 +14,7 @@
 		<package name="sil-abyssinica-fonts"/>
 		<package name="vlgothic-fonts"/>
 		<package name="rp-pppoe"/> <!-- See http://bugs.sugarlabs.org/ticket/1951 -->
-		<package name="livecd-tools"/> <!-- See http://bugs.sugarlabs.org/ticket/74 -->
+		<package name="livecd-iso-to-mediums"/> <!-- See http://bugs.sugarlabs.org/ticket/74 -->
 		<package name="xfce-polkit"/>
 	        <package name="initial-setup-gui-wayland-generic"/>
 		<ignore name="@gnome-desktop"/>
