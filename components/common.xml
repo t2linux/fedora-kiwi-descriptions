@@ -6,6 +6,12 @@
 	<packages type="image" patternType="plusRecommended" profiles="BaseCommon">
 		<namedCollection name="standard"/>
 		<ignore name="qemu-user-static"/> <!-- Saves ~100MB -->
+		<!-- pull in all t2linux packages -->
+		<package name="t2linux-release"/>
+	</packages>
+	<!-- enable t2linux copr repo -->
+	<packages type="bootstrap" patternType="plusRecommended">
+		<package name="t2linux-repos"/>
 	</packages>
 	<packages type="image" patternType="plusRecommended" profiles="HardwareCommon">
 		<namedCollection name="hardware-support"/>
