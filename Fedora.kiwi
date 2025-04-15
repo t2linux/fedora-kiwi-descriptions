@@ -14,6 +14,7 @@
 		<timezone>UTC</timezone>
 		<release-version>42</release-version>
 	</preferences>
+	<include from="this://./repositories/t2linux.xml"/>
 	<include from="this://./repositories/core.xml"/>
 	<include from="this://./components/common.xml"/>
 	<include from="this://./components/boot.xml"/>
