@@ -15,7 +15,7 @@
 		      bootpartition="true" bootpartsize="1024" bootfilesystem="ext4" efipartsize="500" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
-			<bootloader name="grub2" console="console" timeout="5"/>
+			<bootloader name="grub2" bls="true" console="console" timeout="5"/>
 			<systemdisk name="fedora">
 				<volume name="@root=root"/>
 				<volume name="home" parent="/"/>
@@ -33,7 +33,7 @@
 		      bootpartition="true" bootpartsize="1024" bootfilesystem="ext4" efipartsize="500" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
-			<bootloader name="grub2" console="console" timeout="5"/>
+			<bootloader name="grub2" bls="true" console="console" timeout="5"/>
 			<systemdisk name="fedora">
 				<volume name="@root=root"/>
 				<volume name="home" parent="/"/>
@@ -51,7 +51,7 @@
 		      bootpartition="true" bootpartsize="1000" bootfilesystem="ext4" firmware="ofw"
 		      rootfs_label="fedora"
 		      >
-			<bootloader name="grub2" console="console" timeout="5"/>
+			<bootloader name="grub2" bls="true" console="console" timeout="5"/>
 			<systemdisk>
 				<volume name="@root=root"/>
 				<volume name="home" parent="/"/>

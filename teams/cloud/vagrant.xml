@@ -18,7 +18,7 @@
 		      bootpartition="true" bootpartsize="1000" bootfilesystem="ext4" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
-			<bootloader name="grub2" console="serial" timeout="1"/>
+			<bootloader name="grub2" bls="true" console="serial" timeout="1"/>
 			<size unit="G">5</size>
 			<vagrantconfig provider="libvirt" virtualsize="5"/>
 			<systemdisk>
@@ -39,7 +39,7 @@
 		      bootpartition="true" bootpartsize="1000" bootfilesystem="ext4" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
-			<bootloader name="grub2" console="serial" timeout="1"/>
+			<bootloader name="grub2" bls="true" console="serial" timeout="1"/>
 			<size unit="G">5</size>
 			<vagrantconfig provider="virtualbox" virtualbox_guest_additions_present="true" virtualsize="5"/>
 			<systemdisk>

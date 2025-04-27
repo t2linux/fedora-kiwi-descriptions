@@ -36,7 +36,7 @@
 		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
-			<bootloader name="grub2" console="serial" timeout="0"/>
+			<bootloader name="grub2" bls="true" console="serial" timeout="0"/>
 			<size unit="G">5</size>
 			<oemconfig>
 				<oem-resize>false</oem-resize>
@@ -51,7 +51,7 @@
 		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
-			<bootloader name="grub2" timeout="0"/>
+			<bootloader name="grub2" bls="true" timeout="0"/>
 			<size unit="G">5</size>
 			<oemconfig>
 				<oem-resize>false</oem-resize>
@@ -66,7 +66,7 @@
 		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
-			<bootloader name="grub2" timeout="0"/>
+			<bootloader name="grub2" bls="true" timeout="0"/>
 			<!-- GCP engineers have told us the disk images have bad performance if they are anything less than 10G -->
 			<size unit="G">10</size>
 			<oemconfig>
@@ -82,7 +82,7 @@
 		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
-			<bootloader name="grub2" console="serial" timeout="0"/>
+			<bootloader name="grub2" bls="true" console="serial" timeout="0"/>
 			<size unit="G">5</size>
 			<oemconfig>
 				<oem-resize>false</oem-resize>
@@ -97,7 +97,7 @@
 		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" firmware="ofw"
 		      rootfs_label="fedora"
 		      >
-			<bootloader name="grub2" console="serial" timeout="0"/>
+			<bootloader name="grub2" bls="true" console="serial" timeout="0"/>
 			<size unit="G">5</size>
 			<oemconfig>
 				<oem-resize>false</oem-resize>
