@@ -42,8 +42,9 @@ if [[ "$kiwi_profiles" != *"Container"* ]] && [[ "$kiwi_profiles" != *"FEX"* ]] 
 	## Disable recovery entries to match Fedora
 	echo "GRUB_DISABLE_RECOVERY=true" >> /etc/default/grub
 	## Write `menu_auto_hide=1` into grubenv to match Fedora anaconda installs
+	## Set boot_success to avoid displaying the grub menu on first boot
 	if [["$kiwi_profiles" != *"Server"* ]]; then
-		grub2-editenv /boot/grub2/grubenv set menu_auto_hide=1
+		grub2-editenv /boot/grub2/grubenv set menu_auto_hide=1 boot_success=1
 	fi
 fi
 
