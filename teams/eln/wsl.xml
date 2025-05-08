@@ -61,6 +61,7 @@
 		<package name="wget"/>
 		<package name="which"/>
 		<package name="whois"/>
+		<package name="wsl-setup"/>
 		<package name="zip"/>
 	</packages>
 </image>
