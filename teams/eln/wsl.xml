@@ -58,6 +58,7 @@
 		<package name="usbutils"/>
 		<package name="util-linux"/>
 		<package name="vim-minimal"/>
+		<package name="wget"/>
 		<package name="which"/>
 		<package name="whois"/>
 		<package name="zip"/>
