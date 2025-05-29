@@ -3,7 +3,7 @@
 		<profile name="WSL-Base" description="Windows Subsystem for Linux Base"/>
 	</profiles>
 	<preferences profiles="WSL-Base">
-		<type image="tbz"/>
+		<type image="wsl"/>
 		<timezone>Etc/UTC</timezone>
 		<locale>en_US</locale>
 		<rpm-locale-filtering>false</rpm-locale-filtering>
