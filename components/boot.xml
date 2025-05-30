@@ -89,6 +89,8 @@
 		<package name="grub2-efi-aa64-modules" arch="aarch64"/>
 		<package name="grub2-efi-riscv64" arch="riscv64"/>
 		<package name="grub2-efi-riscv64-modules" arch="riscv64"/>
+		<package name="grub2-efi-ia32" arch="x86_64"/>
+		<package name="grub2-efi-ia32-modules" arch="x86_64"/>
 		<package name="grub2-efi-x64" arch="x86_64"/>
 		<package name="grub2-efi-x64-modules" arch="x86_64"/>
 		<package name="grub2-pc" arch="x86_64"/>
@@ -96,6 +98,7 @@
 		<package name="grub2-ppc64le" arch="ppc64le"/>
 		<package name="s390utils-base" arch="s390x"/>
 		<package name="shim-signed-aa64" arch="aarch64"/>
+		<package name="shim-signed-ia32" arch="x86_64"/>
 		<package name="shim-signed-x64" arch="x86_64"/>
 		<package name="shim-unsigned-riscv64" arch="riscv64"/>
 		<package name="kernel-core"/>
@@ -104,6 +107,7 @@
 	</packages>
 	<packages type="image" patternType="plusRecommended" profiles="BootCoreUKI">
 		<package name="shim-signed-aa64" arch="aarch64"/>
+		<package name="shim-signed-ia32" arch="x86_64"/>
 		<package name="shim-signed-x64" arch="x86_64"/>
 		<package name="shim-unsigned-riscv64" arch="riscv64"/>
 		<package name="systemd-oomd-defaults"/>
@@ -115,6 +119,7 @@
 	<packages type="iso" patternType="plusRecommended" profiles="BootCore">
 		<package name="grub2-efi-aa64-cdboot" arch="aarch64"/>
 		<package name="grub2-efi-riscv64-cdboot" arch="riscv64"/>
+		<package name="grub2-efi-ia32-cdboot" arch="x86_64"/>
 		<package name="grub2-efi-x64-cdboot" arch="x86_64"/>
 	</packages>
 	<packages type="image" patternType="plusRecommended" profiles="BootDiskCore">
