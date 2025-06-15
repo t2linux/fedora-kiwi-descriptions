@@ -10,7 +10,7 @@
 			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora_Linux"
 			primary="true" flags="dmsquash" filesystem="erofs" erofscompression="lzma,level=6" mediacheck="true"
 			firmware="uefi" efiparttable="gpt" efifatimagesize="30" kernelcmdline="quiet rhgb"
-			fscreateoptions="-Eall-fragments,fragdedupe=inode -C 1048576"
+			fscreateoptions="-Efragments -C 1048576"
 			>
 			<bootloader name="grub2" grub_template="grub-x86.cfg.iso-template" console="console" timeout="10"/>
 		</type>
@@ -20,7 +20,7 @@
 			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora_Linux"
 			primary="true" flags="dmsquash" filesystem="erofs" erofscompression="lzma,level=6" mediacheck="true"
 			firmware="uefi" efiparttable="gpt" efifatimagesize="30" kernelcmdline="quiet rhgb"
-			fscreateoptions="-Eall-fragments,fragdedupe=inode -C 1048576"
+			fscreateoptions="-Efragments -C 1048576"
 			>
 			<bootloader name="grub2" grub_template="grub-arm.cfg.iso-template" console="console" timeout="10"/>
 		</type>
@@ -30,7 +30,7 @@
 			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora_Linux"
 			primary="true" flags="dmsquash" filesystem="erofs" erofscompression="lzma,level=6" mediacheck="true"
 			firmware="uefi" efiparttable="gpt" efifatimagesize="30" kernelcmdline="quiet rhgb"
-			fscreateoptions="-Eall-fragments,fragdedupe=inode -C 1048576"
+			fscreateoptions="-Efragments -C 1048576"
 			>
 			<bootloader name="grub2" grub_template="grub-riscv64.cfg.iso-template" console="console" timeout="10"/>
 		</type>
@@ -40,7 +40,7 @@
 			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora_Linux"
 			primary="true" flags="dmsquash" filesystem="erofs" erofscompression="lzma,level=6" mediacheck="true"
 			firmware="ofw" kernelcmdline="quiet rhgb"
-			fscreateoptions="-Eall-fragments,fragdedupe=inode -C 1048576"
+			fscreateoptions="-Efragments -C 1048576"
 			>
 			<bootloader name="grub2" grub_template="grub-ppc.cfg.iso-template" console="console" timeout="10"/>
 		</type>
