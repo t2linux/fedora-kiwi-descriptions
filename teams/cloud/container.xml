@@ -160,6 +160,7 @@
 		<package name="rpm"/>
 		<package name="shadow-utils"/>
 		<package name="util-linux-core"/>
+		<package name="gawk"/>
 	</packages>
 	<packages type="bootstrap" profiles="Container-Base-Generic-Minimal">
 		<ignore name="glibc-langpack-en"/>
