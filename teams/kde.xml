@@ -26,4 +26,7 @@
 	<packages type="image" patternType="plusRecommended" profiles="KDE-Desktop-Disk,KDE-Desktop-Live">
 		<package name="plasma-welcome-fedora"/>
 	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="KDE-Desktop-Live">
+		<package name="anaconda-webui"/>
+	</packages>
 </image>
