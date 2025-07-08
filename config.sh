@@ -308,6 +308,13 @@ EOF
 fi
 
 #======================================
+# Set the WSL name for ELN
+#--------------------------------------
+if [[ "$kiwi_profiles" == *"WSL"* ]] && [[ "$kiwi_iname" == *"ELN"* ]]; then
+wsl-setup --name Fedora-ELN
+fi
+
+#======================================
 # Finalization steps
 #--------------------------------------
 # Inhibit the ldconfig cache generation unit, see rhbz2348669
