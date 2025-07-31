@@ -50,7 +50,6 @@
 		<file name="iso-esp-excludes.yaml" target="image/exclude_files_efifatimage.yaml"/>
 		<!-- The point of a live image is to install -->
 		<namedCollection name="anaconda-tools"/>
-		<package name="anaconda"/>
 		<package name="anaconda-install-env-deps"/>
 		<package name="anaconda-live"/>
 		<!-- Need this for SVG release note images -->
