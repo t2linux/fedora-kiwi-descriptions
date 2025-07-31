@@ -12,7 +12,4 @@
 	<packages type="bootstrap" patternType="plusRecommended" profiles="LXQt-Live,LXQt-Disk">
 		<package name="fedora-release-lxqt"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="LXQt-Live">
-		<package name="anaconda-webui"/>
-	</packages>
 </image>
