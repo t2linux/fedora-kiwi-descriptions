@@ -3,7 +3,7 @@
 
 This project is used to manage the Fedora KIWI image descriptions used in composing Fedora release images.
 
-The `rawhide` branch is used for Fedora Rawhide images and each release branch is used by that release.
+The `43` branch is used for Fedora 43 images and each release branch is used by that release.
 
 All changes should be made via the PR workflow.
 
