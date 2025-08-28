@@ -15,9 +15,7 @@
 		<package name="dnf5"/>
 		<package name="dnf5-plugins"/>
 		<package name="fedora-release-eln"/>
-		<package name="policycoreutils"/>
 		<package name="rpm"/>
-		<package name="selinux-policy-targeted"/>
 	</packages>
 	<packages type="image" patternType="plusRecommended" profiles="WSL-Base">
 		<package name="attr"/>
