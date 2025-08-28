@@ -16,7 +16,7 @@ echo "Configure image: [$kiwi_iname]-[$kiwi_profiles]..."
 #======================================
 # Set SELinux booleans
 #--------------------------------------
-if [[ "$kiwi_profiles" != *"Container"* ]] && [[ "$kiwi_profiles" != *"FEX"* ]]; then
+if [[ "$kiwi_profiles" != *"Container"* ]] && [[ "$kiwi_profiles" != *"FEX"* ]] && [[ "$kiwi_profiles" != *"WSL"* ]]; then
 	## Fixes KDE Plasma, see rhbz#2058657
 	setsebool -P selinuxuser_execmod 1
 fi
