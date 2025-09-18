@@ -165,9 +165,8 @@
 		<package name="man-db"/>
 		<package name="man-pages"/>
 		<package name="mesa-dri-drivers"/>
-		<package name="mesa-vulkan-drivers"/>
+		<package name="mesa-vulkan-drivers" arch="x86_64"/>
 		<package name="mtr"/>
-		<package name="nss-mdns"/>
 		<package name="openssh-clients"/>
 		<package name="openssl"/>
 		<package name="pam"/>
