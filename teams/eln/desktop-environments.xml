@@ -1,0 +1,39 @@
+<image>
+	<profiles>
+		<profile name="DesktopCommon" description="Common desktop packages"/>
+		<profile name="GNOME-Desktop" description="GNOME Desktop">
+			<requires profile="DesktopCommon"/>
+		</profile>
+		<profile name="KDE-Desktop" description="KDE Plasma Desktop">
+			<requires profile="DesktopCommon"/>
+		</profile>
+	</profiles>
+	<packages type="image" patternType="plusRecommended" profiles="DesktopCommon">
+		<package name="fedora-eln-backgrounds"/>
+		<package name="firefox"/>
+		<package name="plymouth-theme-spinner"/>
+		<namedCollection name="fonts"/>
+		<namedCollection name="guest-desktop-agents"/>
+		<namedCollection name="hardware-support"/>
+		<namedCollection name="multimedia"/>
+		<namedCollection name="networkmanager-submodules"/>
+		<namedCollection name="print-client"/>
+		<namedCollection name="standard"/>
+		<ignore name="insights-client"/>
+		<ignore name="libdnf-plugin-subscription-manager"/>
+		<ignore name="subscription-manager"/>
+		<ignore name="subscription-manager-cockpit"/>
+	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="GNOME-Desktop">
+		<namedCollection name="workstation-product-environment"/>
+	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="KDE-Desktop">
+		<namedCollection name="kde-spin-initial-setup"/>
+		<namedCollection name="kde-desktop-environment"/>
+		<namedCollection name="kde-apps"/>
+		<namedCollection name="kde-media"/>
+		<ignore name="plasma-nm-l2tp"/>
+		<ignore name="plasma-nm-vpnc"/>
+		<package name="fuse"/>
+	</packages>
+</image>

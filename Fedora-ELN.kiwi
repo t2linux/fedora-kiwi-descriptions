@@ -15,9 +15,12 @@
 		<release-version>eln</release-version>
 	</preferences>
 	<include from="this://./components/boot-eln.xml"/>
+	<include from="this://./components/liveinstall-eln.xml"/>
 	<include from="this://./repositories/core-eln.xml"/>
 	<include from="this://./teams/eln/cloud.xml"/>
 	<include from="this://./teams/eln/container.xml"/>
+	<include from="this://./teams/eln/desktop-environments.xml"/>
+	<include from="this://./teams/eln/liveprofiles.xml"/>
 	<include from="this://./teams/eln/wsl.xml"/>
 	<packages type="bootstrap">
 		<package name="filesystem"/>
