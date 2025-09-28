@@ -111,7 +111,7 @@
 		<type image="oem"
 		      filesystem="xfs"
 		      devicepersistency="by-uuid" force_mbr="true" editbootinstall="editbootinstall_rpilegacy.sh"
-		      bootpartition="true" bootpartsize="1000" bootfilesystem="ext4" efipartsize="500" firmware="uefi"
+		      bootpartition="true" bootpartsize="1000" bootfilesystem="ext4" efipartsize="500" disk_start_sector="34816" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
 			<bootloader name="grub2" bls="true" console="serial" timeout="3" timeout_style="menu"/>
