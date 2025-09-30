@@ -120,7 +120,7 @@ fi
 #--------------------------------------
 
 if [[ "$kiwi_profiles" == *"Disk"* ]]; then
-	if [[ "$kiwi_profiles" != *"GNOME"* ]]; then
+	if [[ "$kiwi_profiles" != *"GNOME"* ]] && [[ "$kiwi_profiles" != *"COSMIC"* ]]; then
 		## Enable initial-setup
 		systemctl enable initial-setup.service
 		## Enable reconfig mode
