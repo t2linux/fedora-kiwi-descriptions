@@ -33,7 +33,7 @@
 		      filesystem="xfs"
 		      kernelcmdline="no_timer_check console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0 systemd.firstboot=off"
 		      devicepersistency="by-uuid"
-		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+		      bootpartition="true" bootpartsize="2000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
 			<bootloader name="grub2" bls="true" console="serial" timeout="0"/>
@@ -48,7 +48,7 @@
 		      filesystem="xfs"
 		      kernelcmdline="no_timer_check console=tty1 console=ttyAMA0,115200n8 earlyprintk=ttyAMA0 systemd.firstboot=off"
 		      devicepersistency="by-uuid"
-		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+		      bootpartition="true" bootpartsize="2000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
 			<bootloader name="grub2" bls="true" console="serial" timeout="0"/>
@@ -63,7 +63,7 @@
 		      filesystem="xfs"
 		      kernelcmdline="no_timer_check console=tty1 console=ttyS0,115200n8 systemd.firstboot=off"
 		      devicepersistency="by-uuid"
-		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+		      bootpartition="true" bootpartsize="2000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
 			<bootloader name="grub2" bls="true" timeout="0"/>
@@ -78,7 +78,7 @@
 		      filesystem="xfs"
 		      kernelcmdline="no_timer_check console=tty1 console=ttyAMA0,115200n8 systemd.firstboot=off"
 		      devicepersistency="by-uuid"
-		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+		      bootpartition="true" bootpartsize="2000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
 			<bootloader name="grub2" bls="true" timeout="0"/>
@@ -93,7 +93,7 @@
 		      filesystem="xfs"
 		      kernelcmdline="no_timer_check console=ttyS0,38400n8d systemd.firstboot=off"
 		      devicepersistency="by-uuid"
-		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+		      bootpartition="true" bootpartsize="2000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
 			<bootloader name="grub2" bls="true" timeout="0"/>
@@ -109,7 +109,7 @@
 		      filesystem="xfs"
 		      kernelcmdline="no_timer_check console=ttyAMA0,38400n8d systemd.firstboot=off"
 		      devicepersistency="by-uuid"
-		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+		      bootpartition="true" bootpartsize="2000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
 			<bootloader name="grub2" bls="true" timeout="0"/>
@@ -125,7 +125,7 @@
 		      filesystem="xfs"
 		      kernelcmdline="no_timer_check console=tty1 console=ttyS0,115200n8 systemd.firstboot=off"
 		      devicepersistency="by-uuid"
-		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+		      bootpartition="true" bootpartsize="2000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
 			<bootloader name="grub2" bls="true" console="serial" timeout="0"/>
@@ -140,7 +140,7 @@
 		      filesystem="xfs"
 		      kernelcmdline="no_timer_check console=tty1 console=ttyAMA0,115200n8 systemd.firstboot=off"
 		      devicepersistency="by-uuid"
-		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+		      bootpartition="true" bootpartsize="2000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
 			<bootloader name="grub2" bls="true" console="serial" timeout="0"/>
@@ -155,7 +155,7 @@
 		      filesystem="xfs"
 		      kernelcmdline="no_timer_check console=tty1 console=ttyS0,115200n8 systemd.firstboot=off"
 		      devicepersistency="by-uuid"
-		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" firmware="ofw"
+		      bootpartition="true" bootpartsize="2000" bootfilesystem="xfs" firmware="ofw"
 		      rootfs_label="fedora"
 		      >
 			<bootloader name="grub2" bls="true" console="serial" timeout="0"/>
@@ -170,7 +170,7 @@
 		      filesystem="xfs"
 		      kernelcmdline="no_timer_check console=tty1 console=ttyS0,115200n8 systemd.firstboot=off"
 		      devicepersistency="by-uuid"
-		      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs"
+		      bootpartition="true" bootpartsize="2000" bootfilesystem="xfs"
 		      rootfs_label="fedora"
 		      >
 			<bootloader name="zipl" timeout="1"/>
