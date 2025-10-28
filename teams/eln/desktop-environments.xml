@@ -12,6 +12,7 @@
 		<package name="fedora-eln-backgrounds"/>
 		<package name="firefox"/>
 		<package name="plymouth-theme-spinner"/>
+		<namedCollection name="base-graphical"/>
 		<namedCollection name="fonts"/>
 		<namedCollection name="guest-desktop-agents"/>
 		<namedCollection name="hardware-support"/>
@@ -25,7 +26,8 @@
 		<ignore name="subscription-manager-cockpit"/>
 	</packages>
 	<packages type="image" patternType="plusRecommended" profiles="GNOME-Desktop">
-		<namedCollection name="workstation-product-environment"/>
+		<namedCollection name="gnome-desktop"/>
+		<namedCollection name="workstation-product"/>
 	</packages>
 	<packages type="image" patternType="plusRecommended" profiles="KDE-Desktop">
 		<namedCollection name="kde-spin-initial-setup"/>
