@@ -13,6 +13,7 @@
 		<package name="firefox"/>
 		<package name="plymouth-theme-spinner"/>
 		<namedCollection name="base-graphical"/>
+		<namedCollection name="core"/>
 		<namedCollection name="fonts"/>
 		<namedCollection name="guest-desktop-agents"/>
 		<namedCollection name="hardware-support"/>
