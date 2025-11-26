@@ -122,12 +122,8 @@
 		<package name="libXrandr.i686"/>
 		<package name="clang-libs.x86_64"/>
 		<package name="clang-libs.i686"/>
-		<package name="clang18-libs.x86_64"/>
-		<package name="clang18-libs.i686"/>
 		<package name="llvm-libs.x86_64"/>
 		<package name="llvm-libs.i686"/>
-		<package name="llvm18-libs.x86_64"/>
-		<package name="llvm18-libs.i686"/>
 		<package name="libclc.x86_64"/>
 		<package name="libclc.i686"/>
 		<package name="spirv-tools-libs.x86_64"/>
