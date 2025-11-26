@@ -154,7 +154,6 @@
 		<package name="xterm"/>
 		<package name="xz"/>
 		<package name="wine.x86_64"/>
-		<package name="wine.i686"/>
 		<package name="vulkan-tools"/>
 		<package name="vulkan-loader.i686"/>
 		<package name="vulkan-loader.x86_64"/>
