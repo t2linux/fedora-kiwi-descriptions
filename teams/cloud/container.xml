@@ -295,4 +295,10 @@
 		<package name="systemd-resolved"/>
 		<package name="xkeyboard-config"/>
 	</packages>
+	<packages type="bootstrap" profiles="Container-Base-Generic-Minimal,Container-Base-Generic,Container-Toolbox">
+		<package name="systemd-standalone-tmpfiles"/>
+	</packages>
+	<packages type="uninstall" profiles="Container-Base-Generic-Minimal,Container-Base-Generic,Container-Toolbox">
+		<package name="systemd-standalone-tmpfiles"/>
+	</packages>
 </image>
