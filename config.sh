@@ -219,6 +219,13 @@ chmod 600 /root/.ssh/authorized_keys
 chown -R root:root /root/.ssh
 fi
 
+# https://bugzilla.redhat.com/show_bug.cgi?id=2356069
+if [[ "$kiwi_profiles" == *"Container"* ]] && [[ "$kiwi_profiles" != *"Init"* ]]; then
+	if [[ -f /usr/lib/tmpfiles.d/rootfiles.conf ]]; then
+		systemd-tmpfiles --create /usr/lib/tmpfiles.d/rootfiles.conf
+	fi
+fi
+
 if [[ "$kiwi_profiles" == *"Container"* ]] || [[ "$kiwi_profiles" == *"FEX"* ]]; then
 	# Set install langs macro so that new rpms that get installed will
 	# only install langs that we limit it to.
