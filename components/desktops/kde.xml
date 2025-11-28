@@ -22,6 +22,7 @@
 		<ignore name="kipi-plugins"/> <!-- ~8 megs + drags in marble -->
 		<ignore name="krusader"/> <!-- ~4 megs -->
 		<ignore name="ktorrent"/> <!-- ~15 megs -->
+		<ignore name="initial-setup"/> <!-- redundant with plasma-setup -->
 	</packages>
 	<packages type="image" patternType="plusRecommended" profiles="KDE-Desktop">
 		<!-- install env-group to resolve RhBug:1891500 -->
@@ -29,7 +30,6 @@
 		<namedCollection name="kde-apps"/>
 		<namedCollection name="kde-media"/>
 		<namedCollection name="kde-pim" arch="aarch64,ppc64le,x86_64"/>
-		<namedCollection name="kde-spin-initial-setup"/>
 		<namedCollection name="firefox"/>
 		<namedCollection name="libreoffice"/>
 		<namedCollection name="x86-emulation" arch="aarch64"/>
