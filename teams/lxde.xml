@@ -9,7 +9,9 @@
 			<requires profile="BootDiskCore"/>
 		</profile>
 	</profiles>
+	<!-- fedora-release-lxde does not exist yet... cf. https://bugzilla.redhat.com/2420045
 	<packages type="bootstrap" patternType="plusRecommended" profiles="LXDE-Live,LXDE-Disk">
 		<package name="fedora-release-lxde"/>
 	</packages>
+	-->
 </image>
