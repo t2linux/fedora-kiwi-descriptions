@@ -31,10 +31,10 @@
 		<namedCollection name="workstation-product"/>
 	</packages>
 	<packages type="image" patternType="plusRecommended" profiles="KDE-Desktop">
-		<namedCollection name="kde-spin-initial-setup"/>
 		<namedCollection name="kde-desktop-environment"/>
 		<namedCollection name="kde-apps"/>
 		<namedCollection name="kde-media"/>
+                <ignore name="initial-setup"/> <!-- redundant with plasma-setup -->
 		<ignore name="plasma-nm-l2tp"/>
 		<ignore name="plasma-nm-vpnc"/>
 		<package name="fuse"/>
