@@ -1,0 +1,106 @@
+<image>
+	<profiles>
+		<profile name="AstronomyDesktop" description="Desktop packages for Astronomy">
+			<requires profile="KDE-Desktop"/>
+		</profile>
+		<profile name="Astronomy_KDE-Live" description="Astronomy KDE Lab Live DVD">
+			<requires profile="AstronomyDesktop"/>
+			<requires profile="LiveInstall"/>
+		</profile>
+		<profile name="Astronomy_KDE-Disk" description="Astronomy KDE Lab Install Disk">
+			<requires profile="AstronomyDesktop"/>
+			<requires profile="BootDiskCore"/>
+		</profile>
+	</profiles>
+	<packages type="bootstrap" patternType="plusRecommended" profiles="AstronomyDesktop">
+		<package name="fedora-release-kde"/>
+	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="AstronomyDesktop">
+		<!-- Installing the default/mandatory packages from engineering & scientific -->
+		<namedCollection name="engineering-and-scientific"/>
+		<!-- Basic development -->
+		<namedCollection name="development-tools"/>
+		<namedCollection name="c-development"/>
+		<!-- astronomical data analysis -->
+		<package name="astrometry"/>
+		<package name="astrometry-tycho2"/>
+		<package name="cdsclient"/>
+		<package name="cfitsio-utils"/>
+		<package name="psfex"/>
+		<package name="scamp"/>
+		<package name="sextractor"/>
+		<!-- <package name="siril"/> -->
+		<package name="skyviewer"/>
+		<package name="swarp"/>
+		<package name="wcstools"/>
+		<!-- Observatory: KStars + INDI -->
+		<package name="indistarter"/>
+		<package name="kstars"/>
+		<package name="libindi"/>
+		<!-- misc. astronomy -->
+		<!-- <package name="celestia"/> -->
+		<package name="stellarium"/>
+		<!-- <package name="virtualplanet"/> -->
+		<!-- Some astro environment stuff -->
+		<package name="astronomy-menus"/>
+		<package name="astronomy-menus-toplevel"/>
+		<!-- Python 3 and tools/libraries not included from the groups -->
+		<package name="python3"/>
+		<package name="python3-tools"/>
+		<package name="python3-matplotlib"/>
+		<package name="python3-scipy"/>
+		<package name="python3-numpy"/>
+		<package name="python3-ipython"/>
+		<package name="python3-ipython-console"/>
+		<package name="python3-ipython-notebook"/>
+		<package name="python3-sympy"/>
+		<package name="python3-networkx"/>
+		<package name="python3-pandas"/>
+		<package name="python3-pillow"/>
+		<package name="python3-seaborn"/>
+		<package name="python3-statsmodels"/>
+		<package name="python3-scikit-learn"/>
+		<package name="python3-scikit-image"/>
+		<!-- Python 3 astronomy -->
+		<package name="astropy-tools"/>
+		<package name="ginga"/>
+		<package name="python3-astropy"/>
+		<package name="python3-astroML"/>
+		<package name="python3-astroquery"/>
+		<package name="python3-astroscrappy"/>
+		<package name="python3-APLpy"/>
+		<package name="python3-ccdproc"/>
+		<package name="python3-fitsio"/>
+		<package name="python3-gatspy"/>
+		<package name="python3-photutils"/>
+		<package name="python3-pyvo"/>
+		<package name="python3-reproject"/>
+		<package name="python3-sep"/>
+		<!-- Matplotlib backend -->
+		<package name="python3-matplotlib-qt6"/>
+		<!-- Python IDE very useful for scientific use -->
+		<package name="python3-spyder"/>
+		<!-- BOINC for distributed computing -->
+		<package name="boinc-client"/>
+		<package name="boinc-manager"/>
+		<!-- Version control - A GUI for each as well -->
+		<package name="git"/>
+		<package name="git-gui"/>
+		<package name="git-cola"/>
+		<!-- Drawing, picture viewing tools, visualization tools -->
+		<package name="dia"/>
+		<package name="gimp"/>
+		<package name="kst"/>
+		<package name="kst-docs"/>
+		<package name="kst-fits"/>
+		<package name="LabPlot"/>
+		<!-- Misc tools -->
+		<package name="ImageMagick"/>
+		<package name="kate"/>
+		<package name="kate-plugins"/>
+		<package name="rlwrap"/>
+		<package name="screen"/>
+		<!-- Java JRE for VO tools -->
+		<package name="java"/>
+	</packages>
+</image>
