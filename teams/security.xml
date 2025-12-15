@@ -1,0 +1,76 @@
+<image>
+	<profiles>
+		<profile name="SecurityDesktop" description="Desktop packages for Security Lab">
+			<requires profile="Xfce-Desktop"/>
+		</profile>
+		<profile name="Security-Live" description="Security Lab Live DVD">
+			<requires profile="SecurityDesktop"/>
+			<requires profile="LiveInstall"/>
+		</profile>
+		<profile name="Security-Disk" description="Security Lab Install Disk">
+			<requires profile="SecurityDesktop"/>
+			<requires profile="BootDiskCore"/>
+		</profile>
+	</profiles>
+	<packages type="bootstrap" patternType="plusRecommended" profiles="SecurityDesktop">
+		<package name="fedora-release"/>
+	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="SecurityDesktop">
+		<!-- Security tools -->
+		<namedCollection name="security-lab"/>
+		<package name="security-menus"/>
+		<!-- Unlock default keyring. FIXME: Should be done in comps -->
+		<package name="gnome-keyring-pam"/>
+		<!-- Save some space -->
+		<ignore name="autofs"/>
+		<ignore name="acpid"/>
+		<ignore name="gimp-help"/>
+		<ignore name="desktop-backgrounds-basic"/>
+		<ignore name="PackageKit*"/> <!-- We switched to dnfdragora, so we don't need this -->
+		<ignore name="aspell-*"/> <!-- Dictionaries are big -->
+		<ignore name="gnumeric"/>
+		<ignore name="foomatic-db-ppds"/>
+		<ignore name="foomatic"/>
+		<ignore name="stix-fonts"/>
+		<ignore name="default-fonts-core-math"/>
+		<ignore name="ibus-typing-booster"/>
+		<ignore name="xfce4-sensors-plugin"/>
+		<ignore name="man-pages-*"/>
+		<!-- Drop some system-config things -->
+		<ignore name="system-config-rootpassword"/>
+		<ignore name="policycoreutils-gui"/>
+		<!-- Exclude some packages to save some space -->
+		<ignore name="ArpON"/>
+		<ignore name="aide"/>
+		<ignore name="binwalk"/>
+		<ignore name="bkhive"/>
+		<ignore name="bonesi"/>
+		<ignore name="cmospwd"/>
+		<ignore name="dnstop"/>
+		<ignore name="etherape"/>
+		<ignore name="hfsutils"/>
+		<ignore name="httpie"/>
+		<ignore name="httrack"/>
+		<ignore name="hydra"/>
+		<ignore name="kismon"/>
+		<ignore name="labrea"/>
+		<ignore name="nebula"/>
+		<ignore name="netsed"/>
+		<ignore name="onesixtyone"/>
+		<ignore name="packETH"/>
+		<ignore name="pads"/>
+		<ignore name="pdfcrack"/>
+		<ignore name="proxychains"/>
+		<ignore name="pyrit"/>
+		<ignore name="rkhunter"/>
+		<ignore name="safecopy"/>
+		<ignore name="samdump2"/>
+		<ignore name="scalpel"/>
+		<ignore name="sslstrip"/>
+		<ignore name="tcpreen"/>
+		<ignore name="tcpreplay"/>
+		<ignore name="tripwire"/>
+		<ignore name="wipe"/>
+		<ignore name="zmap"/>
+	</packages>
+</image>
