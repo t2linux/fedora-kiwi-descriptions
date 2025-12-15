@@ -58,6 +58,7 @@
 	<include from="this://./teams/scitech.xml"/>
 	<include from="this://./teams/phosh.xml"/>
 	<include from="this://./teams/astronomy.xml"/>
+	<include from="this://./teams/designsuite.xml"/>
 	<packages type="bootstrap">
 		<package name="filesystem"/>
 	</packages>

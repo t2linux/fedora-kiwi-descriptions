@@ -1,0 +1,32 @@
+<image>
+	<profiles>
+		<profile name="DesignSuiteDesktop" description="Desktop packages for Design Suite">
+			<requires profile="GNOME-Desktop"/>
+		</profile>
+		<profile name="Design_suite-Live" description="Design Suite Lab Live DVD">
+			<requires profile="DesignSuiteDesktop"/>
+			<requires profile="LiveInstall"/>
+		</profile>
+		<profile name="Design_suite-Disk" description="Design Suite Lab Install Disk">
+			<requires profile="DesignSuiteDesktop"/>
+			<requires profile="BootDiskCore"/>
+		</profile>
+	</profiles>
+	<packages type="bootstrap" patternType="plusRecommended" profiles="DesignSuiteDesktop">
+		<package name="fedora-release-designsuite"/>
+	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="DesignSuiteDesktop">
+		<namedCollection name="design-suite"/>
+		<!-- Provides backup application (blocked by Workstation exclude of python3-boto3) -->
+		<!-- <package name="deja-dup"/> -->
+		<!-- Add extra gnome applications -->
+		<package name="gnome-calendar"/>
+		<package name="gnome-pomodoro"/>
+		<package name="gnome-todo"/>
+		<!-- Add cosmetic for terminal -->
+		<package name="powerline"/>
+		<package name="powerline-fonts"/>
+		<!-- Removal of unneeded applications -->
+		<ignore name="gnome-boxes"/>
+	</packages>
+</image>
