@@ -61,6 +61,7 @@
 	<include from="this://./teams/designsuite.xml"/>
 	<include from="this://./teams/games.xml"/>
 	<include from="this://./teams/security.xml"/>
+	<include from="this://./teams/jam.xml"/>
 	<packages type="bootstrap">
 		<package name="filesystem"/>
 	</packages>

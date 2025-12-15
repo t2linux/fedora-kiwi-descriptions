@@ -296,6 +296,37 @@ if [[ "$kiwi_profiles" == *"Container"* ]] || [[ "$kiwi_profiles" == *"FEX"* ]];
 	fi
 fi
 
+if [[ "$kiwi_profiles" == *"Jam"* ]]; then
+# Override boot configuration in Anaconda to enable threaded IRQs
+cat > /usr/share/anaconda/post-scripts/85-jam-threadirqs.ks << THREADIRQS_EOF
+%post
+
+echo "Enable threaded IRQs"
+grubby --update-kernel=ALL --args="threadirqs"
+%end
+THREADIRQS_EOF
+
+# Override new user configuration to add audio groups
+sed -e "s/UserGroups=.*/UserGroups=wheel,jackuser,audio/" -i /etc/xdg/plasmasetuprc
+
+# Override livesys-kde settings
+cat >> /var/lib/livesys/livesys-session-extra << EOF
+
+#setup kickoff favorites
+/bin/mkdir -p /etc/skel/.config
+
+JAMFAVORITES=/usr/share/applications/firefox.desktop,/usr/share/applications/mozilla-thunderbird.desktop,/usr/share/applications/studio-controls.desktop,/usr/share/applications/ardour6.desktop,/usr/share/applications/carla.desktop,/usr/share/applications/org.kde.konsole.desktop,/usr/share/applications/org.kde.dolphin.desktop,/usr/share/applications/systemsettings.desktop
+JAMFAVORITESLIVE=/usr/share/applications/liveinst.desktop,\$JAMFAVORITES
+
+cat <<FOE  >> /etc/skel/.config/kickoffrc
+[Favorites]
+FavoriteURLs=\$JAMFAVORITES
+FOE
+
+/usr/sbin/usermod -a -G jackuser,audio liveuser
+EOF
+fi
+
 if [[ "$kiwi_profiles" == *"Design_suite"* ]]; then
 # Add link to lists of tutorials
 cat >> /usr/share/applications/list-design-tutorials.desktop << FOE

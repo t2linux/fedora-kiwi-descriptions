@@ -1,0 +1,50 @@
+<image>
+	<profiles>
+		<profile name="JamDesktop" description="Desktop packages for Jam">
+			<requires profile="KDE-Desktop"/>
+		</profile>
+		<profile name="Jam_KDE-Live" description="Jam KDE Lab Live DVD">
+			<requires profile="JamDesktop"/>
+			<requires profile="LiveInstall"/>
+		</profile>
+		<profile name="Jam_KDE-Disk" description="Jam KDE Lab Install Disk">
+			<requires profile="JamDesktop"/>
+			<requires profile="BootDiskCore"/>
+		</profile>
+	</profiles>
+	<packages type="bootstrap" patternType="plusRecommended" profiles="JamDesktop">
+		<package name="fedora-release-kde"/>
+	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="JamDesktop">
+		<!-- Installing the default/mandatory packages for audio production -->
+		<namedCollection name="audio"/>
+		<!-- PipeWire -->
+		<package name="pipewire"/>
+		<!-- sound analysis, none of these are packaged yet -->
+		<!-- <package name="praat"/> --> <!-- rhbz#666656 -->
+		<!-- <package name="friture"/> -->
+		<!-- writing & publishing -->
+		<package name="emacs"/>
+		<package name="emacs-color-theme"/>
+		<package name="vim-enhanced"/>
+		<package name="nano"/>
+		<!-- fedora jam theming (to be customized) -->
+		<package name="fedora-jam-backgrounds"/>
+		<package name="fedora-jam-kde-theme"/>
+		<!-- Misc tools -->
+		<package name="multimedia-menus"/>
+		<package name="kernel-tools"/>
+		<package name="screen"/>
+		<!-- Add Mozilla Thunderbird -->
+		<package name="thunderbird"/>
+		<!-- Remove packages not needed -->
+		<ignore name="akregator"/>
+		<ignore name="kaddressbook"/>
+		<ignore name="kmail"/>
+		<ignore name="kontact"/>
+		<ignore name="korganizer"/>
+		<ignore name="non-mixer"/>
+		<ignore name="non-session-manager"/>
+		<ignore name="non-sequencer"/>
+	</packages>
+</image>
