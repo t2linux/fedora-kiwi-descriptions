@@ -1,0 +1,149 @@
+<image>
+	<profiles>
+		<profile name="GamesDesktop" description="Desktop packages for Games Lab">
+			<requires profile="Xfce-Desktop"/>
+		</profile>
+		<profile name="Games-Live" description="Games Lab Live DVD">
+			<requires profile="GamesDesktop"/>
+			<requires profile="LiveInstall"/>
+		</profile>
+		<profile name="Games-Disk" description="Games Lab Install Disk">
+			<requires profile="GamesDesktop"/>
+			<requires profile="BootDiskCore"/>
+		</profile>
+	</profiles>
+	<packages type="bootstrap" patternType="plusRecommended" profiles="GamesDesktop">
+		<package name="fedora-release"/>
+	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="GamesDesktop">
+		<!-- The point of this is to show off Fedora games, not running Windows ones -->
+		<ignore name="wine"/>
+		<!-- Remove LibreOffice, we're here to have fun! -->
+		<ignore name="libreoffice*"/>
+		<!-- Extra screensavers aren't much help for the games lab -->
+		<ignore name="xscreensaver-extras"/>
+		<!-- Allow joysticks and gamepads to work -->
+		<package name="joystick-support"/>
+		<package name="steam-devices"/>
+		<!-- Games -->
+		<!-- Traditional (big) -->
+		<!-- <package name="alienarena"/> --> <!-- Cut for size -->
+		<package name="armacycles-ad"/>
+		<package name="asc"/>
+		<package name="asc-music"/>
+		<package name="astromenace"/>
+		<package name="boswars"/>
+		<package name="bzflag"/>
+		<package name="crossfire-client"/>
+		<package name="extremetuxracer"/>
+		<package name="freeciv"/>
+		<package name="freecol"/>
+		<package name="freedoom"/>
+		<package name="freedroidrpg"/>
+		<package name="frozen-bubble"/>
+		<package name="glob2"/>
+		<package name="lincity-ng"/>
+		<package name="megaglest"/>
+		<package name="nethack-vultures"/>
+		<package name="netpanzer"/>
+		<package name="neverball"/>
+		<package name="nogravity"/>
+		<!-- <package name="pinball"/> --> <!-- Would pull in fluid-soundfont-lite-patches -->
+		<package name="scorched3d"/>
+		<package name="supertux"/>
+		<package name="supertuxkart"/>
+		<package name="ultimatestunts"/>
+		<package name="warzone2100"/>
+		<package name="wesnoth"/>
+		<!-- <package name="worminator"/> --> <!-- Would pull in fluid-soundfont-lite-patches -->
+		<package name="warmux"/>
+		<package name="xmoto"/>
+		<!-- Traditional (small) -->
+		<package name="abe"/>
+		<!-- <package name="alex4"/> --> <!-- Would pull in fluid-soundfont-lite-patches -->
+		<!-- <package name="ballz"/> --> <!-- Would pull in fluid-soundfont-lite-patches -->
+		<package name="blobwars"/>
+		<package name="bombardier"/>
+		<package name="cdogs-sdl"/>
+		<package name="clanbomber"/>
+		<package name="colossus"/>
+		<package name="foobillard"/>
+		<package name="glaxium"/>
+		<package name="gnubg"/>
+		<package name="gnugo"/>
+		<package name="haxima"/>
+		<package name="hedgewars"/>
+		<package name="kcheckers"/>
+		<package name="knights"/>
+		<package name="lbrickbuster2"/>
+		<!-- <package name="liquidwar"/> --> <!-- Would pull in fluid-soundfont-lite-patches -->
+		<package name="lordsawar"/>
+		<!-- <package name="machineball"/> --> <!-- Would pull in fluid-soundfont-lite-patches -->
+		<package name="nethack"/>
+		<package name="openlierox"/>
+		<package name="pachi"/>
+		<package name="pioneers"/>
+		<package name="quarry"/>
+		<!-- <package name="Ri-li"/> --> <!-- Cut for size -->
+		<package name="rogue"/>
+		<!-- <package name="scorchwentbonkers"/> --> <!-- Would pull in fluid-soundfont-lite-patches -->
+		<package name="solarwolf"/>
+		<package name="sopwith"/>
+		<package name="stormbaancoureur"/>
+		<package name="ularn"/>
+		<package name="xblast"/>
+		<!-- Arcade classics(ish) (big) -->
+		<package name="auriferous"/>
+		<package name="alienblaster"/>
+		<!-- <package name="duel3"/> --> <!-- Would pull in fluid-soundfont-lite-patches -->
+		<package name="powermanga"/>
+		<!-- <package name="raidem"/> --> <!-- Would pull in fluid-soundfont-lite-patches -->
+		<!-- <package name="raidem-music"/> --> <!-- Would pull in fluid-soundfont-lite-patches -->
+		<package name="trackballs"/>
+		<package name="trackballs-music"/>
+		<!-- Arcade classics(ish) (small) -->
+		<package name="ballbuster"/>
+		<package name="CriticalMass"/>
+		<package name="dd2"/>
+		<package name="KoboDeluxe"/>
+		<!-- <package name="lacewing"/> --> <!-- Would pull in fluid-soundfont-lite-patches -->
+		<package name="Maelstrom"/>
+		<package name="methane"/>
+		<package name="njam"/>
+		<package name="shippy"/>
+		<package name="tecnoballz"/>
+		<package name="wordwarvi"/>
+		<package name="xgalaxy"/>
+		<!-- <package name="zasx"/> --> <!-- Would pull in fluid-soundfont-lite-patches -->
+		<!-- Falling blocks games (small) -->
+		<package name="amoebax"/>
+		<package name="crack-attack"/>
+		<!-- <package name="crystal-stacker"/> --> <!-- Would pull in fluid-soundfont-lite-patches -->
+		<package name="gemdropx"/>
+		<package name="gweled"/>
+		<!-- Puzzles (big) -->
+		<package name="enigma"/>
+		<package name="fillets-ng"/>
+		<package name="pingus"/>
+		<!-- Puzzles (small) -->
+		<!-- <package name="gbrainy"/> --> <!-- Removed for space - only game that pulls in mono -->
+		<package name="mirrormagic"/>
+		<package name="pipenightdreams"/>
+		<package name="pipepanic"/>
+		<package name="pychess"/>
+		<package name="rocksndiamonds"/>
+		<package name="vodovod"/>
+		<!-- Card games -->
+		<package name="PySolFC"/>
+		<!-- Educational/Simulation -->
+		<package name="planets"/>
+		<package name="tuxpaint"/>
+		<package name="tuxpaint-stamps"/>
+		<package name="tuxtype2"/>
+		<!-- Compilations (we are avoiding compilations, rare exceptions) -->
+		<package name="bsd-games"/>
+		<!-- Utilities -->
+		<package name="games-menus"/>
+		<ignore name="autodownloader"/> <!-- Nothing should be downloading data to play -->
+	</packages>
+</image>
