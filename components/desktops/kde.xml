@@ -41,8 +41,6 @@
 	<packages type="image" patternType="plusRecommended" profiles="KDE-Mobile">
 		<!-- install env-group to resolve RhBug:1891500 -->
 		<namedCollection name="kde-mobile-environment"/>
-		<!-- not ideal, but the best we can do for now -->
-		<namedCollection name="kde-spin-initial-setup"/>
 		<namedCollection name="firefox"/>
 		<namedCollection name="x86-emulation" arch="aarch64"/>
 		<package name="fuse"/>
