@@ -8,5 +8,9 @@
 			<requires profile="KDE-Desktop"/>
 			<requires profile="LiveInstall"/>
 		</profile>
+		<profile name="COSMIC-Live" description="COSMIC Live DVD">
+			<requires profile="COSMIC-Desktop"/>
+			<requires profile="LiveInstall"/>
+		</profile>
 	</profiles>
 </image>

@@ -7,6 +7,9 @@
 		<profile name="KDE-Desktop" description="KDE Plasma Desktop">
 			<requires profile="DesktopCommon"/>
 		</profile>
+		<profile name="COSMIC-Desktop" description="COSMIC Desktop">
+			<requires profile="DesktopCommon"/>
+		</profile>
 	</profiles>
 	<packages type="image" patternType="plusRecommended" profiles="DesktopCommon">
 		<package name="fedora-eln-backgrounds"/>
@@ -38,5 +41,8 @@
 		<ignore name="plasma-nm-l2tp"/>
 		<ignore name="plasma-nm-vpnc"/>
 		<package name="fuse"/>
+	</packages>
+	<packages type="image" patternType="plusRecommended" profiles="COSMIC-Desktop">
+		<namedCollection name="cosmic-desktop-environment"/>
 	</packages>
 </image>
