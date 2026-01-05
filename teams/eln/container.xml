@@ -18,8 +18,8 @@
 				<labels>
 					<label name="org.opencontainers.image.vendor" value="Fedora Project"/>
 					<label name="org.opencontainers.image.url" value="https://fedoraproject.org/"/>
-					<label name="org.opencontainers.image.license" value="MIT"/>
-					<label name="org.opencontainers.image.name" value="fedora"/>
+					<label name="org.opencontainers.image.licenses" value="MIT"/>
+					<label name="org.opencontainers.image.title" value="fedora"/>
 					<label name="org.opencontainers.image.version" value="eln"/>
 					<!-- Legacy attributes for backward compatibility -->
 					<label name="vendor" value="Fedora Project"/>
@@ -48,8 +48,8 @@
 				<labels>
 					<label name="org.opencontainers.image.vendor" value="Fedora Project"/>
 					<label name="org.opencontainers.image.url" value="https://fedoraproject.org/"/>
-					<label name="org.opencontainers.image.license" value="MIT"/>
-					<label name="org.opencontainers.image.name" value="fedora-toolbox"/>
+					<label name="org.opencontainers.image.licenses" value="MIT"/>
+					<label name="org.opencontainers.image.title" value="fedora-toolbox"/>
 					<label name="org.opencontainers.image.version" value="eln"/>
 					<label name="com.github.containers.toolbox" value="true"/>
 					<!-- Legacy attributes for backward compatibility -->
