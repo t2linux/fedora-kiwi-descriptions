@@ -77,12 +77,12 @@ fas = [ "churchyard", "python-sig" ]
 maintainers = [ "Miro Hrončok", "Python SIG" ]
 
 [labs.scientific_kde.x86_64]
-fas = [ "scitech" ]
-maintainers = [ "SciTech SIG" ]
-
+fas = [ "q5sys", "scitech"  ]
+maintainers = [ "JT Pennington", "SciTech SIG" ]
+ 
 [labs.scientific.x86_64]
-fas = [ "scitech" ]
-maintainers = [ "SciTech SIG" ]
+fas = [ "q5sys", "scitech"  ]
+maintainers = [ "JT Pennington", "SciTech SIG" ] 
 
 [labs.robotics.x86_64]
 fas = [ "lrossett", "robotics-sig" ]
