@@ -108,6 +108,7 @@ maintainers = [ "Aleksei Bavshin", "Jiří Konečný", "Anthony Rabbito", "Fabio
 fas = [ "mattkae", "ngompa" ]
 maintainers = [ "Matthew Kosarek", "Neal Gompa" ]
 
+# Silverblue
 [silverblue.x86_64]
 fas = [ "siosm", "tpopela" ]
 maintainers = [ "Timothée Ravier", "Tomáš Popela" ]
@@ -115,6 +116,7 @@ maintainers = [ "Timothée Ravier", "Tomáš Popela" ]
 fas = [ "siosm", "tpopela" ]
 maintainers = [ "Timothée Ravier", "Tomáš Popela" ]
 
+# Kinoite
 [kinoite.x86_64]
 fas = [ "siosm" ]
 maintainers = [ "Timothée Ravier" ]
@@ -122,6 +124,7 @@ maintainers = [ "Timothée Ravier" ]
 fas = [ "siosm" ]
 maintainers = [ "Timothée Ravier" ]
 
+# Sway Atomic
 [sericea.x86_64]
 fas = [ "alebastr", "jkonecny", "anthr76", "fale" ]
 maintainers = [ "Aleksei Bavshin", "Jiří Konečný", "Anthony Rabbito", "Fabio Alessandro Locati" ]
@@ -129,6 +132,7 @@ maintainers = [ "Aleksei Bavshin", "Jiří Konečný", "Anthony Rabbito", "Fabio
 fas = [ "alebastr", "jkonecny", "anthr76", "fale" ]
 maintainers = [ "Aleksei Bavshin", "Jiří Konečný", "Anthony Rabbito", "Fabio Alessandro Locati" ]
 
+# Budgie Atomic
 [onyx.x86_64]
 fas = [ "joshstrobl" ]
 maintainers = [ "Joshua Strobl" ]
@@ -136,6 +140,7 @@ maintainers = [ "Joshua Strobl" ]
 fas = [ "joshstrobl" ]
 maintainers = [ "Joshua Strobl" ]
 
+# COSMIC Atomic
 [cosmic-atomic.x86_64]
 fas = [ "ryanabx" ]
 maintainers = [ "Ryan Brue" ]
