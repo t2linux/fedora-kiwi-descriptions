@@ -108,6 +108,10 @@ maintainers = [ "Aleksei Bavshin", "Jiří Konečný", "Anthony Rabbito", "Fabio
 fas = [ "mattkae", "ngompa" ]
 maintainers = [ "Matthew Kosarek", "Neal Gompa" ]
 
+[spins.phosh.x86_64]
+fas = [ "lihis", "phosh-sig" ]
+maintainers = [ "Tomi Lähteenmäki", "phosh-sig" ]
+
 # Silverblue
 [silverblue.x86_64]
 fas = [ "siosm", "tpopela" ]
