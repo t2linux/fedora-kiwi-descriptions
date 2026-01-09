@@ -65,8 +65,8 @@ fas = [ "luya" ]
 maintainers = [ "Luya Tshimbalanga" ]
 
 [labs.games.x86_64]
-fas = [ "ngompa", "q5sys" ]
-maintainers = [ "Neal Gompa", "JT Pennington" ]
+fas = [ "dogphilosopher", "owensz", "jaidenriordan", "lleyton", "ngompa" ]
+maintainers = [ "Noel Miller", "Owen Zimmerman", "Jaiden Riordan", "Lleyton Gray", "Neal Gompa" ]
 
 [labs.jam_kde.x86_64]
 fas = [ "q5sys" ]
