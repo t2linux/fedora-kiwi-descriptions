@@ -27,11 +27,6 @@
 					<label name="org.opencontainers.image.licenses" value="MIT"/>
 					<label name="org.opencontainers.image.title" value="fedora"/>
 					<label name="org.opencontainers.image.version" value="rawhide"/>
-					<!-- Legacy attributes for backward compatibility -->
-					<label name="vendor" value="Fedora Project"/>
-					<label name="license" value="MIT"/>
-					<label name="name" value="fedora"/>
-					<label name="version" value="rawhide"/>
 				</labels>
 				<environment>
 					<env name="container" value="oci"/>
@@ -58,11 +53,6 @@
 					<label name="org.opencontainers.image.licenses" value="MIT"/>
 					<label name="org.opencontainers.image.title" value="fedora-minimal"/>
 					<label name="org.opencontainers.image.version" value="rawhide"/>
-					<!-- Legacy attributes for backward compatibility -->
-					<label name="vendor" value="Fedora Project"/>
-					<label name="license" value="MIT"/>
-					<label name="name" value="fedora-minimal"/>
-					<label name="version" value="rawhide"/>
 				</labels>
 				<environment>
 					<env name="container" value="oci"/>
@@ -89,11 +79,6 @@
 					<label name="org.opencontainers.image.licenses" value="MIT"/>
 					<label name="org.opencontainers.image.title" value="fedora-init"/>
 					<label name="org.opencontainers.image.version" value="rawhide"/>
-					<!-- Legacy attributes for backward compatibility -->
-					<label name="vendor" value="Fedora Project"/>
-					<label name="license" value="MIT"/>
-					<label name="name" value="fedora-init"/>
-					<label name="version" value="rawhide"/>
 				</labels>
 				<stopsignal>SIGRTMIN+3</stopsignal>
 			</containerconfig>
@@ -118,11 +103,6 @@
 					<label name="org.opencontainers.image.title" value="fedora-toolbox"/>
 					<label name="org.opencontainers.image.version" value="rawhide"/>
 					<label name="com.github.containers.toolbox" value="true"/>
-					<!-- Legacy attributes for backward compatibility -->
-					<label name="vendor" value="Fedora Project"/>
-					<label name="license" value="MIT"/>
-					<label name="name" value="fedora-toolbox"/>
-					<label name="version" value="rawhide"/>
 				</labels>
 				<environment>
 					<env name="container" value="oci"/>

@@ -21,11 +21,6 @@
 					<label name="org.opencontainers.image.licenses" value="MIT"/>
 					<label name="org.opencontainers.image.title" value="fedora"/>
 					<label name="org.opencontainers.image.version" value="eln"/>
-					<!-- Legacy attributes for backward compatibility -->
-					<label name="vendor" value="Fedora Project"/>
-					<label name="license" value="MIT"/>
-					<label name="name" value="fedora"/>
-					<label name="version" value="eln"/>
 				</labels>
 				<environment>
 					<env name="container" value="oci"/>
@@ -52,11 +47,6 @@
 					<label name="org.opencontainers.image.title" value="fedora-toolbox"/>
 					<label name="org.opencontainers.image.version" value="eln"/>
 					<label name="com.github.containers.toolbox" value="true"/>
-					<!-- Legacy attributes for backward compatibility -->
-					<label name="vendor" value="Fedora Project"/>
-					<label name="license" value="MIT"/>
-					<label name="name" value="fedora-toolbox"/>
-					<label name="version" value="eln"/>
 				</labels>
 				<environment>
 					<env name="container" value="oci"/>
