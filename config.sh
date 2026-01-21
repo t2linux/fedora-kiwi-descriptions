@@ -180,6 +180,20 @@ cat > /etc/NetworkManager/conf.d/99-azure-unmanaged-devices.conf << EOF
 [keyfile]
 unmanaged-devices=driver:mlx4_core;driver:mlx5_core
 EOF
+
+# Configure DHCP timeout for Azure to retry indefinitely during VM provisioning
+cat > /etc/NetworkManager/conf.d/99-azure-dhcp-timeout.conf << EOF
+# Azure requires VMs to attempt DHCP for at least 300 seconds during provisioning,
+# as that's the upper bound of how long Azure waits to make networking available.
+# NetworkManager's ipv4.dhcp-timeout setting accepts 2147483647 as a special value
+# representing infinity, which ensures DHCP keeps retrying indefinitely. This is
+# more robust than a fixed timeout and matches systemd-networkd's default behavior.
+# Both IPv4 and IPv6 are configured to prepare for IPv6-only scenarios.
+# Reference: https://networkmanager.dev/docs/api/latest/nm-settings-nmcli.html
+[connection]
+ipv4.dhcp-timeout=2147483647
+ipv6.dhcp-timeout=2147483647
+EOF
 fi
 
 if [[ "$kiwi_profiles" == *"GCE"* ]]; then
