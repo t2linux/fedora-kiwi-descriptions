@@ -85,6 +85,7 @@
 		<package name="grubby"/>
 	</packages>
 	<packages type="image" patternType="plusRecommended" profiles="BootCore">
+		<ignore name="kernel-*debug*"/>
 		<package name="grub2-efi-aa64" arch="aarch64"/>
 		<package name="grub2-efi-aa64-modules" arch="aarch64"/>
 		<package name="grub2-efi-riscv64" arch="riscv64"/>
@@ -123,6 +124,7 @@
 		<package name="grub2-efi-x64-cdboot" arch="x86_64"/>
 	</packages>
 	<packages type="image" patternType="plusRecommended" profiles="BootDiskCore">
+		<ignore name="kernel-*debug*"/>
 		<package name="arm-image-installer" arch="aarch64"/>
 		<package name="glibc-all-langpacks"/>
 		<package name="kernel"/>
