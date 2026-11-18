@@ -62,6 +62,8 @@ jobs:
           fi
 
       - name: Upload to GitHub Releases
+        # Only publish a release on pushes to main; never on pull requests.
+        if: github.event_name == 'push'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: build-${{ github.run_number }}

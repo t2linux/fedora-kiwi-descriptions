@@ -74,7 +74,9 @@ with PyYAML, and TOML (`.toml`) with `tomllib`. It exits non-zero on any
 parse error, so a corrupted or half-edited config fails CI before a broken
 ISO is ever built. It runs on
 pull requests targeting `main`, on pushes to `main`, and manually via
-workflow dispatch — so every PR gets an ISO build before merge.
+workflow dispatch — so every PR gets an ISO build before merge. The actual
+GitHub Releases upload is gated behind `if: github.event_name == 'push'`, so a
+release is published only on pushes to `main` and never from a pull request.
 
 ## Repository structure
 
