@@ -1,0 +1,49 @@
+name: Build Custom Fedora ISO
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-iso:
+    runs-on: ubuntu-latest
+    container:
+      # GitHub runners run Ubuntu, so launch a privileged fedora:latest container.
+      # KIWI needs loop devices and must build the squashfs filesystem itself.
+      image: fedora:latest
+      options: --privileged
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install KIWI and build dependencies
+        run: |
+          dnf install -y kiwi kiwi-systemdeps distribution-gpg-keys git
+
+      - name: Build Live ISO
+        run: |
+          mkdir -p outdir
+          ./kiwi-build \
+            --kiwi-file=Fedora.kiwi \
+            --image-type=iso \
+            --image-profile=KDE-Desktop \
+            --image-release=0 \
+            --output-dir=./outdir
+
+      - name: Verify ISO is under 2GB
+        run: |
+          ISO_FILE=$(find ./outdir -name "*.iso" | head -n 1)
+          ISO_SIZE=$(stat -c%s "$ISO_FILE")
+          echo "Built ISO size: $((ISO_SIZE / 1024 / 1024)) MB"
+          if [ "$ISO_SIZE" -ge 2147483648 ]; then
+            echo "Error: ISO exceeds GitHub Releases 2GB limit!"
+            exit 1
+          fi
+
+      - name: Upload to GitHub Releases
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          files: outdir/*
