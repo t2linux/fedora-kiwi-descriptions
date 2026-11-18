@@ -70,7 +70,10 @@ python3 scripts/check_file_integrity.py
 [`scripts/check_file_integrity.py`](scripts/check_file_integrity.py) walks the
 repo and confirms every configuration file is well-formed — XML/KIWI
 (`.xml`, `.kiwi`) with the standard library, YAML (`.yaml`, `.yml`, `.fmf`)
-with PyYAML, and TOML (`.toml`) with `tomllib`. It exits non-zero on any
+with PyYAML, and TOML (`.toml`) with `tomllib`. Folders whose contents are a
+single, extension-agnostic format are validated against that format no matter
+the file name: today only the `tmt/` folder, where every FMF definition is
+YAML even when a file is named e.g. `tiny-disk.xml`. It exits non-zero on any
 parse error, so a corrupted or half-edited config fails CI before a broken
 ISO is ever built. It runs on
 pull requests targeting `main`, on pushes to `main`, and manually via

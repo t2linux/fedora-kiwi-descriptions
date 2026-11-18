@@ -42,8 +42,11 @@ When adding or removing a tmt plan, please run the following command to regenera
 
 [`scripts/check_file_integrity.py`](scripts/check_file_integrity.py) verifies
 that every configuration file in the repo is well-formed — XML/KIWI
-(`.xml`, `.kiwi`), YAML (`.yaml`, `.yml`, `.fmf`), and TOML (`.toml`). It is
-run automatically by GitHub Actions on every push to `main` and pull request,
+(`.xml`, `.kiwi`), YAML (`.yaml`, `.yml`, `.fmf`), and TOML (`.toml`). Folders whose contents are a single, extension-agnostic
+format are validated against that format no matter the file name — right now
+only the `tmt/` folder, where every FMF definition is YAML even when named
+e.g. `tiny-disk.xml`. It is run automatically by GitHub Actions on every push
+to `main` and pull request,
 but you can also run it locally:
 
 ```bash

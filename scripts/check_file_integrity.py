@@ -17,6 +17,15 @@ Supported formats
 * TOML (``.toml``) — validated with the standard library ``tomllib``
   (Python 3.11+).
 
+Directory overrides
+-------------------
+Some folders contain a single, format-agnostic content type regardless of the
+file extension, so their files are always validated against the matching
+parser even when the suffix points elsewhere. Currently only the tmt folder is
+covered: every file under ``tmt/`` is YAML content (tmt FMF definitions), so a
+file such as ``tmt/plans/base/tiny-disk.xml`` is parsed as YAML instead of XML.
+Configure these in :data:`YAML_DIRS`.
+
 The script validates everything it can and reports clearly what it had to
 skip when an optional parser is not installed, so it also runs sensibly on
 machines that lack PyYAML. In CI, install the optional parsers (see
@@ -47,6 +56,20 @@ VALIDATORS = {
     "fmf": "yaml",
     "toml": "toml",
 }
+
+# Directories whose contents are always validated as YAML regardless of file
+# extension (e.g. the tmt folder, where every FMF definition is YAML even when
+# a file happens to be named ``*.xml``).
+YAML_DIRS = frozenset({"tmt"})
+
+
+def force_yaml(path: Path, root: Path) -> bool:
+    """Return True when *path* lives inside a forced-YAML directory."""
+    try:
+        rel_parts = path.relative_to(root).parts
+    except ValueError:
+        return False
+    return any(part in YAML_DIRS for part in rel_parts)
 
 
 def load_xml(path: Path) -> None:
@@ -109,10 +132,13 @@ def main(argv: list[str]) -> int:
         # Skip the version marker and anything in VCS / hidden build dirs.
         if path.name == "version":
             continue
-        ext = path.suffix[1:].lower()
-        parser_name = VALIDATORS.get(ext)
-        if parser_name is None:
-            continue
+        if force_yaml(path, root):
+            parser_name = "yaml"
+        else:
+            ext = path.suffix[1:].lower()
+            parser_name = VALIDATORS.get(ext)
+            if parser_name is None:
+                continue
 
         if parser_name in unavailable:
             skipped.append(f"{parser_name} ({path})")
