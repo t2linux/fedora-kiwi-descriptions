@@ -77,7 +77,10 @@ YAML even when a file is named e.g. `tiny-disk.xml`. It exits non-zero on any
 parse error, so a corrupted or half-edited config fails CI before a broken
 ISO is ever built. It runs on
 pull requests targeting `main`, on pushes to `main`, and manually via
-workflow dispatch — so every PR gets an ISO build before merge. The actual
+workflow dispatch — so every PR gets an ISO build before merge. The
+`build-iso` job declares `needs: validate-config`, so it waits for that job
+to finish and GitHub Actions skips it automatically if `validate-config` fails,
+preventing an expensive KIWI build from running on a malformed config. The actual
 GitHub Releases upload is gated behind `if: github.event_name == 'push'`, so a
 release is published only on pushes to `main` and never from a pull request.
 
