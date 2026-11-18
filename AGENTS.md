@@ -57,7 +57,9 @@ is why Fedora's own Spin/Edition builds migrated to it (the older
 
 GitHub runners run Ubuntu, so the build launches a **privileged**
 `fedora:latest` container (KIWI needs loop devices and must build the squashfs
-filesystem). The workflow lives in `.github/workflows/build.yml`.
+filesystem). The workflow lives in `.github/workflows/build.yml`. It runs on
+pull requests targeting `main`, on pushes to `main`, and manually via
+workflow dispatch — so every PR gets an ISO build before merge.
 
 ## Repository structure
 
