@@ -57,6 +57,7 @@ jobs:
       - name: Verify ISO is under 2GB
         run: |
           ISO_FILE=$(find ./outdir -name "*.iso" | head -n 1)
+          echo "Built ISO file: $ISO_FILE"
           ISO_SIZE=$(stat -c%s "$ISO_FILE")
           echo "Built ISO size: $((ISO_SIZE / 1024 / 1024)) MB"
           if [ "$ISO_SIZE" -ge 2147483648 ]; then
