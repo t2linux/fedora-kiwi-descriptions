@@ -57,7 +57,22 @@ is why Fedora's own Spin/Edition builds migrated to it (the older
 
 GitHub runners run Ubuntu, so the build launches a **privileged**
 `fedora:latest` container (KIWI needs loop devices and must build the squashfs
-filesystem). The workflow lives in `.github/workflows/build.yml`. It runs on
+filesystem). The workflow lives in `.github/workflows/build.yml`.
+
+It also runs a lightweight **config integrity** job (`validate-config`, no
+privileged container needed) before the ISO build:
+
+```bash
+sudo apt-get update && sudo apt-get install -y python3-yaml
+python3 scripts/check_file_integrity.py
+```
+
+[`scripts/check_file_integrity.py`](scripts/check_file_integrity.py) walks the
+repo and confirms every configuration file is well-formed — XML/KIWI
+(`.xml`, `.kiwi`) with the standard library, YAML (`.yaml`, `.yml`, `.fmf`)
+with PyYAML, and TOML (`.toml`) with `tomllib`. It exits non-zero on any
+parse error, so a corrupted or half-edited config fails CI before a broken
+ISO is ever built. It runs on
 pull requests targeting `main`, on pushes to `main`, and manually via
 workflow dispatch — so every PR gets an ISO build before merge.
 

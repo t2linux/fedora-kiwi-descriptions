@@ -8,6 +8,23 @@ on:
     branches: [ main ]
 
 jobs:
+  validate-config:
+    # Verify that every configuration file (XML/YAML/TOML) is well-formed
+    # before the expensive ISO build runs. Lightweight: no privileged container.
+    name: Validate repository config files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install YAML parser
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-yaml
+
+      - name: Run integrity check
+        run: python3 scripts/check_file_integrity.py
+
   build-iso:
     runs-on: ubuntu-latest
     container:
