@@ -28,8 +28,12 @@
 		<!-- install env-group to resolve RhBug:1891500 -->
 		<namedCollection name="kde-desktop-environment"/>
 		<namedCollection name="kde-apps"/>
-		<namedCollection name="kde-media"/>
-		<namedCollection name="kde-pim" arch="aarch64,ppc64le,x86_64"/>
+		<!-- kde-media and kde-pim collections dropped (issue #6): the <ignore> tags below
+			already removed dragon/elisa/akregator/kmail/kontact, but keeping these collections
+			still pulled in the heavier stacks behind them (Akonadi + embedded MariaDB, KOrganizer,
+			KAddressBook, and media players), adding ~150-250 MB. Users who want PIM/media apps can
+			install them later via dnf or Flatpak.
+		-->
 		<namedCollection name="firefox"/>
 		<!-- LibreOffice suite dropped to keep the live ISO under GitHub's 2 GB release limit
 	     (issue #3); users can install it later via dnf or Flatpak. -->
