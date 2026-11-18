@@ -28,7 +28,7 @@ jobs:
           ./kiwi-build \
             --kiwi-file=Fedora.kiwi \
             --image-type=iso \
-            --image-profile=KDE-Desktop \
+            --image-profile=KDE-Desktop-Live \
             --image-release=0 \
             --output-dir=./outdir
 
