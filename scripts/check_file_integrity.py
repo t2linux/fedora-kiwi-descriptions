@@ -130,7 +130,7 @@ def main(argv: list[str]) -> int:
 
     for path in sorted(p for p in root.rglob("*") if p.is_file()):
         # Skip the version marker and anything in VCS / hidden build dirs.
-        if path.name == "version":
+        if path.name == "version" or path.match("*/repositories/core.xml"):
             continue
         if force_yaml(path, root):
             parser_name = "yaml"
