@@ -87,12 +87,10 @@ jobs:
           ISO_FILE=$(find ./outdir -name "*.iso" | head -n 1)
           mkdir -p /tmp/isoboot
 
-          # Extract vmlinuz and initrd from the ISO so we can pass console=ttyS0
-          # to capture the full systemd boot log on stdout without altering the ISO
-          osirrox -indev "$ISO_FILE" -extract /images/pxeboot/vmlinuz /tmp/isoboot/vmlinuz \
-            || osirrox -indev "$ISO_FILE" -extract /boot/vmlinuz /tmp/isoboot/vmlinuz
-          osirrox -indev "$ISO_FILE" -extract /images/pxeboot/initrd.img /tmp/isoboot/initrd.img \
-            || osirrox -indev "$ISO_FILE" -extract /boot/initrd.img /tmp/isoboot/initrd.img
+          # KIWI NG stores kernel and initrd at /boot/x86_64/loader/{linux,initrd}
+          osirrox -indev "$ISO_FILE" \
+            -extract /boot/x86_64/loader/linux /tmp/isoboot/vmlinuz \
+            -extract /boot/x86_64/loader/initrd /tmp/isoboot/initrd.img
 
           # Read the ISO's volume label so dracut/dmsquash finds the live root device
           VOLID=$(blkid -s LABEL -o value "$ISO_FILE")
