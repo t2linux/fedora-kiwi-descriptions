@@ -43,7 +43,7 @@ jobs:
 
       - name: Install KIWI and build dependencies
         run: |
-          dnf install -y kiwi kiwi-systemdeps distribution-gpg-keys git
+          dnf install -y kiwi kiwi-systemdeps distribution-gpg-keys git zip
 
       - name: Build Live ISO
         run: |
@@ -171,10 +171,27 @@ jobs:
             exit 1
           fi
 
+      - name: Zip ISO into ≤1.9GB parts
+        # GitHub Releases caps single-file uploads at 2GB; split the ISO so each
+        # part stays under 1.9GB. zip multi-part archives are reassembled with
+        # `unzip -s` or a simple cat of <name>.z0N…<name>.zip + <name>.zip.
+        run: |
+          ISO_FILE=$(find ./outdir -name "*.iso" | head -n 1)
+          ISO_BASENAME=$(basename "$ISO_FILE" .iso)
+          echo "Splitting $ISO_FILE into ≤1.9GB zip parts"
+          mkdir -p ./dist
+          zip --version | head -n 1
+          # `--split` emits <ISO_BASENAME>.z01, .z02, … and final .zip
+          zip --split -s 1.9g --dist ./dist/$ISO_BASENAME.zip "$ISO_FILE"
+          ls -lh ./dist
+          echo "ISO_BASENAME=$ISO_BASENAME" >> "$GITHUB_ENV"
+
       - name: Upload to GitHub Releases
         # Only publish a release on pushes to main; never on pull requests.
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: build-${{ github.run_number }}
-          files: outdir/*
+          files: |
+            ./dist/${{ env.ISO_BASENAME }}.zip
+            ./dist/${{ env.ISO_BASENAME }}.z*
