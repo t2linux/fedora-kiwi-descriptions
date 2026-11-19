@@ -132,11 +132,11 @@ jobs:
           dnf install -y qemu-system-x86-core edk2-ovmf xorriso
 
           ISO_FILE=$(find ./outdir -name "*.iso" | head -n 1)
-          mkdir -p /tmp/isoboot
+          #mkdir -p /tmp/isoboot
 
-          osirrox -indev "$ISO_FILE" \
-            -extract /boot/x86_64/loader/linux /tmp/isoboot/vmlinuz \
-            -extract /boot/x86_64/loader/initrd /tmp/isoboot/initrd.img
+          #osirrox -indev "$ISO_FILE" \
+          #  -extract /boot/x86_64/loader/linux /tmp/isoboot/vmlinuz \
+          #  -extract /boot/x86_64/loader/initrd /tmp/isoboot/initrd.img
 
           VOLID=$(blkid -s LABEL -o value "$ISO_FILE")
           echo "Testing ISO: $ISO_FILE (VOLID=$VOLID)"
@@ -154,7 +154,7 @@ jobs:
             -cdrom "$ISO_FILE" \
             -display none \
             -serial stdio \
-            -no-reboot
+            -no-reboot \
           | tee /tmp/boot.log || true
 
           echo "=== CHECKING BOOT LOG ==="
