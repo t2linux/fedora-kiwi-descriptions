@@ -35,6 +35,10 @@
 		<package name="mesa-dri-drivers"/>
 		<package name="mesa-vulkan-drivers"/>
 		<package name="vulkan-loader"/>
+
+		<package name="amd-gpu-firmware"/>
+		<package name="intel-gpu-firmware"/>
+		<package name="nvidia-gpu-firmware"/>
 	</packages>
 	<packages type="bootstrap" patternType="onlyRequired" profiles="KDE-Mobile-Disk,KDE-Mobile-Live">
 		<package name="fedora-release-kde-mobile"/>
