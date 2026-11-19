@@ -182,7 +182,7 @@ jobs:
           mkdir -p ./dist
           zip --version | head -n 1
           # `--split` emits <ISO_BASENAME>.z01, .z02, … and final .zip
-          zip --split -s 1.9g --dist ./dist/$ISO_BASENAME.zip "$ISO_FILE"
+          zip -0 -s 1900m --out "./dist/${ISO_BASENAME}.zip" "$ISO_FILE"
           ls -lh ./dist
           echo "ISO_BASENAME=$ISO_BASENAME" >> "$GITHUB_ENV"
 
