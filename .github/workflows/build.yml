@@ -29,6 +29,8 @@ jobs:
     # any job it `needs` failed, so a corrupted config never triggers an expensive build.
     needs: validate-config
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     container:
       # GitHub runners run Ubuntu, so launch a privileged fedora:latest container.
       # KIWI needs loop devices and must build the squashfs filesystem itself.
