@@ -25,28 +25,13 @@
 		<package name="erofs-utils"/>
 
 		<!-- Fedora 45 KDE Display Manager & First-Boot Setup (replaces SDDM) -->
-		<!-- Required by plasmalogin-greeter & plasma-setup under onlyRequired -->
 		<package name="plasma-login-manager"/>
 		<package name="kcm-plasmalogin"/>
 		<package name="plasma-setup"/>
-		<package name="plasma-workspace"/>
-		<package name="plasma-workspace-wayland"/>
 		<package name="kwin-wayland"/>
-		<package name="layer-shell-qt"/>
-		<package name="qt6-qtwayland"/>
 		<package name="xorg-x11-server-Xwayland"/>
 		<package name="polkit-kde"/>
-		<package name="xdg-desktop-portal-kde"/>
-		<package name="breeze"/>
-		<package name="qt6-qt5compat"/>
-		<package name="qt6-qtsvg"/>
-		<package name="qqc2-desktop-style"/>
-		<package name="kirigami"/>
-		<package name="kirigami-addons"/>
-		<package name="plasma5support"/>
-		<package name="kwayland"/>
-		<package name="libplasma"/>
-		<package name="breeze-icons"/>
+		<package name="dbus-daemon"/>
 		<package name="mesa-dri-drivers"/>
 		<package name="mesa-vulkan-drivers"/>
 		<package name="vulkan-loader"/>
