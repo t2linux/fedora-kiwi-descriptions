@@ -26,7 +26,7 @@ Fedora's infrastructure — no custom update server is hosted.
 ## How ISOs are built
 
 This repo follows the upstream
-[fedora-kiwi-descriptions](https://github.com/t2linux/fedora-kiwi-descriptions)
+[fedora-kiwi-descriptions](https://forge.fedoraproject.org/releng/kiwi-descriptions)
 layout and uses **KIWI NG** to build images. KIWI NG runs reliably inside
 containers — it does **not** require hardware KVM or SELinux workarounds, which
 is why Fedora's own Spin/Edition builds migrated to it (the older

@@ -12,10 +12,10 @@
 			<requires profile="BootDiskCore"/>
 		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="onlyRequired" profiles="JamDesktop">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="JamDesktop">
 		<package name="fedora-release-kde"/>
 	</packages>
-	<packages type="image" patternType="onlyRequired" profiles="JamDesktop">
+	<packages type="image" patternType="plusRecommended" profiles="JamDesktop">
 		<!-- Installing the default/mandatory packages for audio production -->
 		<namedCollection name="audio"/>
 		<!-- PipeWire -->

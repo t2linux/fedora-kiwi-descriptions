@@ -38,27 +38,6 @@ When adding or removing a tmt plan, please run the following command to regenera
 []$ make generate-zuul-config
 ```
 
-## Config integrity check
-
-[`scripts/check_file_integrity.py`](scripts/check_file_integrity.py) verifies
-that every configuration file in the repo is well-formed — XML/KIWI
-(`.xml`, `.kiwi`), YAML (`.yaml`, `.yml`, `.fmf`), and TOML (`.toml`). Folders whose contents are a single, extension-agnostic
-format are validated against that format no matter the file name — right now
-only the `tmt/` folder, where every FMF definition is YAML even when named
-e.g. `tiny-disk.xml`. It is run automatically by GitHub Actions on every push
-to `main` and pull request,
-but you can also run it locally:
-
-```bash
-# Optional: install the YAML parser so `.yaml`/`.yml`/`.fmf` are checked
-dnf install -y python3-yaml   # or: pip install pyyaml
-python3 scripts/check_file_integrity.py
-```
-
-It exits non-zero if any file fails to parse, which catches corruption or a
-malformed edit (for example a truncated `<package>` tag) before it reaches a
-build.
-
 ## Licensing
 
 This is free software: you can redistribute it and/or modify

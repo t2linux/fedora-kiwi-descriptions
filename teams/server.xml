@@ -176,10 +176,10 @@
 			</oemconfig>
 		</type>
 	</preferences>
-	<packages type="bootstrap" patternType="onlyRequired" profiles="ServerCore">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="ServerCore">
 		<package name="fedora-release-server"/>
 	</packages>
-	<packages type="image" patternType="onlyRequired" profiles="ServerCore">
+	<packages type="image" patternType="plusRecommended" profiles="ServerCore">
 		<namedCollection name="server-product-environment"/>
 		<namedCollection name="domain-client"/>
 		<namedCollection name="arm-tools" arch="aarch64"/>
@@ -190,7 +190,7 @@
 		<package name="lvm2"/>
 		<package name="xfsprogs"/>
 	</packages>
-	<packages type="image" patternType="onlyRequired" profiles="Server-Guest-Generic">
+	<packages type="image" patternType="plusRecommended" profiles="Server-Guest-Generic">
 		<ignore name="dracut-config-rescue"/>
 		<ignore name="kernel"/>
 		<ignore name="*-firmware"/>
@@ -198,7 +198,7 @@
 		<ignore name="smartmontools-selinux"/>
 		<namedCollection name="guest-agents"/>
 	</packages>
-	<packages type="image" patternType="onlyRequired" profiles="Server-Host-Generic">
+	<packages type="image" patternType="plusRecommended" profiles="Server-Host-Generic">
 		<namedCollection name="container-management"/>
 		<namedCollection name="server-hardware-support"/>
 		<package name="dracut-config-rescue"/>

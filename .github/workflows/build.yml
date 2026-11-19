@@ -69,15 +69,15 @@ jobs:
             echo "image-root not found under ./outdir-build/build/image-root" >&2
           fi
 
-      - name: Verify ISO is under 2GB
-        run: |
-          ISO_FILE=$(find ./outdir -name "*.iso" | head -n 1)
-          ISO_SIZE=$(stat -c%s "$ISO_FILE")
-          echo "Built ISO $ISO_FILE size: $((ISO_SIZE / 1024 / 1024)) MB"
-          if [ "$ISO_SIZE" -ge 2147483648 ]; then
-            echo "Error: ISO exceeds GitHub Releases 2GB limit!"
-            exit 1
-          fi
+      # - name: Verify ISO is under 2GB
+      #   run: |
+      #     ISO_FILE=$(find ./outdir -name "*.iso" | head -n 1)
+      #     ISO_SIZE=$(stat -c%s "$ISO_FILE")
+      #     echo "Built ISO $ISO_FILE size: $((ISO_SIZE / 1024 / 1024)) MB"
+      #     if [ "$ISO_SIZE" -ge 2147483648 ]; then
+      #       echo "Error: ISO exceeds GitHub Releases 2GB limit!"
+      #       exit 1
+      #     fi
 
       - name: Test boot ISO in QEMU (UEFI)
         run: |

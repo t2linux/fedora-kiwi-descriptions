@@ -4,7 +4,7 @@
 			<requires profile="DesktopCommon"/>
 		</profile>
 	</profiles>
-	<packages type="image" patternType="onlyRequired" profiles="Xfce-Desktop">
+	<packages type="image" patternType="plusRecommended" profiles="Xfce-Desktop">
 		<!-- install env-group to resolve RhBug:1891500 -->
 		<namedCollection name="xfce-desktop-environment"/>
 		<namedCollection name="xfce-apps"/>

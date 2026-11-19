@@ -9,7 +9,7 @@
 			<requires profile="Phosh-Desktop"/>
 		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="onlyRequired" profiles="Phosh-Disk,Phosh-Live">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="Phosh-Disk,Phosh-Live">
 		<package name="fedora-release-mobility"/>
 	</packages>
 </image>

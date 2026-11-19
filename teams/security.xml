@@ -12,10 +12,10 @@
 			<requires profile="BootDiskCore"/>
 		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="onlyRequired" profiles="SecurityDesktop">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="SecurityDesktop">
 		<package name="fedora-release"/>
 	</packages>
-	<packages type="image" patternType="onlyRequired" profiles="SecurityDesktop">
+	<packages type="image" patternType="plusRecommended" profiles="SecurityDesktop">
 		<!-- Security tools -->
 		<namedCollection name="security-lab"/>
 		<package name="security-menus"/>

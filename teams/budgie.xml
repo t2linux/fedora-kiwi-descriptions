@@ -9,7 +9,7 @@
 			<requires profile="BootDiskCore"/>
 		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="onlyRequired" profiles="Budgie-Live,Budgie-Disk">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="Budgie-Live,Budgie-Disk">
 		<package name="fedora-release-budgie"/>
 	</packages>
 </image>

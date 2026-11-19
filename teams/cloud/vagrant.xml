@@ -59,16 +59,16 @@
 		<user name="vagrant" groups="vagrant" password="vagrant" home="/home/vagrant" pwdformat="plain" />
 		<user password="$1$wYJUgpM5$RXMMeASDc035eX.NbYWFl0" home="/root" name="root" groups="root"/>
 	</users>
-	<packages type="image" patternType="onlyRequired" profiles="VagrantCore">
+	<packages type="image" patternType="plusRecommended" profiles="VagrantCore">
 		<package name="rsync"/>
 		<package name="fuse-sshfs"/>
 		<package name="gdisk"/>
 		<package name="glibc-langpack-en"/>
 	</packages>
-	<packages type="image" patternType="onlyRequired" profiles="Cloud-Base-Vagrant-libvirt">
+	<packages type="image" patternType="plusRecommended" profiles="Cloud-Base-Vagrant-libvirt">
 		<package name="qemu-guest-agent"/>
 	</packages>
-	<packages type="image" patternType="onlyRequired" profiles="Cloud-Base-Vagrant-VirtualBox">
+	<packages type="image" patternType="plusRecommended" profiles="Cloud-Base-Vagrant-VirtualBox">
 		<package name="virtualbox-guest-additions"/>
 	</packages>
 	<packages type="uninstall" profiles="VagrantCore">

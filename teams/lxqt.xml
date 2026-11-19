@@ -9,7 +9,7 @@
 			<requires profile="BootDiskCore"/>
 		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="onlyRequired" profiles="LXQt-Live,LXQt-Disk">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="LXQt-Live,LXQt-Disk">
 		<package name="fedora-release-lxqt"/>
 	</packages>
 </image>

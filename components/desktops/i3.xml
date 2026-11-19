@@ -4,7 +4,7 @@
 			<requires profile="DesktopCommon"/>
 		</profile>
 	</profiles>
-	<packages type="image" patternType="onlyRequired" profiles="i3-Desktop">
+	<packages type="image" patternType="plusRecommended" profiles="i3-Desktop">
 		<!-- install env-group to resolve RhBug:1891500 -->
 		<namedCollection name="i3-desktop-environment"/>
 		<package name="dex-autostart"/>

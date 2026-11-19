@@ -9,7 +9,7 @@
 	<preferences profiles="BootDiskCore" arch="x86_64,aarch64">
 		<type image="oem"
 		      filesystem="xfs"
-		      kernelcmdline="" devicepersistency="by-uuid" target_blocksize="4096"
+		      kernelcmdline="rhgb quiet" devicepersistency="by-uuid" target_blocksize="4096"
 		      bootpartition="true" bootpartsize="2000" bootfilesystem="xfs" efipartsize="500" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
@@ -22,7 +22,7 @@
 	<preferences profiles="BootDiskCore" arch="ppc64le">
 		<type image="oem"
 		      filesystem="xfs"
-		      kernelcmdline="" devicepersistency="by-uuid"
+		      kernelcmdline="rhgb quiet" devicepersistency="by-uuid"
 		      bootpartition="true" bootpartsize="2000" bootfilesystem="xfs" firmware="ofw"
 		      rootfs_label="fedora"
 		      >
@@ -46,10 +46,10 @@
 			</oemconfig>
 		</type>
 	</preferences>
-	<packages type="bootstrap" patternType="onlyRequired" profiles="BootCore,BootCoreUKI">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="BootCore,BootCoreUKI">
 		<package name="grubby"/>
 	</packages>
-	<packages type="image" patternType="onlyRequired" profiles="BootCore">
+	<packages type="image" patternType="plusRecommended" profiles="BootCore">
 		<package name="grub2-efi-aa64" arch="aarch64"/>
 		<package name="grub2-efi-aa64-modules" arch="aarch64"/>
 		<package name="grub2-efi-x64" arch="x86_64"/>
@@ -63,7 +63,7 @@
 		<package name="kernel-core"/>
 		<package name="systemd-resolved"/>
 	</packages>
-	<packages type="image" patternType="onlyRequired" profiles="BootCoreUKI">
+	<packages type="image" patternType="plusRecommended" profiles="BootCoreUKI">
 		<package name="shim-signed-aa64" arch="aarch64"/>
 		<package name="shim-signed-x64" arch="x86_64"/>
 		<package name="systemd-oomd-defaults"/>
@@ -72,11 +72,11 @@
 		<package name="python3-virt-firmware"/>
 		<package name="uki-direct"/>
 	</packages>
-	<packages type="iso" patternType="onlyRequired" profiles="BootCore">
+	<packages type="iso" patternType="plusRecommended" profiles="BootCore">
 		<package name="grub2-efi-aa64-cdboot" arch="aarch64"/>
 		<package name="grub2-efi-x64-cdboot" arch="x86_64"/>
 	</packages>
-	<packages type="image" patternType="onlyRequired" profiles="BootDiskCore">
+	<packages type="image" patternType="plusRecommended" profiles="BootDiskCore">
 		<package name="glibc-all-langpacks"/>
 		<package name="kernel"/>
 		<package name="kernel-modules"/>

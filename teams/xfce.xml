@@ -9,7 +9,7 @@
 			<requires profile="BootDiskCore"/>
 		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="onlyRequired" profiles="Xfce-Live,Xfce-Disk">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="Xfce-Live,Xfce-Disk">
 		<package name="fedora-release-xfce"/>
 	</packages>
 </image>

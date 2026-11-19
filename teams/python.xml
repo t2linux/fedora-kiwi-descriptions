@@ -23,10 +23,10 @@
 			<requires profile="Cloud-Base-Vagrant-VirtualBox"/>
 		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="onlyRequired" profiles="PythonClassroomCore">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="PythonClassroomCore">
 		<package name="fedora-release"/>
 	</packages>
-	<packages type="image" patternType="onlyRequired" profiles="PythonClassroomCore">
+	<packages type="image" patternType="plusRecommended" profiles="PythonClassroomCore">
 		<namedCollection name="core"/>
 		<namedCollection name="standard"/>
 		<namedCollection name="python-classroom"/>
@@ -59,7 +59,7 @@
 		<ignore name="python3-gdal"/>
 		<ignore name="proj"/>
 	</packages>
-	<packages type="image" patternType="onlyRequired" profiles="PythonClassroomGNOMEDesktop">
+	<packages type="image" patternType="plusRecommended" profiles="PythonClassroomGNOMEDesktop">
 		<namedCollection name="base-graphical"/>
 		<namedCollection name="desktop-accessibility"/>
 		<namedCollection name="firefox"/>

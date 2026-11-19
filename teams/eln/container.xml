@@ -100,7 +100,7 @@
 		<package name="xz"/>
 		<package name="zstd"/>
 	</packages>
-	<packages type="bootstrap" patternType="onlyRequired" profiles="Container-Toolbox">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="Container-Toolbox">
 		<ignore name="dosfstools"/>
 		<ignore name="e2fsprogs"/>
 		<ignore name="*-firmware"/>

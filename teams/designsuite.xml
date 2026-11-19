@@ -12,10 +12,10 @@
 			<requires profile="BootDiskCore"/>
 		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="onlyRequired" profiles="DesignSuiteDesktop">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="DesignSuiteDesktop">
 		<package name="fedora-release-designsuite"/>
 	</packages>
-	<packages type="image" patternType="onlyRequired" profiles="DesignSuiteDesktop">
+	<packages type="image" patternType="plusRecommended" profiles="DesignSuiteDesktop">
 		<namedCollection name="design-suite"/>
 		<!-- Provides backup application (blocked by Workstation exclude of python3-boto3) -->
 		<!-- <package name="deja-dup"/> -->

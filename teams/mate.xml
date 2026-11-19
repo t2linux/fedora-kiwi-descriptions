@@ -9,7 +9,7 @@
 			<requires profile="BootDiskCore"/>
 		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="onlyRequired" profiles="MATE_Compiz-Live,MATE_Compiz-Disk">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="MATE_Compiz-Live,MATE_Compiz-Disk">
 		<package name="fedora-release-matecompiz"/>
 	</packages>
 </image>

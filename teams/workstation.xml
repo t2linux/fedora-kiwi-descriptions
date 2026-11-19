@@ -9,7 +9,7 @@
 			<requires profile="BootDiskCore"/>
 		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="onlyRequired" profiles="Workstation-Live,Workstation-Disk">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="Workstation-Live,Workstation-Disk">
 		<package name="fedora-release-workstation"/>
 	</packages>
 </image>
