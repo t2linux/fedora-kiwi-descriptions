@@ -4,7 +4,7 @@
 			<requires profile="DesktopCommon"/>
 		</profile>
 	</profiles>
-	<packages type="image" patternType="plusRecommended" profiles="GNOME-Desktop">
+	<packages type="image" patternType="onlyRequired" profiles="GNOME-Desktop">
 		<!-- install env-group to resolve RhBug:1891500 -->
 		<namedCollection name="workstation-product-environment"/>
 		<!-- space saving, see https://bugzilla.redhat.com/show_bug.cgi?id=2360056#c45 -->

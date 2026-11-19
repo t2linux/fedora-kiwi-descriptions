@@ -4,7 +4,7 @@
 			<requires profile="DesktopCommon"/>
 		</profile>
 	</profiles>
-	<packages type="image" patternType="plusRecommended" profiles="MiracleWM-Desktop">
+	<packages type="image" patternType="onlyRequired" profiles="MiracleWM-Desktop">
 		<!-- install env-group to resolve RhBug:1891500 -->
 		<namedCollection name="miraclewm-desktop-environment"/>
 		<namedCollection name="firefox"/>

@@ -3,7 +3,6 @@ name: Build Custom Fedora ISO
 on:
   workflow_dispatch:
   pull_request:
-    branches: [ main ]
   push:
     branches: [ main ]
 
@@ -54,12 +53,25 @@ jobs:
             --image-release=0 \
             --output-dir=./outdir
 
+      - name: Report largest packages in image
+        run: |
+          if [ -f ./outdir-build/build/image-root/var/log/largest-packages.txt ]; then
+            echo "=== LARGEST PACKAGES IN IMAGE ==="
+            cat ./outdir-build/build/image-root/var/log/largest-packages.txt
+          elif [ -d ./outdir-build/build/image-root ]; then
+            echo "=== LARGEST PACKAGES IN IMAGE (via rpm --root) ==="
+            rpm --root="$(realpath ./outdir-build/build/image-root)" \
+              -qa --qf '%{SIZE}\t%{NAME}\n' | sort -rn | head -n 50 | \
+              awk '{printf "%.1f MB\t%s\n", $1/1024/1024, $2}'
+          else
+            echo "image-root not found under ./outdir-build/build/image-root" >&2
+          fi
+
       - name: Verify ISO is under 2GB
         run: |
           ISO_FILE=$(find ./outdir -name "*.iso" | head -n 1)
-          echo "Built ISO file: $ISO_FILE"
           ISO_SIZE=$(stat -c%s "$ISO_FILE")
-          echo "Built ISO size: $((ISO_SIZE / 1024 / 1024)) MB"
+          echo "Built ISO $ISO_FILE size: $((ISO_SIZE / 1024 / 1024)) MB"
           if [ "$ISO_SIZE" -ge 2147483648 ]; then
             echo "Error: ISO exceeds GitHub Releases 2GB limit!"
             exit 1
@@ -67,7 +79,7 @@ jobs:
 
       - name: Upload to GitHub Releases
         # Only publish a release on pushes to main; never on pull requests.
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: build-${{ github.run_number }}

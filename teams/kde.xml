@@ -17,13 +17,13 @@
 			<requires profile="KDE-Mobile"/>
 		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="plusRecommended" profiles="KDE-Desktop-Disk,KDE-Desktop-Live">
+	<packages type="bootstrap" patternType="onlyRequired" profiles="KDE-Desktop-Disk,KDE-Desktop-Live">
 		<package name="fedora-release-kde"/>
 	</packages>
-	<packages type="bootstrap" patternType="plusRecommended" profiles="KDE-Mobile-Disk,KDE-Mobile-Live">
+	<packages type="bootstrap" patternType="onlyRequired" profiles="KDE-Mobile-Disk,KDE-Mobile-Live">
 		<package name="fedora-release-kde-mobile"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="KDE-Desktop-Disk,KDE-Desktop-Live">
+	<packages type="image" patternType="onlyRequired" profiles="KDE-Desktop-Disk,KDE-Desktop-Live">
 		<package name="plasma-welcome-fedora"/>
 	</packages>
 </image>

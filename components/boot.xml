@@ -82,10 +82,10 @@
 			</oemconfig>
 		</type>
 	</preferences>
-	<packages type="bootstrap" patternType="plusRecommended" profiles="BootCore,BootCoreUKI,BootCoreLive">
+	<packages type="bootstrap" patternType="onlyRequired" profiles="BootCore,BootCoreUKI,BootCoreLive">
 		<package name="grubby"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="BootCore,BootCoreLive">
+	<packages type="image" patternType="onlyRequired" profiles="BootCore,BootCoreLive">
 		<package name="grub2-efi-aa64" arch="aarch64"/>
 		<package name="grub2-efi-aa64-modules" arch="aarch64"/>
 		<package name="grub2-efi-riscv64" arch="riscv64"/>
@@ -105,17 +105,17 @@
 		<package name="systemd-oomd-defaults"/>
 		<package name="systemd-resolved"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="BootCore">
+	<packages type="image" patternType="onlyRequired" profiles="BootCore">
 		<ignore name="kernel-*debug*"/>
 		<package name="kernel-core"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="BootCoreLive">
+	<packages type="image" patternType="onlyRequired" profiles="BootCoreLive">
 		<ignore name="kernel-*debug*"/>
 		<!-- Use kernel-uki-dtbloader for aarch64 -->
 		<package name="kernel-core" arch="x86_64,riscv64,ppc64le,s390x"/>
 		<package name="kernel-uki-dtbloader" arch="aarch64"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="BootCoreUKI">
+	<packages type="image" patternType="onlyRequired" profiles="BootCoreUKI">
 		<package name="shim-signed-aa64" arch="aarch64"/>
 		<package name="shim-signed-ia32" arch="x86_64"/>
 		<package name="shim-signed-x64" arch="x86_64"/>
@@ -126,13 +126,13 @@
 		<package name="python3-virt-firmware"/>
 		<package name="uki-direct"/>
 	</packages>
-	<packages type="iso" patternType="plusRecommended" profiles="BootCore,BootCoreLive">
+	<packages type="iso" patternType="onlyRequired" profiles="BootCore,BootCoreLive">
 		<package name="grub2-efi-aa64-cdboot" arch="aarch64"/>
 		<package name="grub2-efi-riscv64-cdboot" arch="riscv64"/>
 		<package name="grub2-efi-ia32-cdboot" arch="x86_64"/>
 		<package name="grub2-efi-x64-cdboot" arch="x86_64"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="BootDiskCore">
+	<packages type="image" patternType="onlyRequired" profiles="BootDiskCore">
 		<ignore name="kernel-*debug*"/>
 		<package name="arm-image-installer" arch="aarch64"/>
 		<package name="glibc-all-langpacks"/>

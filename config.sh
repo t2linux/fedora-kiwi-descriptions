@@ -540,4 +540,14 @@ if [[ "$kiwi_profiles" == *"FEX"* ]]; then
 	rm /usr/bin/rm
 fi
 
+#======================================
+# Report the largest packages (ISO-size diagnosis)
+#======================================
+{
+  echo "=== LARGEST PACKAGES IN IMAGE ==="
+  rpm -qa --qf '%{SIZE}\t%{NAME}\n' | sort -rn | awk 'NR <= 50 {printf "%.1f MB\t%s\n", $1/1024/1024, $2}'
+} > /var/log/largest-packages.txt
+
+cat /var/log/largest-packages.txt
+
 exit 0

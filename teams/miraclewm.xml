@@ -9,7 +9,7 @@
 			<requires profile="MiracleWM-Desktop"/>
 		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="plusRecommended" profiles="MiracleWM-Live,MiracleWM-Disk">
+	<packages type="bootstrap" patternType="onlyRequired" profiles="MiracleWM-Live,MiracleWM-Disk">
 		<package name="fedora-release-miraclewm"/>
 	</packages>
 </image>

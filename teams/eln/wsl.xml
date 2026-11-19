@@ -17,7 +17,7 @@
 		<package name="fedora-eln-release"/>
 		<package name="rpm"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="WSL-Base">
+	<packages type="image" patternType="onlyRequired" profiles="WSL-Base">
 		<package name="attr"/>
 		<package name="acl"/>
 		<package name="bash-color-prompt"/>

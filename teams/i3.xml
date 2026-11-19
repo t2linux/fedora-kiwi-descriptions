@@ -9,7 +9,7 @@
 			<requires profile="BootDiskCore"/>
 		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="plusRecommended" profiles="i3-Live,i3-Disk">
+	<packages type="bootstrap" patternType="onlyRequired" profiles="i3-Live,i3-Disk">
 		<package name="fedora-release-i3"/>
 	</packages>
 </image>

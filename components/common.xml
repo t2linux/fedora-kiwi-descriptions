@@ -3,17 +3,17 @@
 		<profile name="BaseCommon" description="Base common packages"/>
 		<profile name="HardwareCommon" description="Base common packages for hardware support"/>
 	</profiles>
-	<packages type="image" patternType="plusRecommended" profiles="BaseCommon">
+	<packages type="image" patternType="onlyRequired" profiles="BaseCommon">
 		<namedCollection name="standard"/>
 		<ignore name="qemu-user-static"/> <!-- Saves ~100MB -->
 		<!-- pull in all t2linux packages -->
 		<package name="t2linux-release"/>
 	</packages>
 	<!-- enable t2linux copr repo -->
-	<packages type="bootstrap" patternType="plusRecommended">
+	<packages type="bootstrap" patternType="onlyRequired">
 		<package name="t2linux-repos"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="HardwareCommon">
+	<packages type="image" patternType="onlyRequired" profiles="HardwareCommon">
 		<namedCollection name="hardware-support"/>
 		<package name="bcm283x-firmware" arch="aarch64"/>
 	</packages>

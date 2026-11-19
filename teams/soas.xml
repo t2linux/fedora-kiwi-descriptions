@@ -9,7 +9,7 @@
 			<requires profile="BootDiskCore"/>
 		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="plusRecommended" profiles="SoaS-Live,SoaS-Disk">
+	<packages type="bootstrap" patternType="onlyRequired" profiles="SoaS-Live,SoaS-Disk">
 		<package name="fedora-release-soas"/>
 	</packages>
 </image>

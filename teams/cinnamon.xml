@@ -9,7 +9,7 @@
 			<requires profile="BootDiskCore"/>
 		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="plusRecommended" profiles="Cinnamon-Live,Cinnamon-Disk">
+	<packages type="bootstrap" patternType="onlyRequired" profiles="Cinnamon-Live,Cinnamon-Disk">
 		<package name="fedora-release-cinnamon"/>
 	</packages>
 </image>

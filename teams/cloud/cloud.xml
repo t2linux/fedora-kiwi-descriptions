@@ -262,10 +262,10 @@
 			</oemconfig>
 		</type>
 	</preferences>
-	<packages type="bootstrap" patternType="plusRecommended" profiles="CloudCore,CloudCoreUKI">
+	<packages type="bootstrap" patternType="onlyRequired" profiles="CloudCore,CloudCoreUKI">
 		<package name="fedora-release-cloud"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="CloudCore">
+	<packages type="image" patternType="onlyRequired" profiles="CloudCore">
 		<namedCollection name="cloud-server-environment"/>
 		<ignore name="dracut-config-rescue"/>
 		<ignore name="firewalld"/>
@@ -279,7 +279,7 @@
 		<package name="python3-dnf-plugin-tracer"/>
 		<package name="glibc-langpack-en"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="CloudCoreUKI">
+	<packages type="image" patternType="onlyRequired" profiles="CloudCoreUKI">
 		<namedCollection name="cloud-server-environment"/>
 		<ignore name="dracut-config-rescue"/>
 		<ignore name="firewalld"/>
@@ -293,26 +293,26 @@
 		<package name="python3-dnf-plugin-tracer"/>
 		<package name="glibc-langpack-en"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="Cloud-Base-AmazonEC2">
+	<packages type="image" patternType="onlyRequired" profiles="Cloud-Base-AmazonEC2">
 		<package name="amazon-ec2-utils"/>
 		<package name="awscli2"/>
 		<package name="ec2-instance-connect"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="Cloud-Base-Azure">
+	<packages type="image" patternType="onlyRequired" profiles="Cloud-Base-Azure">
 		<package name="WALinuxAgent"/>
 		<package name="azure-vm-utils"/>
 		<package name="kernel-modules"/>
 		<package name="hyperv-daemons"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="Cloud-Base-GCE">
+	<packages type="image" patternType="onlyRequired" profiles="Cloud-Base-GCE">
 		<package name="google-compute-engine-guest-configs"/>
 		<package name="google-compute-engine-oslogin"/>
 		<package name="google-guest-agent"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="Cloud-Base-Generic">
+	<packages type="image" patternType="onlyRequired" profiles="Cloud-Base-Generic">
 		<package name="qemu-guest-agent"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="Cloud-Base-UEFI-UKI">
+	<packages type="image" patternType="onlyRequired" profiles="Cloud-Base-UEFI-UKI">
 		<package name="qemu-guest-agent"/>
 	</packages>
 	<packages type="uninstall" profiles="Cloud-Base-GCE">

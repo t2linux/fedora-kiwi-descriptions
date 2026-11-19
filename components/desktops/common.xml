@@ -5,7 +5,7 @@
 			<requires profile="HardwareCommon"/>
 		</profile>
 	</profiles>
-	<packages type="image" patternType="plusRecommended" profiles="DesktopCommon">
+	<packages type="image" patternType="onlyRequired" profiles="DesktopCommon">
 		<namedCollection name="fonts"/>
 		<namedCollection name="multimedia"/>
 		<namedCollection name="networkmanager-submodules"/>

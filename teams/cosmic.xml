@@ -9,7 +9,7 @@
 			<requires profile="BootDiskCore"/>
 		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="plusRecommended" profiles="COSMIC-Live,COSMIC-Disk">
+	<packages type="bootstrap" patternType="onlyRequired" profiles="COSMIC-Live,COSMIC-Disk">
 		<package name="fedora-release-cosmic"/>
 	</packages>
 </image>

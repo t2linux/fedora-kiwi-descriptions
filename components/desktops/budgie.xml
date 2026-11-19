@@ -4,7 +4,7 @@
 			<requires profile="DesktopCommon"/>
 		</profile>
 	</profiles>
-	<packages type="image" patternType="plusRecommended" profiles="Budgie-Desktop">
+	<packages type="image" patternType="onlyRequired" profiles="Budgie-Desktop">
 		<!-- install env-group to resolve RhBug:1891500 -->
 		<namedCollection name="budgie-desktop-environment"/>
 		<namedCollection name="budgie-desktop-apps"/>

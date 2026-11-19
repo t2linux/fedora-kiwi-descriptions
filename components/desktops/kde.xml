@@ -8,7 +8,7 @@
 		</profile>
 	</profiles>
 	<!-- Common exclusions for KDE variants -->
-	<packages type="image" patternType="plusRecommended" profiles="KDE-Desktop,KDE-Mobile">
+	<packages type="image" patternType="onlyRequired" profiles="KDE-Desktop,KDE-Mobile">
 		<ignore name="gnome-disk-utility"/> <!-- redundant with kde partitionmanager -->
 		<ignore name="mariadb-server-utils"/> <!-- Not needed on desktops (pagure.io:fedora-kde/SIG#566) -->
 		<ignore name="system-config-language"/> <!-- redundant with kcms -->
@@ -24,39 +24,12 @@
 		<ignore name="ktorrent"/> <!-- ~15 megs -->
 		<ignore name="initial-setup"/> <!-- redundant with plasma-setup -->
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="KDE-Desktop">
+	<packages type="image" patternType="onlyRequired" profiles="KDE-Desktop">
 		<!-- install env-group to resolve RhBug:1891500 -->
 		<namedCollection name="kde-desktop-environment"/>
-		<!-- kde-apps namedCollection dropped (issue #23): it pulled Krita, Kdenlive, Calligra,
-			Marble, KolourPaint, Okular and heavy KDE Gear suites (~800MB-1.2GB), the single largest
-			remaining contributor to the live ISO size. Only the essential KDE Gear utilities below
-			are kept so the desktop stays out-of-the-box usable; users can reinstall anything else
-			later via dnf or Flatpak.
-		-->
-		<package name="ark"/>              <!-- archive manager -->
-		<package name="dolphin"/>         <!-- file manager -->
-		<package name="kate"/>            <!-- advanced text editor -->
-		<package name="konsole"/>         <!-- terminal emulator -->
-		<package name="kcalc"/>           <!-- calculator -->
-		<package name="spectacle"/>       <!-- screenshot tool -->
-		<package name="plasma-systemmonitor"/>  <!-- system monitor -->
-		<package name="kinfocenter"/>     <!-- system information -->
-		<package name="kscreen"/>         <!-- display management -->
-		<package name="bluedevil"/>       <!-- Bluetooth manager -->
-		<package name="plasma-nm"/>       <!-- NetworkManager applet -->
-		<package name="plasma-pa"/>       <!-- PulseAudio volume control -->
-		<package name="kde-gtk-config"/><!-- GTK theme integration -->
-		<package name="breeze-gtk"/>      <!-- Breeze GTK theme -->
-		<!-- sddm-wayland-plasma dropped (maintainer): we use plasma-login-manager + kcm-plasmalogin instead -->
-		<package name="plasma-login-manager"/><!-- SDDM login manager -->
-		<package name="kcm-plasmalogin"/><!-- SDDM/KCM login configuration -->
-		<package name="plasma-workspace-wayland"/><!-- Plasma Wayland session -->
-		<!-- kde-media and kde-pim collections dropped (issue #6): the <ignore> tags below
-			already removed dragon/elisa/akregator/kmail/kontact, but keeping these collections
-			still pulled in the heavier stacks behind them (Akonadi + embedded MariaDB, KOrganizer,
-			KAddressBook, and media players), adding ~150-250 MB. Users who want PIM/media apps can
-			install them later via dnf or Flatpak.
-		-->
+		<namedCollection name="kde-apps"/>
+		<namedCollection name="kde-media"/>
+		<namedCollection name="kde-pim" arch="aarch64,ppc64le,x86_64"/>
 		<namedCollection name="firefox"/>
 		<!-- LibreOffice suite dropped to keep the live ISO under GitHub's 2 GB release limit
 	     (issue #3); users can install it later via dnf or Flatpak. -->
@@ -65,15 +38,15 @@
 		<package name="kde-l10n"/>
 		<!-- Trim heavy, non-essential desktop apps so the live ISO stays small and users can
 	     reinstall them later via dnf or Flatpak (issue #3). -->
-		<ignore name="dragon"/>             <!-- KDE file/media manager -->
-		<ignore name="elisa-player"/>       <!-- KDE music player -->
-		<ignore name="akregator"/>          <!-- KDE RSS news reader -->
-		<ignore name="kmail"/>              <!-- KDE email client -->
-		<ignore name="kontact"/>            <!-- KDE personal information manager -->
-		<ignore name="kdepim-addons"/>      <!-- KPIM plugins pulled in by several PIM apps -->
-		<ignore name="gwenview"/>           <!-- KDE image viewer -->
+		<!-- <ignore name="dragon"/> -->             <!-- KDE file/media manager -->
+		<!-- <ignore name="elisa-player"/> -->       <!-- KDE music player -->
+		<!-- <ignore name="akregator"/> -->          <!-- KDE RSS news reader -->
+		<!-- <ignore name="kmail"/> -->              <!-- KDE email client -->
+		<!-- <ignore name="kontact"/> -->            <!-- KDE personal information manager -->
+		<!-- <ignore name="kdepim-addons"/> -->      <!-- KPIM plugins pulled in by several PIM apps -->
+		<!-- <ignore name="gwenview"/> -->           <!-- KDE image viewer -->
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="KDE-Mobile">
+	<packages type="image" patternType="onlyRequired" profiles="KDE-Mobile">
 		<!-- install env-group to resolve RhBug:1891500 -->
 		<namedCollection name="kde-mobile-environment"/>
 		<namedCollection name="firefox"/>

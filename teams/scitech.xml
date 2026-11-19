@@ -65,10 +65,10 @@
 			</oemconfig>
 		</type>
 	</preferences>
-	<packages type="bootstrap" patternType="plusRecommended" profiles="ScientificDesktop">
+	<packages type="bootstrap" patternType="onlyRequired" profiles="ScientificDesktop">
 		<package name="fedora-release-kde"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="ScientificCore">
+	<packages type="image" patternType="onlyRequired" profiles="ScientificCore">
 		<namedCollection name="core"/>
 		<namedCollection name="standard"/>
 		<namedCollection name="engineering-and-scientific"/>
@@ -136,7 +136,7 @@
 		<package name="fig2ps"/>
 		<package name="hevea"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="ScientificDesktop">
+	<packages type="image" patternType="onlyRequired" profiles="ScientificDesktop">
 		<namedCollection name="firefox"/>
 		<!-- Matplotlib backend -->
 		<package name="python3-matplotlib-qt6"/>
@@ -159,10 +159,10 @@
 		<package name="xzgv"/>
 		<package name="gimp"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="Scientific-Vagrant-libvirt">
+	<packages type="image" patternType="onlyRequired" profiles="Scientific-Vagrant-libvirt">
 		<package name="qemu-guest-agent"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="Scientific-Vagrant-VirtualBox">
+	<packages type="image" patternType="onlyRequired" profiles="Scientific-Vagrant-VirtualBox">
 		<package name="virtualbox-guest-additions"/>
 	</packages>
 </image>

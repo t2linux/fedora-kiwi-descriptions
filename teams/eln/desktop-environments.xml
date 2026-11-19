@@ -11,7 +11,7 @@
 			<requires profile="DesktopCommon"/>
 		</profile>
 	</profiles>
-	<packages type="image" patternType="plusRecommended" profiles="DesktopCommon">
+	<packages type="image" patternType="onlyRequired" profiles="DesktopCommon">
 		<package name="fedora-eln-backgrounds"/>
 		<package name="firefox"/>
 		<package name="plymouth-theme-spinner"/>
@@ -29,12 +29,12 @@
 		<ignore name="subscription-manager"/>
 		<ignore name="subscription-manager-cockpit"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="GNOME-Desktop">
+	<packages type="image" patternType="onlyRequired" profiles="GNOME-Desktop">
 		<namedCollection name="gnome-desktop"/>
 		<namedCollection name="workstation-product"/>
 		<package name="gnome-classic-session"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="KDE-Desktop">
+	<packages type="image" patternType="onlyRequired" profiles="KDE-Desktop">
 		<namedCollection name="kde-desktop-environment"/>
 		<namedCollection name="kde-apps"/>
 		<namedCollection name="kde-media"/>
@@ -43,7 +43,7 @@
 		<ignore name="plasma-nm-vpnc"/>
 		<package name="fuse"/>
 	</packages>
-	<packages type="image" patternType="plusRecommended" profiles="COSMIC-Desktop">
+	<packages type="image" patternType="onlyRequired" profiles="COSMIC-Desktop">
 		<namedCollection name="cosmic-desktop-environment"/>
 	</packages>
 </image>
