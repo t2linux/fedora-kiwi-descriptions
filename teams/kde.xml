@@ -17,7 +17,7 @@
 			<requires profile="KDE-Mobile"/>
 		</profile>
 	</profiles>
-	<packages type="bootstrap" patternType="onlyRequired" profiles="KDE-Desktop-Disk,KDE-Desktop-Live">
+	<packages type="bootstrap" patternType="plusRecommended" profiles="KDE-Desktop-Disk,KDE-Desktop-Live">
 		<package name="fedora-release-kde"/>
 		<!-- Essential Live ISO boot & session setup -->
 		<package name="livesys-scripts"/>
@@ -50,7 +50,6 @@
 		<package name="mesa-dri-drivers"/>
 		<package name="mesa-vulkan-drivers"/>
 		<package name="vulkan-loader"/>
-
 
 		<package name="amd-gpu-firmware"/>
 		<package name="intel-gpu-firmware"/>
