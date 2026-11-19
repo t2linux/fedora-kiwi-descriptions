@@ -126,6 +126,51 @@ jobs:
             exit 1
           fi
 
+      - name: Test boot ISO in QEMU (GRUB)
+        run: |
+          set -euo pipefail
+          dnf install -y qemu-system-x86-core edk2-ovmf xorriso
+
+          ISO_FILE=$(find ./outdir -name "*.iso" | head -n 1)
+          mkdir -p /tmp/isoboot
+
+          osirrox -indev "$ISO_FILE" \
+            -extract /boot/x86_64/loader/linux /tmp/isoboot/vmlinuz \
+            -extract /boot/x86_64/loader/initrd /tmp/isoboot/initrd.img
+
+          VOLID=$(blkid -s LABEL -o value "$ISO_FILE")
+          echo "Testing ISO: $ISO_FILE (VOLID=$VOLID)"
+
+          ACCEL="-accel tcg"
+          [ -e /dev/kvm ] && ACCEL="-accel kvm -cpu host"
+
+          # Boot with 4GB RAM + VirtIO GPU and capture serial console
+          timeout 120s qemu-system-x86_64 \
+            $ACCEL \
+            -m 4096 \
+            -smp 2 \
+            -vga virtio \
+            -bios /usr/share/edk2/ovmf/OVMF_CODE.fd \
+            -cdrom "$ISO_FILE" \
+            -display none \
+            -serial stdio \
+            -no-reboot
+          | tee /tmp/boot.log || true
+
+          echo "=== CHECKING BOOT LOG ==="
+          if grep -q "\[FAILED\]" /tmp/boot.log; then
+            echo "ERROR: One or more systemd services failed during boot:"
+            grep "\[FAILED\]" /tmp/boot.log
+            exit 1
+          fi
+
+          if grep -Eq "Reached target.*Graphical Interface|Finished plymouth-quit\.service|localhost-live login:" /tmp/boot.log; then
+            echo "SUCCESS: ISO booted cleanly with zero systemd failures!"
+          else
+            echo "ERROR: Boot timed out before completing startup."
+            exit 1
+          fi
+
       - name: Upload to GitHub Releases
         # Only publish a release on pushes to main; never on pull requests.
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
