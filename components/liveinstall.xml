@@ -9,7 +9,7 @@
 		<type image="iso"
 			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora_Linux"
 			primary="true" flags="dmsquash" filesystem="erofs" erofscompression="lzma,level=6" mediacheck="true"
-			firmware="uefi" efiparttable="gpt" efifatimagesize="30" kernelcmdline="quiet rhgb"
+			firmware="uefi" efiparttable="gpt" efifatimagesize="30" kernelcmdline=""
 			fscreateoptions="-Efragments -C 1048576"
 			>
 			<bootloader name="grub2" grub_template="grub-x86.cfg.iso-template" console="console" timeout="10"/>
@@ -19,7 +19,7 @@
 		<type image="iso"
 			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora_Linux"
 			primary="true" flags="dmsquash" filesystem="erofs" erofscompression="lzma,level=6" mediacheck="true"
-			firmware="uefi" efiparttable="gpt" efifatimagesize="30" kernelcmdline="quiet rhgb"
+			firmware="uefi" efiparttable="gpt" efifatimagesize="30" kernelcmdline=""
 			fscreateoptions="-Efragments -C 1048576"
 			>
 			<bootloader name="grub2" grub_template="grub-arm.cfg.iso-template" console="console" timeout="10"/>
@@ -29,7 +29,7 @@
 		<type image="iso"
 			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora_Linux"
 			primary="true" flags="dmsquash" filesystem="erofs" erofscompression="lzma,level=6" mediacheck="true"
-			firmware="uefi" efiparttable="gpt" efifatimagesize="30" kernelcmdline="quiet rhgb"
+			firmware="uefi" efiparttable="gpt" efifatimagesize="30" kernelcmdline=""
 			fscreateoptions="-Efragments -C 1048576"
 			>
 			<bootloader name="grub2" grub_template="grub-riscv64.cfg.iso-template" console="console" timeout="10"/>
@@ -39,7 +39,7 @@
 		<type image="iso"
 			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora_Linux"
 			primary="true" flags="dmsquash" filesystem="erofs" erofscompression="lzma,level=6" mediacheck="true"
-			firmware="ofw" kernelcmdline="quiet rhgb"
+			firmware="ofw" kernelcmdline=""
 			fscreateoptions="-Efragments -C 1048576"
 			>
 			<bootloader name="grub2" grub_template="grub-ppc.cfg.iso-template" console="console" timeout="10"/>
@@ -63,6 +63,7 @@
 		<package name="livesys-scripts"/>
 		<package name="btrfs-progs"/>
 		<package name="udisks2-btrfs"/>
+
 		<ignore name="device-mapper-multipath"/>
 		<ignore name="fcoe-utils"/>
 		<ignore name="gfs2-utils"/>

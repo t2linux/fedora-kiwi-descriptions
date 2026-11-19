@@ -7,14 +7,14 @@
 		<namedCollection name="standard"/>
 		<ignore name="qemu-user-static"/> <!-- Saves ~100MB -->
 		<!-- pull in all t2linux packages -->
-		<package name="t2linux-release"/>
+		<ignore name="t2linux-release"/>
 	</packages>
 	<!-- enable t2linux copr repo -->
 	<packages type="bootstrap" patternType="onlyRequired">
-		<package name="t2linux-repos"/>
+		<ignore name="t2linux-repos"/>
 	</packages>
 	<packages type="image" patternType="onlyRequired" profiles="HardwareCommon">
 		<namedCollection name="hardware-support"/>
-		<package name="bcm283x-firmware" arch="aarch64"/>
+		<ignore name="bcm283x-firmware" arch="aarch64"/>
 	</packages>
 </image>

@@ -12,7 +12,7 @@
 	<preferences profiles="BootDiskCore" arch="x86_64,riscv64">
 		<type image="oem"
 		      filesystem="btrfs" btrfs_root_is_subvolume="true" btrfs_set_default_volume="false" fsmountoptions="x-systemd.growfs,compress=zstd:1"
-		      kernelcmdline="rhgb quiet" devicepersistency="by-uuid"
+		      kernelcmdline="" devicepersistency="by-uuid"
 		      bootpartition="true" bootpartsize="2000" bootfilesystem="ext4" efipartsize="500" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
@@ -30,7 +30,7 @@
 	<preferences profiles="BootDiskCore" arch="aarch64">
 		<type image="oem"
 		      filesystem="btrfs" btrfs_root_is_subvolume="true" btrfs_set_default_volume="false" fsmountoptions="x-systemd.growfs,compress=zstd:1"
-		      kernelcmdline="rhgb quiet" devicepersistency="by-uuid" force_mbr="true" editbootinstall="editbootinstall_rpilegacy.sh"
+		      kernelcmdline="" devicepersistency="by-uuid" force_mbr="true" editbootinstall="editbootinstall_rpilegacy.sh"
 		      bootpartition="true" bootpartsize="2000" bootfilesystem="ext4" efipartsize="500" disk_start_sector="34816" firmware="uefi"
 		      rootfs_label="fedora"
 		      >
@@ -48,7 +48,7 @@
 	<preferences profiles="BootDiskCore" arch="ppc64le">
 		<type image="oem"
 		      filesystem="btrfs" btrfs_root_is_subvolume="true" btrfs_set_default_volume="false" fsmountoptions="x-systemd.growfs,compress=zstd:1"
-		      kernelcmdline="rhgb quiet" devicepersistency="by-uuid"
+		      kernelcmdline="" devicepersistency="by-uuid"
 		      bootpartition="true" bootpartsize="2000" bootfilesystem="ext4" firmware="ofw"
 		      rootfs_label="fedora"
 		      >

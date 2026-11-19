@@ -540,6 +540,10 @@ if [[ "$kiwi_profiles" == *"FEX"* ]]; then
 	rm /usr/bin/rm
 fi
 
+if [[ "$kiwi_profiles" == *"KDE"* ]]; then
+	systemctl enable plasmalogin.service
+fi
+
 #======================================
 # Report the largest packages (ISO-size diagnosis)
 #======================================
