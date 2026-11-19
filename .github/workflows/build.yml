@@ -79,6 +79,55 @@ jobs:
             exit 1
           fi
 
+      - name: Test boot ISO in QEMU (UEFI)
+        run: |
+          set -euo pipefail
+          dnf install -y qemu-system-x86-core edk2-ovmf xorriso
+
+          ISO_FILE=$(find ./outdir -name "*.iso" | head -n 1)
+          mkdir -p /tmp/isoboot
+
+          # Extract vmlinuz and initrd from the ISO so we can pass console=ttyS0
+          # to capture the full systemd boot log on stdout without altering the ISO
+          osirrox -indev "$ISO_FILE" -extract /images/pxeboot/vmlinuz /tmp/isoboot/vmlinuz \
+            || osirrox -indev "$ISO_FILE" -extract /boot/vmlinuz /tmp/isoboot/vmlinuz
+          osirrox -indev "$ISO_FILE" -extract /images/pxeboot/initrd.img /tmp/isoboot/initrd.img \
+            || osirrox -indev "$ISO_FILE" -extract /boot/initrd.img /tmp/isoboot/initrd.img
+
+          # Read the ISO's volume label so dracut/dmsquash finds the live root device
+          VOLID=$(blkid -s LABEL -o value "$ISO_FILE")
+          echo "Testing ISO: $ISO_FILE (VOLID=$VOLID)"
+
+          ACCEL="-accel tcg"
+          [ -e /dev/kvm ] && ACCEL="-accel kvm -cpu host"
+
+          # Boot with 4GB RAM and capture serial console for up to 120 seconds
+          timeout 120s qemu-system-x86_64 \
+            $ACCEL \
+            -m 4096 \
+            -smp 2 \
+            -bios /usr/share/edk2/ovmf/OVMF_CODE.fd \
+            -cdrom "$ISO_FILE" \
+            -kernel /tmp/isoboot/vmlinuz \
+            -initrd /tmp/isoboot/initrd.img \
+            -append "root=live:CDLABEL=${VOLID} rd.live.image console=ttyS0 systemd.unit=graphical.target" \
+            -nographic \
+            -no-reboot | tee /tmp/boot.log || true
+
+          echo "=== CHECKING BOOT LOG ==="
+          if grep -q "\[FAILED\]" /tmp/boot.log; then
+            echo "ERROR: One or more systemd services failed during boot:"
+            grep "\[FAILED\]" /tmp/boot.log
+            exit 1
+          fi
+
+          if grep -Eq "Reached target.*Graphical Interface|Started.*Plasma Login Manager|llama-server\.service" /tmp/boot.log; then
+            echo "SUCCESS: ISO booted cleanly to Graphical Interface!"
+          else
+            echo "ERROR: Boot timed out before reaching Graphical Interface."
+            exit 1
+          fi
+
       - name: Upload to GitHub Releases
         # Only publish a release on pushes to main; never on pull requests.
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
