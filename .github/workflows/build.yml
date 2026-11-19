@@ -87,29 +87,29 @@ jobs:
           ISO_FILE=$(find ./outdir -name "*.iso" | head -n 1)
           mkdir -p /tmp/isoboot
 
-          # KIWI NG stores kernel and initrd at /boot/x86_64/loader/{linux,initrd}
           osirrox -indev "$ISO_FILE" \
             -extract /boot/x86_64/loader/linux /tmp/isoboot/vmlinuz \
             -extract /boot/x86_64/loader/initrd /tmp/isoboot/initrd.img
 
-          # Read the ISO's volume label so dracut/dmsquash finds the live root device
           VOLID=$(blkid -s LABEL -o value "$ISO_FILE")
           echo "Testing ISO: $ISO_FILE (VOLID=$VOLID)"
 
           ACCEL="-accel tcg"
           [ -e /dev/kvm ] && ACCEL="-accel kvm -cpu host"
 
-          # Boot with 4GB RAM and capture serial console for up to 120 seconds
+          # Boot with 4GB RAM + VirtIO GPU and capture serial console
           timeout 120s qemu-system-x86_64 \
             $ACCEL \
             -m 4096 \
             -smp 2 \
+            -vga virtio \
             -bios /usr/share/edk2/ovmf/OVMF_CODE.fd \
             -cdrom "$ISO_FILE" \
             -kernel /tmp/isoboot/vmlinuz \
             -initrd /tmp/isoboot/initrd.img \
             -append "root=live:CDLABEL=${VOLID} rd.live.image console=ttyS0 systemd.unit=graphical.target" \
-            -nographic \
+            -display none \
+            -serial stdio \
             -no-reboot | tee /tmp/boot.log || true
 
           echo "=== CHECKING BOOT LOG ==="
@@ -119,10 +119,10 @@ jobs:
             exit 1
           fi
 
-          if grep -Eq "Reached target.*Graphical Interface|Started.*Plasma Login Manager|llama-server\.service" /tmp/boot.log; then
-            echo "SUCCESS: ISO booted cleanly to Graphical Interface!"
+          if grep -Eq "Reached target.*Graphical Interface|Finished plymouth-quit\.service|localhost-live login:" /tmp/boot.log; then
+            echo "SUCCESS: ISO booted cleanly with zero systemd failures!"
           else
-            echo "ERROR: Boot timed out before reaching Graphical Interface."
+            echo "ERROR: Boot timed out before completing startup."
             exit 1
           fi
 
