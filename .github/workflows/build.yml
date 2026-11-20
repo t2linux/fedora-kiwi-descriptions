@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install YAML parser
         run: |
@@ -39,7 +39,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install KIWI and build dependencies
         run: |
@@ -132,12 +132,6 @@ jobs:
           dnf install -y qemu-system-x86-core edk2-ovmf xorriso
 
           ISO_FILE=$(find ./outdir -name "*.iso" | head -n 1)
-          #mkdir -p /tmp/isoboot
-
-          #osirrox -indev "$ISO_FILE" \
-          #  -extract /boot/x86_64/loader/linux /tmp/isoboot/vmlinuz \
-          #  -extract /boot/x86_64/loader/initrd /tmp/isoboot/initrd.img
-
           VOLID=$(blkid -s LABEL -o value "$ISO_FILE")
           echo "Testing ISO: $ISO_FILE (VOLID=$VOLID)"
 
@@ -161,14 +155,14 @@ jobs:
           if grep -q "\[FAILED\]" /tmp/boot.log; then
             echo "ERROR: One or more systemd services failed during boot:"
             grep "\[FAILED\]" /tmp/boot.log
-            # exit 1
+            exit 1
           fi
 
           if grep -Eq "Reached target.*Graphical Interface|Finished plymouth-quit\.service|localhost-live login:" /tmp/boot.log; then
             echo "SUCCESS: ISO booted cleanly with zero systemd failures!"
           else
             echo "ERROR: Boot timed out before completing startup."
-            # exit 1
+            exit 1
           fi
 
       - name: Zip ISO into ≤1.9GB parts
@@ -189,9 +183,10 @@ jobs:
       - name: Upload to GitHub Releases
         # Only publish a release on pushes to main; never on pull requests.
         #if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
-          tag_name: build-${{ github.run_number }}
+          tag_name: build-${{ github.ref_name }}-${{ github.run_number }}
+          prerelease: true
           files: |
             ./dist/${{ env.ISO_BASENAME }}.zip
             ./dist/${{ env.ISO_BASENAME }}.z*
