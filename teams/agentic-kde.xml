@@ -1,0 +1,127 @@
+<image>
+	<profiles>
+		<!-- Agentic build: same KDE spin but with a slimmed ISO. All package
+		     customizations live here in one profile so the upstream components/
+		     files stay clean; select this profile with image-profile=KDE-Desktop-Live-Agentic. -->
+		<profile name="KDE-Agentic-Live"
+			description="KDE Plasma Desktop Spin Live DVD (agentic, slimmed)">
+			<requires profile="DesktopCommonMinimal" />
+			<requires profile="LiveInstallMinimal" />
+			<requires profile="NetworkExtras" />
+			<requires profile="AgenticCommon" />
+		</profile>
+	</profiles>
+
+	<!-- Release identification so `rpm -q fedora-release` and the About dialogs
+	     report the KDE spin (vs. a generic Fedora Workstation) -->
+	<packages type="bootstrap" patternType="onlyRequired" profiles="KDE-Agentic-Live">
+		<package name="fedora-release-kde" />
+	</packages>
+	<!-- Post-install welcome app for the KDE spin -->
+	<packages type="image" patternType="onlyRequired" profiles="KDE-Agentic-Live">
+		<package name="plasma-welcome-fedora" />
+	</packages>
+
+	<!-- Agentic-specific ignores: trim KDE apps, LibreOffice, tracker and
+	     GNOME utilities pulled in via GTK deps so the live ISO stays small.
+	     Kept out of components/desktops/kde.xml so the upstream component is
+	     untouched. -->
+	<packages type="image" patternType="onlyRequired" profiles="KDE-Agentic-Live">
+		<!-- Base system collections: minimal Fedora + the KDE critical-path that keeps the
+			desktop bootable (matches the same collections the KDE spin pulls in) -->
+		<namedCollection name="core" />
+		<namedCollection name="critical-path-kde" />
+
+		<!-- SELinux policy enforcement utilities (managed policy, not just the client) -->
+		<package name="policycoreutils-python-utils" />
+		<package name="selinux-policy-targeted" />
+
+		<!-- Plasma shell integration: NetworkManager + pulseaudio applets and the KDE
+			XDG portal so KDE apps talk to the desktop environment -->
+		<package name="plasma-nm" />
+		<package name="plasma-pa" />
+		<package name="xdg-desktop-portal-kde" />
+
+		<!-- Core KDE applications: file manager, terminal, editor and calculator -->
+		<package name="dolphin" />
+		<package name="kcalc" />
+		<package name="konsole" />
+		<package name="kate" />
+
+		<!-- Display and system configuration (KDE System Settings modules / KCMs) -->
+		<package name="kscreen" />
+		<package name="kinfocenter" />
+		<package name="kde-partitionmanager" />
+		<package name="kde-settings-pulseaudio" />
+
+		<!-- VPN connection plugins for NetworkManager -->
+		<package name="plasma-nm-openconnect" />
+		<package name="plasma-nm-openswan" />
+		<package name="plasma-nm-openvpn" />
+		<package name="plasma-nm-pptp" />
+
+		<!-- Wallet management -->
+		<package name="kf6-kwallet" />
+		<package name="kwalletmanager" />
+
+		<!-- Disk and storage monitoring -->
+		<package name="plasma-disks" />
+		<package name="udisks2" />
+
+		<!-- Plasma system-settings bundles and small desktop utilities -->
+		<package name="kde-settings-plasmalogin" />
+		<package name="kde-settings-pulseaudio" />
+		<package name="filelight" />
+		<package name="kdialog" />
+		<package name="kdnssd" />
+		<package name="kmenuedit" />
+
+		<!-- Web browser -->
+		<package name="firefox" />
+
+		<!-- Miscellaneous: x86 emulation on aarch64, FUSE, KDE translations -->
+		<namedCollection name="x86-emulation" arch="aarch64" />
+		<package name="fuse" />
+		<package name="kde-l10n" />
+		<!-- Package exclusions for the agentic spin. Kept out of
+     		components/desktops/kde.xml so the upstream component stays untouched. -->
+
+		<!-- Redundant replacements for existing KDE settings: drop the GNOME/system
+     		config tools that duplicate what Plasma already provides -->
+		<ignore name="gnome-disk-utility" /> <!-- redundant with kde partitionmanager -->
+		<ignore name="system-config-language" /> <!-- redundant with kcms -->
+		<ignore name="system-config-printer" /> <!-- redundant with kcms -->
+		<ignore name="initial-setup" /> <!-- redundant with plasma-setup -->
+
+		<!-- Unnecessary on a desktop live image: a database server and unrelated tooling -->
+		<ignore name="mariadb-server-utils" /> <!-- Not needed on desktops (pagure.io:fedora-kde/SIG#566) -->
+
+		<!-- Dependency cleanup: tracker is pulled in transitively via gtk3, drop it here -->
+		<!-- drop tracker stuff pulled in by gtk3 (pagureio:fedora-kde/SIG#124) -->
+		<ignore name="tracker" />
+		<ignore name="tracker-miners" />
+
+		<!-- Optional KDE apps trimmed to fit the live ISO; keep pre-existing inline notes as-is -->
+		<!-- space issues -->
+		<ignore name="digikam" /> <!-- digikam has duplicate functionality with gwenview (~28 meg) -->
+		<ignore name="k3b" /> <!-- ~15 meg -->
+		<ignore name="kipi-plugins" /> <!-- ~8 meg + drags in marble -->
+		<ignore name="krusader" /> <!-- ~4 meg -->
+		<ignore name="ktorrent" /> <!-- ~15 meg -->
+
+		<!-- Optional runtime dropped to shrink the image -->
+		<ignore name="wine*" />
+		<ignore name="wine*" />
+	</packages>
+
+	<!-- Recommended extras: Plasma Discover backends + Flatpak so users can add
+	     apps after install (mirrors the KDE spin's optional tooling) -->
+	<packages type="image" patternType="plusRecommended" profiles="KDE-Agentic-Live">
+		<package name="plasma-discover" />
+		<package name="plasma-discover-packagekit" />
+		<package name="PackageKit" />
+		<package name="plasma-discover-flatpak" />
+		<package name="flatpak" />
+		<package name="fedora-flathub-remote" />
+	</packages>
+</image>

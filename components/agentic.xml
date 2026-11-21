@@ -1,0 +1,146 @@
+<image>
+	<!--
+	  This component holds the shared package/profile layer for the agentic live
+	  ISO. Profiles are stacked via <requires>, so selecting one pulls in all of
+	  its prerequisites (e.g. LiveInstallMinimal -> HardwareMinimal). The
+	  desktop-specific team file (teams/agentic-kde.xml) layers KDE on top of
+	  these profiles.
+
+	  Keep this component free of desktop-app tweaks; those belong in the team
+	  file so these base profiles stay reusable.
+	-->
+	<profiles>
+		<!-- Base device support: kernel + minimal firmware for a bootable live image -->
+		<profile name="HardwareMinimal" description="Minimal hardware support for live images"/>
+		<!-- Root image type + live-install tooling (anaconda, EROFS squashfs) -->
+		<profile name="LiveInstallMinimal" description="Live Install ISO"/>
+		<!-- Networking stacks and tools added on top of HardwareMinimal -->
+		<profile name="NetworkExtras" description="Network extras for live images">
+			<requires profile="HardwareMinimal"/>
+		</profile>
+		<!-- Small, agentic-specific packages shared across all agentic desktops -->
+		<profile name="AgenticCommon" description="Common packages for agentic live images"/>
+
+		<!-- Common desktop essentials: fonts, multimedia codecs, NM submodules -->
+		<profile name="DesktopCommonMinimal" description="Minimal common desktop packages">
+			<requires profile="HardwareMinimal"/>
+		</profile>
+	</profiles>
+
+	<preferences profiles="LiveInstallMinimal" arch="x86_64">
+		<type image="iso"
+			publisher="Fedora Project" volid="Fedora_Linux" application_id="Fedora_Linux"
+			primary="true" flags="dmsquash" filesystem="erofs" erofscompression="lzma,level=6" mediacheck="true"
+			firmware="uefi" efiparttable="gpt" efifatimagesize="30" kernelcmdline="console=tty0 console=ttyS0,115200"
+			fscreateoptions="-Efragments -C 1048576"
+			>
+			<bootloader name="grub2" grub_template="grub-x86.cfg.iso-template" console="console" timeout="10"/>
+		</type>
+	</preferences>
+
+	<packages type="iso" patternType="onlyRequired" profiles="LiveInstallMinimal">
+		<!-- Live ISO root image for x86_64: EROFS squashfs bootloader + the tooling
+		     needed to boot a live environment and install from it -->
+		<!-- Filter out unwanted EFI files from the embedded ESP, see rhbz#2358785 -->
+        <file name="iso-esp-excludes.yaml" target="image/exclude_files_efifatimage.yaml"/>
+		<!-- The point of a live image is to install -->
+		<namedCollection name="anaconda-tools"/>
+		<package name="anaconda-install-env-deps"/>
+		<package name="anaconda-live"/>
+		<!-- Need this for SVG release note images -->
+		<package name="aajohan-comfortaa-fonts"/>
+		<package name="dracut-live"/>
+		<package name="glibc-all-langpacks"/>
+		<package name="isomd5sum"/>
+		<package name="kernel"/>
+		<package name="kernel-modules"/>
+		<package name="kernel-modules-extra"/>
+		<package name="livesys-scripts"/>
+		<package name="btrfs-progs"/>
+		<package name="udisks2-btrfs"/>
+		<ignore name="device-mapper-multipath"/>
+		<ignore name="fcoe-utils"/>
+		<ignore name="gfs2-utils"/>
+	</packages>
+
+	<packages type="image" patternType="onlyRequired" profiles="HardwareMinimal">
+		<namedCollection name="standard"/>
+		<ignore name="qemu-user-static"/> <!-- Saves ~100MB -->
+	</packages>
+    
+    <packages type="image" patternType="onlyRequired" profiles="HardwareMinimal">
+		<!-- Hardware support: firmware, drivers and utilities to boot on real
+		     machines (aarch64 board firmware included) -->
+		<namedCollection name="hardware-support"/>
+		<package name="linux-firmware"/>
+		<package name="bcm283x-firmware" arch="aarch64"/>
+
+        <!-- Wireless firmware for a broad range of built-in and USB adapters. -->
+		<package name="atheros-firmware"/>
+		<package name="b43-fwcutter"/>
+		<package name="b43-openfwwf"/>
+		<package name="brcmfmac-firmware"/>
+		<package name="iwlegacy-firmware"/>
+		<package name="iwlwifi-dvm-firmware"/>
+		<package name="iwlwifi-mvm-firmware"/>
+		<package name="iwlwifi-mld-firmware"/>
+		<package name="libertas-firmware"/>
+		<package name="mt7xxx-firmware"/>
+		<package name="nxpwireless-firmware"/>
+		<package name="realtek-firmware"/>
+		<package name="tiwilink-firmware"/>
+		<package name="atmel-firmware"/>
+
+        <!-- Intel GPU firmware and related Intel platform drivers -->
+        <ignore name="intel-gpu-firmware"/>
+        <ignore name="amd-gpu-firmware"/>
+        <ignore name="nvidia-gpu-firmware"/>
+
+        <!-- Smartcard and NFC support (opensc, PC/SC readers) -->
+        <ignore name="opensc"/>
+        <ignore name="pcsc-lite"/>
+        <ignore name="pcsc-lite-ccid"/>
+
+        <!-- Image scanners (scanner firmware and libusb PTP driver) -->
+        <ignore name="iscan-firmware"/>
+        <ignore name="libifp"/>
+
+        <!-- Multimedia: DVB tuner firmware -->
+        <ignore name="dvb-firmware"/>
+
+        <!-- System utilities and monitoring tools trimmed from a minimal live image -->
+        <ignore name="gpsd"/>
+        <ignore name="gpsd-clients"/>
+        <ignore name="radeontop"/>
+        <ignore name="wpan-tools"/>
+	</packages>
+
+    <!-- Common desktop essentials: fonts, media codecs, NM connection submodules -->
+    <packages type="image" patternType="onlyRequired" profiles="DesktopCommonMinimal">
+		<namedCollection name="fonts"/>
+		<namedCollection name="multimedia"/>
+		<namedCollection name="networkmanager-submodules"/>
+		<ignore name="gfs2-utils"/>
+		<ignore name="reiserfs-utils"/>
+	</packages>
+
+    <!-- Wireless, cellular and ad-hoc networking helpers for a live box that
+        won't have an installer on it -->
+    <packages type="image" patternType="plusRecommended" profiles="NetworkExtras">
+		<namedCollection name="networkmanager-submodules"/>
+		<package name="NetworkManager-config-connectivity-fedora"/>
+		<package name="wireless-regdb"/>
+		<package name="iw"/>
+
+		<package name="dnsmasq"/>
+		<package name="iptables-nft"/>
+		<package name="NetworkManager-wifi"/>
+		<package name="NetworkManager-wwan"/>
+		<package name="wpa_supplicant"/>
+	</packages>
+
+    <!-- Agentic-only helpers shared by every agentic desktop profile -->
+    <packages type="image" patternType="onlyRequired" profiles="AgenticCommon">
+        <package name="jq"/> <!-- for agentic autocomplete.sh -->
+	</packages>
+</image>

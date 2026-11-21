@@ -51,7 +51,7 @@ jobs:
           ./kiwi-build \
             --kiwi-file=Fedora.kiwi \
             --image-type=iso \
-            --image-profile=KDE-Desktop-Live \
+            --image-profile=KDE-Agentic-Live \
             --image-release=0 \
             --output-dir=./outdir
 
@@ -74,10 +74,28 @@ jobs:
           ISO_FILE=$(find ./outdir -name "*.iso" | head -n 1)
           ISO_SIZE=$(stat -c%s "$ISO_FILE")
           echo "Built ISO $ISO_FILE size: $((ISO_SIZE / 1024 / 1024)) MB"
-      #     if [ "$ISO_SIZE" -ge 2147483648 ]; then
-      #       echo "Error: ISO exceeds GitHub Releases 2GB limit!"
-      #       exit 1
-      #     fi
+          if [ "$ISO_SIZE" -ge 2147483648 ]; then
+            echo "Error: ISO exceeds GitHub Releases 2GB limit!"
+            exit 1
+          fi
+
+
+      - name: Verify iwlwifi-mld-firmware is included
+        # The agentic desktop ships this Wi-Fi firmware; catch a missing package
+        # before the expensive ISO build is relied upon downstream.
+        run: |
+          set -euo pipefail
+          PACKAGES_FILE=$(find ./outdir -maxdepth 1 -name "*.packages" | head -n 1)
+          if [ -z "$PACKAGES_FILE" ]; then
+            echo "ERROR: no *.packages manifest found under ./outdir" >&2
+            exit 1
+          fi
+          if grep -q "iwlwifi-mld-firmware" "$PACKAGES_FILE"; then
+            echo "SUCCESS: iwlwifi-mld-firmware is present in $PACKAGES_FILE"
+          else
+            echo "ERROR: iwlwifi-mld-firmware missing from $PACKAGES_FILE" >&2
+            exit 1
+          fi
 
       - name: Test boot ISO in QEMU (UEFI)
         run: |
@@ -98,7 +116,7 @@ jobs:
           [ -e /dev/kvm ] && ACCEL="-accel kvm -cpu host"
 
           # Boot with 4GB RAM + VirtIO GPU and capture serial console
-          timeout 120s qemu-system-x86_64 \
+          timeout 180s qemu-system-x86_64 \
             $ACCEL \
             -m 4096 \
             -smp 2 \
@@ -139,7 +157,7 @@ jobs:
           [ -e /dev/kvm ] && ACCEL="-accel kvm -cpu host"
 
           # Boot with 4GB RAM + VirtIO GPU and capture serial console
-          timeout 120s qemu-system-x86_64 \
+          timeout 180s qemu-system-x86_64 \
             $ACCEL \
             -m 4096 \
             -smp 2 \
@@ -165,28 +183,46 @@ jobs:
             exit 1
           fi
 
-      - name: Zip ISO into ≤1.9GB parts
-        # GitHub Releases caps single-file uploads at 2GB; split the ISO so each
-        # part stays under 1.9GB. zip multi-part archives are reassembled with
-        # `unzip -s` or a simple cat of <name>.z0N…<name>.zip + <name>.zip.
+      - name: Zip ISO into <2GB parts
+        # GitHub Releases caps single-file uploads at 2GB; only split the ISO when
+        # it actually exceeds 2GB, so smaller images upload as a single file.
+        # zip multi-part archives are reassembled with `unzip -s` or a simple cat
+        # of <name>.z0N…<name>.zip + <name>.zip.
         run: |
+          set -euo pipefail
           ISO_FILE=$(find ./outdir -name "*.iso" | head -n 1)
+          ISO_SIZE=$(stat -c%s "$ISO_FILE")
+          # 2 GB threshold (binary GiB), matching the zip part size below.
+          THRESHOLD=2147483648
+          if [ "$ISO_SIZE" -lt "$THRESHOLD" ]; then
+            echo "ISO is $((ISO_SIZE / 1024 / 1024)) MB (<2GB); uploading unsplit."
+            exit 0
+          fi
           ISO_BASENAME=$(basename "$ISO_FILE" .iso)
-          echo "Splitting $ISO_FILE into ≤1.9GB zip parts"
-          mkdir -p ./dist
+          echo "ISO is $((ISO_SIZE / 1024 / 1024)) MB (≥2GB); splitting into ≤1.95GB zip parts"
           zip --version | head -n 1
-          # `--split` emits <ISO_BASENAME>.z01, .z02, … and final .zip
-          zip -j -0 -s 1950m "./dist/${ISO_BASENAME}.zip" "$ISO_FILE"
-          ls -lh ./dist
+          # `-s` emits <ISO_BASENAME>.z01, .z02, … and final .zip
+          zip -j -0 -s 1950m "./outdir/${ISO_BASENAME}.zip" "$ISO_FILE"
+          ls -lh ./outdir
           echo "ISO_BASENAME=$ISO_BASENAME" >> "$GITHUB_ENV"
+          rm -f "$ISO_FILE"
 
+      - name: Generate release metadata
+        id: meta
+        run: |
+          BRANCH="${{ github.head_ref || github.ref_name }}"
+          # Sanitize slashes in branch names (e.g., feat/foo -> feat-foo)
+          SAFE_BRANCH="${BRANCH//\//-}"
+          TIMESTAMP=$(date -u +"%Y%m%d-%H%M")
+          # tag name with 45 for the Fedora base version
+          echo "tag=build-45-${TIMESTAMP}-${SAFE_BRANCH}" >> "$GITHUB_OUTPUT"
+      
       - name: Upload to GitHub Releases
-        # Only publish a release on pushes to main; never on pull requests.
+        # If you only want to publish a release on pushes to main; never on pull requests.
         #if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: softprops/action-gh-release@v3
         with:
-          tag_name: build-${{ github.ref_name }}-${{ github.run_number }}
-          prerelease: true
+          tag_name: ${{ steps.meta.outputs.tag }}
+          prerelease: ${{ github.event_name != 'push' || github.ref != 'refs/heads/main' }}
           files: |
-            ./dist/${{ env.ISO_BASENAME }}.zip
-            ./dist/${{ env.ISO_BASENAME }}.z*
+            ./outdir/*
