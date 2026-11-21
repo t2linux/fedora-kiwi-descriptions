@@ -17,4 +17,10 @@
 		</source>
 	</repository>
 	-->
+	<!-- COPR: sneed/llama-cpp-vulkan -->
+	<repository type="rpm-md" alias="copr-llama-cpp-vulkan" priority="1" imageinclude="true">
+		<source path="https://download.copr.fedorainfracloud.org/results/sneed/llama-cpp-vulkan/fedora-$releasever-$basearch/">
+			<signing key="https://download.copr.fedorainfracloud.org/results/sneed/llama-cpp-vulkan/pubkey.gpg"/>
+		</source>
+	</repository>
 </image>

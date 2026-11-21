@@ -142,5 +142,6 @@
     <!-- Agentic-only helpers shared by every agentic desktop profile -->
     <packages type="image" patternType="onlyRequired" profiles="AgenticCommon">
         <package name="jq"/> <!-- for agentic autocomplete.sh -->
+        <package name="llama-cpp"/>
 	</packages>
 </image>
